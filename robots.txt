@@ -11,4 +11,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://trustrefined.com/sitemap.xml
+Sitemap: https://www.ethanbrooks.mortgage/sitemap.xml
