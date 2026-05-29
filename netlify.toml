@@ -1,0 +1,38 @@
+# Refined Mortgage Group — Netlify configuration
+[build]
+  publish = "."
+
+# Pretty URLs: /about instead of /about.html (Netlify strips .html automatically,
+# these redirects also map the clean /learn/* paths to the flat files).
+[[redirects]]
+  from = "/learn/first-time-buyer"
+  to = "/learn-first-time-buyer.html"
+  status = 200
+[[redirects]]
+  from = "/learn/mortgage-process"
+  to = "/learn-mortgage-process.html"
+  status = 200
+[[redirects]]
+  from = "/learn/rent-vs-buy"
+  to = "/learn-rent-vs-buy.html"
+  status = 200
+[[redirects]]
+  from = "/learn/credit-down-payment"
+  to = "/learn-credit-down-payment.html"
+  status = 200
+[[redirects]]
+  from = "/learn/avoid-home-sale-contingency"
+  to = "/learn-avoid-home-sale-contingency.html"
+  status = 200
+[[redirects]]
+  from = "/learn/beat-cash-offers"
+  to = "/learn-beat-cash-offers.html"
+  status = 200
+
+# Security + caching headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

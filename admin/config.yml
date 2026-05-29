@@ -1,0 +1,31 @@
+# Decap CMS configuration — Refined Mortgage Group blog
+# Docs: https://decapcms.org/docs/
+
+backend:
+  name: git-gateway          # Uses Netlify Identity + Git Gateway (enable both in Netlify)
+  branch: main               # Change if your default branch is named differently
+
+# Where uploaded images go
+media_folder: "blog/uploads"
+public_folder: "/blog/uploads"
+
+# Friendly site link in the CMS top bar
+site_url: https://trustrefined.com
+display_url: https://trustrefined.com
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "blog/_posts"        # New posts are saved here as Markdown
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}  —  {{publishDate}}"
+    sortable_fields: ['publishDate', 'title']
+    fields:
+      - { label: "Title", name: "title", widget: "string", hint: "This becomes the page headline and SEO title." }
+      - { label: "Category", name: "category", widget: "select", options: ["First-Time Buyers", "Buying Strategy", "Rates & Market", "Refinancing", "Credit & Qualifying", "General"], default: "General" }
+      - { label: "Meta description", name: "description", widget: "text", hint: "1–2 sentences for Google/social. Keep under ~155 characters." }
+      - { label: "Publish date", name: "publishDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Read time (minutes)", name: "readMinutes", widget: "number", default: 4, value_type: "int", min: 1 }
+      - { label: "Cover quote/hook", name: "hook", widget: "string", required: false, hint: "Optional short phrase shown on the card thumbnail, e.g. \"Do I really need 20% down?\"" }
+      - { label: "Body", name: "body", widget: "markdown", hint: "Write the article here. Use Heading 2 for section titles." }
