@@ -30,9 +30,9 @@
   .btn-ghost{border-color:var(--forest);color:var(--forest)}.btn-ghost:hover{background:var(--forest);color:var(--cream)}
   .bar{position:sticky;top:0;z-index:20;background:rgba(248,244,237,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .bar-in{max-width:1080px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:14px}
-  .logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--ink)}
+  .logo{flex-shrink:0;display:flex;align-items:center;gap:11px;font-family:var(--serif);font-weight:600;font-size:1.18rem;color:var(--ink)}
   .logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--moss);font-weight:600;margin-top:1px}
-  .logo-mark{width:34px;height:34px;border-radius:8px;flex:none;box-shadow:0 2px 8px -3px rgba(5,58,42,.5)}
+  .logo-mark{width:34px;height:34px;border-radius:8px;flex:none;object-fit:contain;box-shadow:0 2px 8px -3px rgba(5,58,42,.5)}
   .bar-right{display:flex;align-items:center;gap:16px}
   .bar-right .lk{font-size:.9rem;font-weight:600;color:var(--forest)}.bar-right .lk:hover{color:var(--lime)}
   @media(max-width:640px){.bar-right .lk{display:none}}
