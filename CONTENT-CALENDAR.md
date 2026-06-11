@@ -7,7 +7,7 @@ non-duplicative topic targeting a real buyer question.
 
 | # | Status | Working title | Target intent / keyword | Category |
 |---|--------|---------------|--------------------------|----------|
-| 1 | ⬜ Next | How much house can you actually afford in Wisconsin? | "how much house can I afford wisconsin" | First-Time Buyers |
+| 1 | ✅ Published | How much house can you actually afford in Wisconsin? | "how much house can I afford wisconsin" | First-Time Buyers |
 | 2 | ⬜ | Wisconsin down payment assistance: WHEDA and what actually qualifies | "wisconsin down payment assistance", "WHEDA loan" | First-Time Buyers |
 | 3 | ⬜ | Conventional vs FHA in Wisconsin: which one fits your situation | "conventional vs FHA wisconsin" | Buying Strategy |
 | 4 | ⬜ | What documents you need to get pre-approved | "mortgage preapproval documents" | Credit & Qualifying |
