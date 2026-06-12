@@ -9,7 +9,7 @@ non-duplicative topic targeting a real buyer question.
 |---|--------|---------------|--------------------------|----------|
 | 1 | ✅ Published | How much house can you actually afford in Wisconsin? | "how much house can I afford wisconsin" | First-Time Buyers |
 | 2 | ✅ Published | Wisconsin down payment assistance: WHEDA and what actually qualifies | "wisconsin down payment assistance", "WHEDA loan" | First-Time Buyers |
-| 3 | ⬜ | Conventional vs FHA in Wisconsin: which one fits your situation | "conventional vs FHA wisconsin" | Buying Strategy |
+| 3 | ✅ Published | Conventional vs FHA in Wisconsin: which one fits your situation | "conventional vs FHA wisconsin" | Buying Strategy |
 | 4 | ⬜ | What documents you need to get pre-approved | "mortgage preapproval documents" | Credit & Qualifying |
 | 5 | ⬜ | Buying a home with student loan debt | "buy house with student loans" | Credit & Qualifying |
 | 6 | ⬜ | PMI explained: when it makes sense and how to drop it | "how to get rid of PMI" | General |
