@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investment Property Calculator | Milwaukee &amp; Wisconsin Rental ROI — Refined Mortgage Group</title>
+<meta name="description" content="Free rental property investment calculator for Milwaukee and Wisconsin investors. Estimate cash flow, cap rate, cash-on-cash return, DSCR, and 10-year ROI in seconds. Built by Ethan Brooks, Refined Mortgage Group.">
+<link rel="canonical" href="https://www.ethanbrooks.mortgage/tools/investment-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rental Property Investment Calculator — Milwaukee &amp; Wisconsin">
+<meta property="og:description" content="Estimate cash flow, cap rate, cash-on-cash return, DSCR, and 10-year ROI on any rental property. Free tool from Refined Mortgage Group.">
+<meta property="og:url" content="https://www.ethanbrooks.mortgage/tools/investment-calculator/">
+<meta property="og:image" content="https://www.ethanbrooks.mortgage/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#06694A; --green-bright:#0A7E59; --lime:#82C341; --deep:#053A2A;
+  --cream:#F8F4ED; --panel:#EEF5E5; --hairline:#D8E4CC; --moss:#5C7A65; --ink:#1F2A24;
+  --white:#FFFFFF; --red:#B23A2E;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",Arial,Helvetica,sans-serif;
+  --shadow:0 1px 2px rgba(5,58,42,.04),0 8px 28px rgba(5,58,42,.07);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.01em;color:var(--deep)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- kicker ---------- */
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:600;
+  font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--moss)}
+.kicker::before{content:"";width:26px;height:3px;background:var(--lime);border-radius:2px;display:inline-block}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(248,244,237,.92);backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--hairline)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--serif);font-weight:600;
+  color:var(--green);font-size:1.18rem;letter-spacing:-.01em}
+.brand-mark{width:34px;height:34px;border-radius:7px;background:var(--green);color:#fff;display:grid;place-items:center;
+  font-family:var(--serif);font-weight:700;font-size:1.15rem;flex:none}
+.brand-mark span{color:var(--lime)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink);opacity:.82;transition:opacity .15s}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;
+  padding:11px 20px;border-radius:8px;transition:background .15s}
+.nav-cta:hover{background:var(--green-bright)}
+.hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+.hamburger span,.hamburger span::before,.hamburger span::after{content:"";display:block;width:24px;height:2px;background:var(--ink);position:relative;transition:.2s}
+.hamburger span::before{position:absolute;top:-7px}
+.hamburger span::after{position:absolute;top:7px}
+.mobile-menu{display:none}
+
+/* ---------- hero ---------- */
+.hero{padding:52px 0 14px}
+.crumb{font-size:.8rem;color:var(--moss);margin-bottom:18px;letter-spacing:.01em}
+.crumb a{color:var(--moss);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.hero h1{font-size:clamp(2.1rem,4.6vw,3.35rem);margin:14px 0 16px;max-width:16ch}
+.hero .lead{font-size:1.12rem;color:#3a4a42;max-width:60ch}
+.hero-trust{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:22px;font-size:.86rem;color:var(--moss);font-weight:500}
+.hero-trust b{color:var(--green);font-weight:700}
+
+/* ---------- calculator shell ---------- */
+.calc{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start;padding:30px 0 8px}
+.calc-col-inputs{display:flex;flex-direction:column;gap:18px}
+
+/* input groups (spec panels) */
+.panel{background:var(--white);border:1px solid var(--hairline);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.panel-head{display:flex;align-items:center;gap:11px;padding:15px 20px 13px;border-top:3px solid var(--lime);background:var(--panel)}
+.panel-head h3{font-size:1.02rem;letter-spacing:0}
+.panel-head .pn{font-family:var(--sans);font-weight:700;font-size:.72rem;color:var(--green);
+  background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:2px 7px;letter-spacing:.04em}
+.panel-body{padding:8px 20px 16px}
+.field{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid #eef1ec}
+.field:last-child{border-bottom:0}
+.field label{font-size:.92rem;font-weight:500;color:#33403a;flex:1}
+.field .hint{display:block;font-size:.74rem;color:var(--moss);font-weight:400;margin-top:1px}
+.in{position:relative;flex:none;width:128px}
+.in input,.in select{width:100%;font-family:var(--sans);font-weight:600;font-size:.95rem;color:var(--ink);
+  background:#fff;border:1.5px solid var(--hairline);border-radius:8px;padding:9px 11px;text-align:right;transition:border-color .15s,box-shadow .15s}
+.in.pre input{padding-left:24px;text-align:right}
+.in.suf input{padding-right:26px}
+.in.suf.wide input{padding-right:44px}
+.in.suf.wide .sym{font-size:.82rem}
+.in select{text-align:left;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' fill='none' stroke='%235C7A65' stroke-width='1.6'/></svg>");
+  background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.in input:focus,.in select:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(6,105,74,.13)}
+.in .sym{position:absolute;top:50%;transform:translateY(-50%);font-size:.9rem;color:var(--moss);font-weight:600;pointer-events:none}
+.in.pre .sym{left:11px}
+.in.suf .sym{right:11px}
+.reset-row{display:flex;justify-content:flex-end;padding-top:4px}
+.reset-btn{background:none;border:0;color:var(--moss);font-family:var(--sans);font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:6px 2px}
+.reset-btn:hover{color:var(--green)}
+
+/* results */
+.calc-col-results{position:sticky;top:88px;display:flex;flex-direction:column;gap:16px}
+.cf-card{background:var(--deep);color:#eaf3ec;border-radius:16px;padding:24px 24px 22px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.cf-card::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 88% -10%,rgba(130,195,65,.18),transparent 60%);pointer-events:none}
+.cf-card .kicker{color:#bcd6b0}
+.cf-card .kicker::before{background:var(--lime)}
+.cf-num{font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,6vw,3.4rem);line-height:1;margin:12px 0 2px;letter-spacing:-.02em;transition:color .2s}
+.cf-num.pos{color:#a9e08c}
+.cf-num.neg{color:#f0a79b}
+.cf-sub{font-size:.92rem;color:#bcd0c2}
+.cf-sub b{color:#eaf3ec;font-weight:700}
+.cf-row{display:flex;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.13)}
+.cf-row .mini{flex:1}
+.cf-row .mini .l{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:#9db8a6;font-weight:600}
+.cf-row .mini .v{font-family:var(--serif);font-size:1.32rem;font-weight:600;color:#eaf3ec;margin-top:3px}
+
+.metrics{background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:var(--shadow);padding:6px 6px}
+.metrics-head{padding:14px 16px 6px}
+.metrics-head h3{font-size:1.02rem}
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr}
+.metric{padding:14px 16px;border-top:1px solid #eef1ec}
+.metric:nth-child(-n+3){border-top:0}
+.metric .l{font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;color:var(--moss);font-weight:600;display:flex;align-items:center;gap:6px}
+.metric .l .star{color:var(--green)}
+.metric .v{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--deep);margin-top:4px;line-height:1}
+.metric .v.pos{color:var(--green)}
+.metric .v.neg{color:var(--red)}
+
+/* projection */
+.proj{background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:var(--shadow);padding:18px 20px 20px}
+.proj-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.proj-head h3{font-size:1.02rem}
+.proj-head .yr{font-size:.8rem;color:var(--moss);font-weight:600}
+.chart{width:100%;height:188px;margin:8px 0 6px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:#42514a;font-weight:500;margin-top:2px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.lt-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:16px}
+.lt{background:var(--deep);border-radius:11px;padding:13px 13px 12px;color:#dfeede;min-height:84px;display:flex;flex-direction:column}
+.lt .l{font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:#9db8a6;font-weight:600;flex:1}
+.lt .v{font-family:var(--serif);font-size:1.34rem;font-weight:600;color:#eaf3ec;line-height:1;margin-top:6px}
+.lt .v.lime{color:#a9e08c}
+.disclaim{font-size:.78rem;color:var(--moss);line-height:1.5;margin-top:14px;padding-top:13px;border-top:1px solid #eef1ec}
+
+/* ---------- conversion band ---------- */
+.convert{padding:46px 0 6px}
+.cv-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+.cv-card{background:#fff;border:1px solid var(--hairline);border-radius:16px;box-shadow:var(--shadow);padding:28px 28px 26px;display:flex;flex-direction:column}
+.cv-card h3{font-size:1.5rem;margin:12px 0 8px}
+.cv-card p{color:#3a4a42;font-size:.98rem;margin-bottom:18px}
+.feat{list-style:none;margin:0 0 20px;display:flex;flex-direction:column;gap:9px}
+.feat li{position:relative;padding-left:24px;font-size:.94rem;color:#33403a}
+.feat li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--lime)}
+.dl-form{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+.dl-form .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dl-form input[type=text],.dl-form input[type=email],.dl-form input[type=tel]{width:100%;font-family:var(--sans);font-size:.95rem;
+  border:1.5px solid var(--hairline);border-radius:9px;padding:12px 13px;background:#fff;transition:border-color .15s,box-shadow .15s}
+.dl-form input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(6,105,74,.13)}
+.consent{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;color:var(--moss);line-height:1.45}
+.consent input{margin-top:3px;flex:none;width:16px;height:16px;accent-color:var(--green)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--green);color:#fff;border:0;cursor:pointer;
+  font-family:var(--sans);font-weight:600;font-size:1rem;padding:14px 22px;border-radius:9px;text-decoration:none;transition:background .15s,transform .05s}
+.btn:hover{background:var(--green-bright)}
+.btn:active{transform:translateY(1px)}
+.btn.lime{background:var(--lime);color:var(--deep)}
+.btn.lime:hover{background:#74b531}
+.btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--hairline)}
+.btn.ghost:hover{background:var(--panel);border-color:var(--lime)}
+.dl-note{font-size:.76rem;color:var(--moss);text-align:center;margin-top:2px}
+.dl-success{display:none;text-align:center;padding:18px 0 6px}
+.dl-success .chk{width:46px;height:46px;border-radius:50%;background:var(--panel);display:grid;place-items:center;margin:0 auto 12px}
+.dl-success h4{font-family:var(--serif);font-size:1.2rem;color:var(--deep);margin-bottom:6px}
+.dl-success p{font-size:.9rem;color:#3a4a42;margin-bottom:16px}
+.cv-side{background:var(--panel);border:1px solid var(--hairline);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.cv-side h3{font-size:1.32rem;margin-bottom:8px}
+.cv-side p{font-size:.94rem;color:#3a4a42;margin-bottom:16px}
+.sample-thumb{border:1px solid var(--hairline);border-radius:11px;overflow:hidden;background:#fff;margin-bottom:16px;aspect-ratio:8.5/4.6;
+  display:flex;flex-direction:column;position:relative}
+.sample-thumb .band{height:30%;background:var(--green);display:flex;align-items:center;padding:0 14px}
+.sample-thumb .band span{color:#fff;font-family:var(--serif);font-weight:600;font-size:.82rem;letter-spacing:-.01em}
+.sample-thumb .band span b{color:var(--lime)}
+.sample-thumb .body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:11px 14px}
+.sample-thumb .ln{height:6px;border-radius:3px;background:var(--hairline)}
+.sample-thumb .ln.s{width:70%}
+.sample-thumb .big{font-family:var(--serif);font-weight:600;color:var(--green);font-size:1.1rem;align-self:end}
+.cv-side .btn{margin-top:auto}
+
+/* ---------- expert CTA ---------- */
+.expert{margin:54px 0 0;background:var(--deep);border-radius:20px;padding:48px 44px;color:#dfeede;position:relative;overflow:hidden}
+.expert::after{content:"";position:absolute;inset:0;background:radial-gradient(90% 120% at 100% 0,rgba(130,195,65,.16),transparent 55%);pointer-events:none}
+.expert .kicker{color:#bcd6b0}
+.expert h2{color:#fff;font-size:clamp(1.7rem,3.5vw,2.4rem);margin:14px 0 12px;max-width:20ch}
+.expert p{font-size:1.04rem;color:#c4d8c9;max-width:54ch;margin-bottom:24px}
+.expert .actions{display:flex;flex-wrap:wrap;gap:13px}
+
+/* ---------- faq ---------- */
+.faq{padding:56px 0 10px}
+.faq h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:14px 0 26px}
+.faq-item{border-top:1px solid var(--hairline);padding:20px 0}
+.faq-item:last-child{border-bottom:1px solid var(--hairline)}
+.faq-item h3{font-size:1.12rem;color:var(--green);margin-bottom:8px;letter-spacing:0}
+.faq-item p{color:#3a4a42;font-size:.97rem;max-width:78ch}
+
+/* ---------- footer ---------- */
+.foot{background:var(--green);color:#cfe3d6;margin-top:60px;padding:46px 0 30px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.16)}
+.foot .brand{color:#fff}
+.foot .brand-mark{background:#fff;color:var(--green)}
+.foot .brand-mark span{color:var(--lime)}
+.foot p.tag{margin-top:14px;font-size:.9rem;color:#bcd6c4;max-width:36ch;line-height:1.5}
+.foot h4{font-family:var(--sans);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#a7c9b3;margin-bottom:13px}
+.foot ul{list-style:none}
+.foot ul li{margin-bottom:9px}
+.foot ul a{text-decoration:none;font-size:.92rem;color:#dcebe1;opacity:.92}
+.foot ul a:hover{opacity:1;text-decoration:underline}
+.foot .contact div{font-size:.92rem;margin-bottom:9px;color:#dcebe1}
+.disclosure{font-size:.74rem;line-height:1.6;color:#acc8b6;margin-top:26px}
+.disclosure strong{color:#cfe3d6}
+.eho{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:#cfe3d6;margin-top:4px}
+
+/* ---------- focus + motion ---------- */
+:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .calc{grid-template-columns:1fr;gap:22px}
+  .calc-col-results{position:static}
+  .cv-grid{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .mobile-menu.open{display:block;border-top:1px solid var(--hairline);background:var(--cream)}
+  .mobile-menu.open ul{list-style:none;padding:10px 24px 20px;max-width:1180px;margin:0 auto}
+  .mobile-menu.open li{padding:11px 0;border-bottom:1px solid var(--hairline)}
+  .mobile-menu.open a{text-decoration:none;font-weight:500;color:var(--ink);font-size:1rem}
+  .mobile-menu.open .nav-cta{display:inline-flex;margin-top:14px}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:620px){
+  .wrap{padding:0 18px}
+  .hero{padding:34px 0 8px}
+  .mgrid{grid-template-columns:1fr 1fr}
+  .metric:nth-child(-n+3){border-top:1px solid #eef1ec}
+  .metric:nth-child(-n+2){border-top:0}
+  .lt-cards{grid-template-columns:1fr 1fr}
+  .dl-form .row2{grid-template-columns:1fr}
+  .expert{padding:34px 24px}
+  .foot-top{grid-template-columns:1fr}
+  .in{width:118px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">R<span>&nbsp;</span></span>
+      Refined Mortgage Group
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/team">Team</a></li>
+        <li><a href="/learn">Learn</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="https://calendly.com/ethan-brooks/15min" target="_blank" rel="noopener">Schedule a Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/team">Team</a></li>
+      <li><a href="/learn">Learn</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a class="nav-cta" href="https://calendly.com/ethan-brooks/15min" target="_blank" rel="noopener">Schedule a Consultation</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Tools &nbsp;/&nbsp; Investment Property Calculator</div>
+    <span class="kicker">Interactive Tool</span>
+    <h1>Run the numbers on your next rental property.</h1>
+    <p class="lead">Enter a deal below and see cash flow, cap rate, cash-on-cash return, DSCR, and a full 10-year projection update instantly. Built for Milwaukee and Wisconsin investors — no sign-up to use it.</p>
+    <div class="hero-trust">
+      <span><b>1,000+</b> Wisconsin clients served</span>
+      <span><b>450+</b> five-star reviews</span>
+      <span><b>100%</b> on-time closing record</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALCULATOR ===== -->
+<section class="wrap">
+  <div class="calc">
+
+    <!-- INPUTS -->
+    <div class="calc-col-inputs">
+
+      <div class="panel">
+        <div class="panel-head"><span class="pn">01</span><h3>Purchase &amp; Financing</h3></div>
+        <div class="panel-body">
+          <div class="field"><label for="price">Purchase price</label>
+            <div class="in pre"><span class="sym">$</span><input id="price" type="text" inputmode="numeric" value="285,000"></div></div>
+          <div class="field"><label for="closingPct">Closing costs <span class="hint">% of price</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="closingPct" type="text" inputmode="decimal" value="3"></div></div>
+          <div class="field"><label for="rehab">Upfront repairs / rehab</label>
+            <div class="in pre"><span class="sym">$</span><input id="rehab" type="text" inputmode="numeric" value="5,000"></div></div>
+          <div class="field"><label for="downPct">Down payment <span class="hint">% of price</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="downPct" type="text" inputmode="decimal" value="25"></div></div>
+          <div class="field"><label for="rate">Interest rate</label>
+            <div class="in suf"><span class="sym">%</span><input id="rate" type="text" inputmode="decimal" value="6.75"></div></div>
+          <div class="field"><label for="termYears">Loan term</label>
+            <div class="in"><select id="termYears">
+              <option value="10">10 years</option><option value="15">15 years</option>
+              <option value="20">20 years</option><option value="25">25 years</option>
+              <option value="30" selected>30 years</option></select></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><span class="pn">02</span><h3>Rental Income</h3></div>
+        <div class="panel-body">
+          <div class="field"><label for="grossRent">Gross monthly rent</label>
+            <div class="in pre"><span class="sym">$</span><input id="grossRent" type="text" inputmode="numeric" value="2,800"></div></div>
+          <div class="field"><label for="otherInc">Other monthly income <span class="hint">laundry, parking, etc.</span></label>
+            <div class="in pre"><span class="sym">$</span><input id="otherInc" type="text" inputmode="numeric" value="0"></div></div>
+          <div class="field"><label for="vacancy">Vacancy allowance</label>
+            <div class="in suf"><span class="sym">%</span><input id="vacancy" type="text" inputmode="decimal" value="5"></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><span class="pn">03</span><h3>Operating Expenses</h3></div>
+        <div class="panel-body">
+          <div class="field"><label for="taxesYr">Property taxes <span class="hint">per year</span></label>
+            <div class="in pre"><span class="sym">$</span><input id="taxesYr" type="text" inputmode="numeric" value="4,800"></div></div>
+          <div class="field"><label for="insYr">Insurance <span class="hint">per year</span></label>
+            <div class="in pre"><span class="sym">$</span><input id="insYr" type="text" inputmode="numeric" value="1,600"></div></div>
+          <div class="field"><label for="hoaMo">HOA / condo dues <span class="hint">per month</span></label>
+            <div class="in pre"><span class="sym">$</span><input id="hoaMo" type="text" inputmode="numeric" value="0"></div></div>
+          <div class="field"><label for="pmPct">Property management <span class="hint">% of rent</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="pmPct" type="text" inputmode="decimal" value="8"></div></div>
+          <div class="field"><label for="maintPct">Maintenance reserve <span class="hint">% of rent</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="maintPct" type="text" inputmode="decimal" value="5"></div></div>
+          <div class="field"><label for="capexPct">CapEx reserve <span class="hint">% of rent</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="capexPct" type="text" inputmode="decimal" value="5"></div></div>
+          <div class="field"><label for="otherExpMo">Other expenses <span class="hint">per month</span></label>
+            <div class="in pre"><span class="sym">$</span><input id="otherExpMo" type="text" inputmode="numeric" value="0"></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><span class="pn">04</span><h3>Growth &amp; Exit Assumptions</h3></div>
+        <div class="panel-body">
+          <div class="field"><label for="appreciation">Annual appreciation</label>
+            <div class="in suf"><span class="sym">%</span><input id="appreciation" type="text" inputmode="decimal" value="3"></div></div>
+          <div class="field"><label for="rentGrowth">Annual rent growth</label>
+            <div class="in suf"><span class="sym">%</span><input id="rentGrowth" type="text" inputmode="decimal" value="2"></div></div>
+          <div class="field"><label for="expenseGrowth">Annual expense growth</label>
+            <div class="in suf"><span class="sym">%</span><input id="expenseGrowth" type="text" inputmode="decimal" value="2"></div></div>
+          <div class="field"><label for="hold">Hold period</label>
+            <div class="in suf wide"><span class="sym">yrs</span><input id="hold" type="text" inputmode="numeric" value="10"></div></div>
+          <div class="field"><label for="sellPct">Selling costs <span class="hint">% of sale price</span></label>
+            <div class="in suf"><span class="sym">%</span><input id="sellPct" type="text" inputmode="decimal" value="7"></div></div>
+          <div class="reset-row"><button class="reset-btn" id="resetBtn" type="button">Reset to example deal</button></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESULTS -->
+    <div class="calc-col-results">
+
+      <div class="cf-card">
+        <span class="kicker">Monthly Cash Flow</span>
+        <div class="cf-num pos" id="cfNum">+$236</div>
+        <div class="cf-sub">after mortgage, taxes, insurance &amp; reserves &middot; <b id="cfAnnual">$2,835</b>/yr</div>
+        <div class="cf-row">
+          <div class="mini"><div class="l">Net Op. Income</div><div class="v" id="noiMo">$1,623/mo</div></div>
+          <div class="mini"><div class="l">Mortgage (P&amp;I)</div><div class="v" id="piMo">$1,386/mo</div></div>
+          <div class="mini"><div class="l">Cash to Close</div><div class="v" id="cashToClose">$84,800</div></div>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metrics-head"><h3>Key returns — Year 1</h3></div>
+        <div class="mgrid">
+          <div class="metric"><div class="l">Cap Rate</div><div class="v" id="cap">6.83%</div></div>
+          <div class="metric"><div class="l">Cash-on-Cash <span class="star">&#9733;</span></div><div class="v" id="coc">3.34%</div></div>
+          <div class="metric"><div class="l">DSCR</div><div class="v" id="dscr">1.17x</div></div>
+          <div class="metric"><div class="l">GRM</div><div class="v" id="grm">8.48</div></div>
+          <div class="metric"><div class="l">1% Rule</div><div class="v" id="onePct">0.98%</div></div>
+          <div class="metric"><div class="l">Total Return <span class="star">&#9733;</span></div><div class="v" id="totRet">16.1%</div></div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-head"><h3>Projected over the hold</h3><span class="yr" id="projYr">Years 0&ndash;10</span></div>
+        <svg class="chart" id="chart" viewBox="0 0 560 188" preserveAspectRatio="none" role="img" aria-label="Projected property value, equity, and loan balance over the hold period"></svg>
+        <div class="legend">
+          <span><i style="background:#06694A"></i>Property value</span>
+          <span><i style="background:#82C341"></i>Your equity</span>
+          <span><i style="background:#9db8a6"></i>Loan balance</span>
+        </div>
+        <div class="lt-cards">
+          <div class="lt"><div class="l">Value at exit</div><div class="v" id="ltValue">$383K</div></div>
+          <div class="lt"><div class="l">Equity at exit</div><div class="v lime" id="ltEquity">$201K</div></div>
+          <div class="lt"><div class="l">Total profit</div><div class="v lime" id="ltProfit">$136K</div></div>
+          <div class="lt"><div class="l">Avg annual return</div><div class="v" id="ltAvg">16.0%</div></div>
+          <div class="lt"><div class="l">Equity multiple</div><div class="v" id="ltMult">2.6x</div></div>
+          <div class="lt"><div class="l">Projected IRR</div><div class="v" id="ltIrr">11.3%</div></div>
+        </div>
+        <p class="disclaim">Estimates are educational and illustrative only — not a commitment to lend, a rate quote, or investment, tax, or legal advice. Projections assume steady appreciation, rent, and expense growth; actual results will vary. Speak with your tax and legal advisors before investing.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONVERSION: DOWNLOAD + SAMPLE ===== -->
+<section class="convert">
+  <div class="wrap">
+    <span class="kicker">Take It Further</span>
+    <div class="cv-grid" style="margin-top:18px">
+
+      <div class="cv-card">
+        <h3>Download the full Excel model</h3>
+        <p>The web tool gives you the headline numbers. The workbook lets you go deeper and save your own scenarios.</p>
+        <ul class="feat">
+          <li>Full month-by-month amortization schedule</li>
+          <li>30-year cash-flow &amp; equity projection</li>
+          <li>Payoff accelerator — test extra principal payments</li>
+          <li>Every input editable, with live charts</li>
+        </ul>
+        <form class="dl-form" id="dlForm" novalidate>
+          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_subject" value="Investor Calculator download — www.ethanbrooks.mortgage">
+          <input type="hidden" name="interest" value="Investment Property Calculator (Excel download)">
+          <input type="text" name="name" id="dlName" placeholder="Your name" autocomplete="name" required>
+          <div class="row2">
+            <input type="email" name="email" id="dlEmail" placeholder="Email address" autocomplete="email" required>
+            <input type="tel" name="phone" id="dlPhone" placeholder="Phone" autocomplete="tel">
+          </div>
+          <label class="consent"><input type="checkbox" name="sms_consent" value="yes">
+            Text me updates and the occasional Wisconsin market note. Msg &amp; data rates may apply; reply STOP to opt out. Optional.</label>
+          <button class="btn" type="submit" id="dlSubmit">Email me the workbook</button>
+          <div class="dl-note">No spam. Your info goes to Ethan only — never sold or shared.</div>
+        </form>
+        <div class="dl-success" id="dlSuccess">
+          <div class="chk"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 7" stroke="#06694A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Check your inbox — and grab it now</h4>
+          <p>Your download should start automatically. If it doesn't, use the button below.</p>
+          <a class="btn lime" id="dlDirect" href="/downloads/Refined-Mortgage-Investment-Calculator.xlsx" download>Download the Excel workbook</a>
+        </div>
+      </div>
+
+      <div class="cv-side">
+        <h3>See a finished analysis</h3>
+        <p>Here's the one-page summary I hand to clients on a real deal — the same numbers, presentation-ready.</p>
+        <div class="sample-thumb" aria-hidden="true">
+          <div class="band"><span>Refined<b>.</b> &nbsp;Real Estate Investment Summary</span></div>
+          <div class="body">
+            <div><div class="ln"></div><div class="ln s" style="margin-top:7px"></div><div class="ln" style="margin-top:7px"></div><div class="ln s" style="margin-top:7px"></div><div class="big" style="margin-top:12px">+$236/mo</div></div>
+            <div><div class="ln"></div><div class="ln s" style="margin-top:7px"></div><div class="ln" style="margin-top:7px"></div><div class="ln s" style="margin-top:7px"></div><div class="big" style="margin-top:12px">11.3% IRR</div></div>
+          </div>
+        </div>
+        <a class="btn ghost" href="/downloads/Refined-Mortgage-Investment-Summary.pdf" target="_blank" rel="noopener">View the sample PDF</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERT CTA ===== -->
+<section class="wrap">
+  <div class="expert">
+    <span class="kicker">The Real Number</span>
+    <h2>Have me run these numbers on a property you're actually looking at.</h2>
+    <p>A calculator works with the assumptions you give it. I'll pressure-test a real deal with current rates, true closing costs, and the loan programs that fit how you're buying — then get you pre-approved to make a strong offer.</p>
+    <div class="actions">
+      <a class="btn lime" href="https://calendly.com/ethan-brooks/15min" target="_blank" rel="noopener">Book a 15-minute call</a>
+      <a class="btn ghost" href="https://mtgpro.co/dr/c/nroce" target="_blank" rel="noopener" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.45)">Start your application</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="wrap">
+    <span class="kicker">Investor FAQ</span>
+    <h2>Understanding your results</h2>
+
+    <div class="faq-item">
+      <h3>What's a good cash-on-cash return?</h3>
+      <p>Cash-on-cash return is your annual pre-tax cash flow divided by the actual cash you put into the deal (down payment, closing costs, and upfront repairs). Many Wisconsin buy-and-hold investors target somewhere in the 6–10% range, but "good" depends on your goals — a lower cash-on-cash deal can still win if it's in a strong appreciation area or you're buying for long-term equity rather than monthly income.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is cap rate, and how is it different from cash-on-cash?</h3>
+      <p>Cap rate is net operating income divided by the purchase price — it measures the property's return as if you paid all cash, ignoring financing. Cash-on-cash factors in your mortgage and only the cash you actually invested. Cap rate is useful for comparing properties to each other; cash-on-cash tells you what your money is doing in this specific, financed deal.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What does DSCR mean, and why does it matter for financing?</h3>
+      <p>DSCR (debt-service coverage ratio) is net operating income divided by your annual mortgage payments. A DSCR above 1.0 means the property's income covers its loan payment. It matters because DSCR loan programs qualify the property's cash flow rather than your personal income — many lenders look for roughly 1.20 or higher, though it varies by program. Ask me which options fit your situation.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What is the 1% rule?</h3>
+      <p>The 1% rule is a quick screen: monthly rent divided by purchase price. If rent is at least 1% of the price, the deal is worth a closer look. It's a rule of thumb, not a verdict — taxes, insurance, and your interest rate ultimately decide whether a property cash flows. Use it to filter, then run the full numbers here.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How accurate are these estimates?</h3>
+      <p>The math is solid, but it's only as accurate as your inputs. This tool is for education and screening — it isn't a rate quote, a commitment to lend, or tax advice. For an accurate picture, get a real rate based on the property and your profile, verify the actual taxes and insurance, and budget realistic vacancy and maintenance. That's exactly what I'll help you do on a call.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a class="brand" href="/"><span class="brand-mark">R<span>&nbsp;</span></span>Refined Mortgage Group</a>
+        <p class="tag">A Wisconsin mortgage advisor in your corner — simple, transparent, and fast, from pre-approval to closing.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Ethan</a></li>
+          <li><a href="/team">Our Team</a></li>
+          <li><a href="/learn">Learn</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div class="contact">
+        <h4>Contact</h4>
+        <div>Ethan Brooks, Branch Manager</div>
+        <div><a href="tel:+14144880438" style="text-decoration:none">414-488-0438</a></div>
+        <div><a href="mailto:ethan@www.ethanbrooks.mortgage" style="text-decoration:none">ethan@www.ethanbrooks.mortgage</a></div>
+        <div>11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</div>
+      </div>
+    </div>
+    <div class="disclosure">
+      <strong>Refined Mortgage Group</strong> is an independent branch of Fairway Independent Mortgage Corporation.
+      Ethan Brooks, Branch Manager, NMLS #1639987. Fairway Independent Mortgage Corporation, NMLS #2289. Licensed in Wisconsin.
+      The content on this page is for educational and illustrative purposes only and is not a commitment to lend, a rate quote, or an offer to enter into an interest rate or loan agreement.
+      It is not investment, tax, or legal advice. All loans are subject to credit and property approval; not all applicants will qualify. Rates, programs, terms, and conditions are subject to change without notice. Other restrictions and limitations may apply.
+      <div class="eho">Equal Housing Opportunity</div>
+      <div style="margin-top:10px">&copy; <span id="yr">2026</span> Refined Mortgage Group. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Rental Property Investment Calculator",
+  "url":"https://www.ethanbrooks.mortgage/tools/investment-calculator/",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"All",
+  "browserRequirements":"Requires JavaScript",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "description":"Free rental property investment calculator for Milwaukee and Wisconsin. Estimate cash flow, cap rate, cash-on-cash return, DSCR, and a 10-year ROI projection.",
+  "provider":{
+    "@type":"FinancialService",
+    "name":"Refined Mortgage Group — Ethan Brooks",
+    "telephone":"+1-414-488-0438",
+    "url":"https://www.ethanbrooks.mortgage",
+    "areaServed":"Wisconsin",
+    "address":{"@type":"PostalAddress","streetAddress":"11220 W Burleigh St., Unit 159","addressLocality":"Wauwatosa","addressRegion":"WI","postalCode":"53222","addressCountry":"US"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What's a good cash-on-cash return?","acceptedAnswer":{"@type":"Answer","text":"Cash-on-cash return is annual pre-tax cash flow divided by the cash invested (down payment, closing costs, and upfront repairs). Many Wisconsin buy-and-hold investors target roughly 6–10%, but a good return depends on your goals, since a lower cash-on-cash deal can still win on appreciation or long-term equity."}},
+    {"@type":"Question","name":"What is cap rate and how is it different from cash-on-cash?","acceptedAnswer":{"@type":"Answer","text":"Cap rate is net operating income divided by purchase price, measuring the return as if you paid all cash. Cash-on-cash factors in financing and only the cash you actually invested. Cap rate compares properties; cash-on-cash shows what your money does in a specific financed deal."}},
+    {"@type":"Question","name":"What does DSCR mean for investment property financing?","acceptedAnswer":{"@type":"Answer","text":"DSCR (debt-service coverage ratio) is net operating income divided by annual mortgage payments. Above 1.0 means the property's income covers the loan payment. DSCR loan programs qualify the property's cash flow instead of personal income, and many lenders look for about 1.20 or higher depending on the program."}},
+    {"@type":"Question","name":"What is the 1% rule in real estate?","acceptedAnswer":{"@type":"Answer","text":"The 1% rule is a quick screen: monthly rent divided by purchase price. If rent is at least 1% of price, the deal merits a closer look. It is a rule of thumb only — taxes, insurance, and interest rate ultimately determine whether a property cash flows."}},
+    {"@type":"Question","name":"How accurate is the investment property calculator?","acceptedAnswer":{"@type":"Answer","text":"The math is reliable but only as accurate as the inputs. The tool is for education and screening, not a rate quote, commitment to lend, or tax advice. For an accurate picture, get a real rate for the property and your profile, verify taxes and insurance, and budget realistic vacancy and maintenance."}}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- math engine (mirrors the Excel workbook exactly) ---------- */
+  function pmt(rMo,nper,pv){ if(pv<=0)return 0; if(rMo===0)return pv/nper; return pv*rMo/(1-Math.pow(1+rMo,-nper)); }
+  function balanceAfter(L,rMo,P,k){ if(L<=0)return 0; if(rMo===0)return Math.max(0,L-P*k);
+    var b=L*Math.pow(1+rMo,k)-P*(Math.pow(1+rMo,k)-1)/rMo; return Math.max(0,b); }
+  function npv(rate,cfs){ var s=0; for(var t=0;t<cfs.length;t++) s+=cfs[t]/Math.pow(1+rate,t); return s; }
+  function irr(cfs){ var lo=-0.9999,hi=10,flo=npv(lo,cfs),fhi=npv(hi,cfs);
+    if(!isFinite(flo)||!isFinite(fhi)||flo*fhi>0)return null;
+    for(var i=0;i<200;i++){ var mid=(lo+hi)/2,fmid=npv(mid,cfs);
+      if(Math.abs(fmid)<1e-7)return mid; if(flo*fmid<0){hi=mid;}else{lo=mid;flo=fmid;} }
+    return (lo+hi)/2; }
+
+  function compute(i){
+    var down=i.price*i.downPct, loan=i.price-down, rMo=i.rate/12, nper=i.termYears*12;
+    var pi=pmt(rMo,nper,loan);
+    var cashToClose=down+i.price*i.closingPct+i.rehab;
+    var effIncomeMo=i.grossRent*(1-i.vacancy)+i.otherInc;
+    var totalExpMo=i.taxesYr/12+i.insYr/12+i.hoaMo+(i.pmPct+i.maintPct+i.capexPct)*i.grossRent+i.otherExpMo;
+    var noiMo=effIncomeMo-totalExpMo, cfMo=noiMo-pi, annualCF=cfMo*12, noiAnnual=noiMo*12;
+    var cap=i.price>0?noiAnnual/i.price:null;
+    var coc=cashToClose>0?annualCF/cashToClose:null;
+    var dscr=pi>0?noiAnnual/(pi*12):null;
+    var grm=(i.grossRent+i.otherInc)>0?i.price/((i.grossRent+i.otherInc)*12):null;
+    var onePct=i.price>0?i.grossRent/i.price:null;
+    var bal1=balanceAfter(loan,rMo,pi,12), yr1Paydown=loan-bal1, apprYr1=i.price*i.appreciation;
+    var totRetYr1=cashToClose>0?(annualCF+apprYr1+yr1Paydown)/cashToClose:null;
+    var proj=[];
+    for(var n=0;n<=30;n++){
+      var value=i.price*Math.pow(1+i.appreciation,n);
+      var bal=n===0?loan:balanceAfter(loan,rMo,pi,n*12);
+      var equity=value-bal, grossR=0,vac=0,opex=0,noi=0,ds=0,cf=0;
+      if(n>=1){ grossR=(i.grossRent+i.otherInc)*12*Math.pow(1+i.rentGrowth,n-1);
+        vac=grossR*i.vacancy; opex=(totalExpMo*12)*Math.pow(1+i.expenseGrowth,n-1);
+        noi=(grossR-vac)-opex; ds=n<=i.termYears?pi*12:0; cf=noi-ds; }
+      proj.push({n:n,value:value,bal:bal,equity:equity,cf:cf});
+    }
+    var cum=0; for(var k=0;k<proj.length;k++){cum+=proj[k].cf;proj[k].cum=cum;}
+    var h=Math.max(1,Math.min(30,i.hold));
+    var endValue=proj[h].value, endBal=proj[h].bal, endEquity=endValue-endBal;
+    var netProceeds=endValue*(1-i.sellPct)-endBal, cumAtHold=proj[h].cum;
+    var totalProfit=cumAtHold+netProceeds-cashToClose;
+    var avgAnn=(cashToClose>0&&h>0)?totalProfit/cashToClose/h:null;
+    var mult=cashToClose>0?(cumAtHold+netProceeds)/cashToClose:null;
+    var cfs=[];
+    for(var m=0;m<=h;m++){ if(m===0)cfs.push(-cashToClose);
+      else if(m===h)cfs.push(proj[h].cf+netProceeds); else cfs.push(proj[m].cf); }
+    var irrVal=irr(cfs);
+    return {pi:pi,cashToClose:cashToClose,noiMo:noiMo,cfMo:cfMo,annualCF:annualCF,
+      cap:cap,coc:coc,dscr:dscr,grm:grm,onePct:onePct,totRetYr1:totRetYr1,
+      endValue:endValue,endEquity:endEquity,totalProfit:totalProfit,avgAnn:avgAnn,mult:mult,irrVal:irrVal,
+      proj:proj,hold:h};
+  }
+
+  /* ---------- formatting ---------- */
+  function money(v){ if(v===null||!isFinite(v))return "—"; var s=Math.round(Math.abs(v)).toLocaleString("en-US");
+    return (v<0?"-$":"$")+s; }
+  function moneyS(v){ if(v===null||!isFinite(v))return "—"; var a=Math.abs(v),sign=v<0?"-":"";
+    if(a>=1e6)return sign+"$"+(a/1e6).toFixed(a/1e6>=10?0:1)+"M";
+    if(a>=1e3)return sign+"$"+Math.round(a/1e3)+"K"; return sign+"$"+Math.round(a); }
+  function pct(v,d){ if(v===null||!isFinite(v))return "—"; return (v*100).toFixed(d===undefined?1:d)+"%"; }
+  function ratio(v){ if(v===null||!isFinite(v))return "n/a"; return v.toFixed(2)+"x"; }
+  function num2(v){ if(v===null||!isFinite(v))return "—"; return v.toFixed(2); }
+
+  /* ---------- input parsing ---------- */
+  function parseNum(el){ var v=parseFloat(String(el.value).replace(/[^0-9.\-]/g,"")); return isNaN(v)?0:v; }
+  var DOLLAR_IDS=["price","rehab","grossRent","otherInc","taxesYr","insYr","hoaMo","otherExpMo"];
+  function commafy(el){ var raw=String(el.value).replace(/[^0-9]/g,""); if(raw==="")return;
+    el.value=parseInt(raw,10).toLocaleString("en-US"); }
+
+  function readInputs(){
+    return {
+      price:parseNum(g("price")), closingPct:parseNum(g("closingPct"))/100, rehab:parseNum(g("rehab")),
+      downPct:parseNum(g("downPct"))/100, rate:parseNum(g("rate"))/100, termYears:parseNum(g("termYears")),
+      grossRent:parseNum(g("grossRent")), otherInc:parseNum(g("otherInc")), vacancy:parseNum(g("vacancy"))/100,
+      taxesYr:parseNum(g("taxesYr")), insYr:parseNum(g("insYr")), hoaMo:parseNum(g("hoaMo")),
+      pmPct:parseNum(g("pmPct"))/100, maintPct:parseNum(g("maintPct"))/100, capexPct:parseNum(g("capexPct"))/100,
+      otherExpMo:parseNum(g("otherExpMo")),
+      appreciation:parseNum(g("appreciation"))/100, rentGrowth:parseNum(g("rentGrowth"))/100,
+      expenseGrowth:parseNum(g("expenseGrowth"))/100, hold:parseNum(g("hold")), sellPct:parseNum(g("sellPct"))/100
+    };
+  }
+  function g(id){ return document.getElementById(id); }
+  function setText(id,t){ var e=g(id); if(e)e.textContent=t; }
+
+  /* ---------- render ---------- */
+  function render(){
+    var r=compute(readInputs());
+
+    // cash flow hero
+    var cfEl=g("cfNum");
+    cfEl.textContent=(r.cfMo>=0?"+":"")+money(r.cfMo);
+    cfEl.className="cf-num "+(r.cfMo>=0?"pos":"neg");
+    setText("cfAnnual",(r.annualCF>=0?"":"-")+"$"+Math.round(Math.abs(r.annualCF)).toLocaleString("en-US"));
+    setText("noiMo",money(r.noiMo)+"/mo");
+    setText("piMo",money(r.pi)+"/mo");
+    setText("cashToClose",money(r.cashToClose));
+
+    // metrics
+    setText("cap",pct(r.cap,2));
+    setText("coc",pct(r.coc,2));
+    setText("dscr",ratio(r.dscr));
+    setText("grm",num2(r.grm));
+    setText("onePct",pct(r.onePct,2));
+    setText("totRet",pct(r.totRetYr1));
+    var cocEl=g("coc"); cocEl.className="v "+(r.coc!==null&&r.coc<0?"neg":"pos");
+    var trEl=g("totRet"); trEl.className="v "+(r.totRetYr1!==null&&r.totRetYr1<0?"neg":"pos");
+
+    // long-term
+    setText("ltValue",moneyS(r.endValue));
+    setText("ltEquity",moneyS(r.endEquity));
+    setText("ltProfit",moneyS(r.totalProfit));
+    setText("ltAvg",pct(r.avgAnn));
+    setText("ltMult",r.mult===null?"—":r.mult.toFixed(1)+"x");
+    setText("ltIrr",r.irrVal===null?"n/a":pct(r.irrVal));
+    setText("projYr","Years 0\u2013"+r.hold);
+
+    drawChart(r);
+  }
+
+  /* ---------- chart (value / equity / loan balance) ---------- */
+  function drawChart(r){
+    var svg=g("chart"); if(!svg)return;
+    var W=560,H=188,padL=6,padR=6,padT=10,padB=20;
+    var h=r.hold, pts=[];
+    for(var n=0;n<=h;n++) pts.push(r.proj[n]);
+    var maxV=0;
+    pts.forEach(function(p){ if(p.value>maxV)maxV=p.value; });
+    maxV=maxV*1.06||1;
+    var x=function(n){ return padL+(W-padL-padR)*(n/(h||1)); };
+    var y=function(v){ return H-padB-(H-padT-padB)*(v/maxV); };
+    function path(key){ var d=""; for(var k=0;k<pts.length;k++){ d+=(k===0?"M":"L")+x(pts[k].n).toFixed(1)+" "+y(pts[k][key]).toFixed(1); } return d; }
+    function area(key){ var d="M"+x(0).toFixed(1)+" "+(H-padB);
+      for(var k=0;k<pts.length;k++){ d+="L"+x(pts[k].n).toFixed(1)+" "+y(pts[k][key]).toFixed(1); }
+      d+="L"+x(pts[pts.length-1].n).toFixed(1)+" "+(H-padB)+"Z"; return d; }
+    var ns="http://www.w3.org/2000/svg", out="";
+    // baseline
+    out+='<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padR)+'" y2="'+(H-padB)+'" stroke="#e3e9e2" stroke-width="1"/>';
+    // equity area (lime, soft)
+    out+='<path d="'+area("equity")+'" fill="#82C341" fill-opacity="0.14"/>';
+    // loan balance line (moss)
+    out+='<path d="'+path("bal")+'" fill="none" stroke="#9db8a6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+    // equity line (lime)
+    out+='<path d="'+path("equity")+'" fill="none" stroke="#82C341" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+    // value line (green)
+    out+='<path d="'+path("value")+'" fill="none" stroke="#06694A" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>';
+    // endpoint dots
+    var last=pts[pts.length-1];
+    out+='<circle cx="'+x(last.n).toFixed(1)+'" cy="'+y(last.value).toFixed(1)+'" r="3.4" fill="#06694A"/>';
+    out+='<circle cx="'+x(last.n).toFixed(1)+'" cy="'+y(last.equity).toFixed(1)+'" r="3.4" fill="#82C341"/>';
+    // x labels (0 and hold)
+    out+='<text x="'+x(0)+'" y="'+(H-6)+'" font-size="10" fill="#7c8d83" font-family="Hanken Grotesk,Arial">Yr 0</text>';
+    out+='<text x="'+(W-padR)+'" y="'+(H-6)+'" font-size="10" fill="#7c8d83" font-family="Hanken Grotesk,Arial" text-anchor="end">Yr '+h+'</text>';
+    svg.innerHTML=out;
+  }
+
+  /* ---------- wire up inputs ---------- */
+  var ids=["price","closingPct","rehab","downPct","rate","termYears","grossRent","otherInc","vacancy",
+    "taxesYr","insYr","hoaMo","pmPct","maintPct","capexPct","otherExpMo","appreciation","rentGrowth",
+    "expenseGrowth","hold","sellPct"];
+  ids.forEach(function(id){
+    var el=g(id); if(!el)return;
+    el.addEventListener("input",render);
+    if(el.tagName==="SELECT")el.addEventListener("change",render);
+  });
+  DOLLAR_IDS.forEach(function(id){
+    var el=g(id); if(!el)return;
+    el.addEventListener("blur",function(){ commafy(el); render(); });
+  });
+
+  // defaults = the verified example deal
+  var DEFAULTS={price:"285,000",closingPct:"3",rehab:"5,000",downPct:"25",rate:"6.75",termYears:"30",
+    grossRent:"2,800",otherInc:"0",vacancy:"5",taxesYr:"4,800",insYr:"1,600",hoaMo:"0",
+    pmPct:"8",maintPct:"5",capexPct:"5",otherExpMo:"0",appreciation:"3",rentGrowth:"2",
+    expenseGrowth:"2",hold:"10",sellPct:"7"};
+  g("resetBtn").addEventListener("click",function(){
+    for(var k in DEFAULTS){ var el=g(k); if(el)el.value=DEFAULTS[k]; }
+    render();
+  });
+
+  /* ---------- gated Excel download via Formspree ---------- */
+  var form=g("dlForm");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(g("_gotcha")&&form._gotcha.value){ return; } // honeypot
+    var name=g("dlName").value.trim(), email=g("dlEmail").value.trim();
+    if(!name||!email||email.indexOf("@")<0){
+      if(!name)g("dlName").focus(); else g("dlEmail").focus(); return;
+    }
+    var btn=g("dlSubmit"); btn.disabled=true; btn.textContent="Sending…";
+    var data=new FormData(form);
+    fetch("https://formspree.io/f/maqklaay",{method:"POST",body:data,headers:{"Accept":"application/json"}})
+      .then(function(res){
+        if(res.ok){ showSuccess(); }
+        else{ res.json().then(function(){ btn.disabled=false; btn.textContent="Email me the workbook";
+          alert("Something went wrong sending that. You can still download the workbook directly below."); showSuccess(); }); }
+      })
+      .catch(function(){ btn.disabled=false; btn.textContent="Email me the workbook"; showSuccess(); });
+  });
+  function showSuccess(){
+    form.style.display="none";
+    g("dlSuccess").style.display="block";
+    var a=g("dlDirect");
+    // auto-start the download
+    try{ var t=document.createElement("a"); t.href=a.getAttribute("href"); t.setAttribute("download","");
+      document.body.appendChild(t); t.click(); document.body.removeChild(t); }catch(err){}
+  }
+
+  /* ---------- mobile menu ---------- */
+  var burger=g("hamburger"), menu=g("mobileMenu");
+  burger.addEventListener("click",function(){
+    var open=menu.classList.toggle("open");
+    burger.setAttribute("aria-expanded",open?"true":"false");
+  });
+
+  document.getElementById("yr").textContent=new Date().getFullYear();
+  render();
+})();
+</script>
+</body>
+</html>
