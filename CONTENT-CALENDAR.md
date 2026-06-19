@@ -12,7 +12,7 @@ non-duplicative topic targeting a real buyer question.
 | 3 | ✅ Published | Conventional vs FHA in Wisconsin: which one fits your situation | "conventional vs FHA wisconsin" | Buying Strategy |
 | 4 | ✅ Published | What documents you need to get pre-approved | "mortgage preapproval documents" | Credit & Qualifying |
 | 5 | ✅ Published | Buying a home with student loan debt | "buy house with student loans" | Credit & Qualifying |
-| 6 | ⬜ | PMI explained: when it makes sense and how to drop it | "how to get rid of PMI" | General |
+| 6 | ✅ Published | PMI explained: when it makes sense and how to drop it | "how to get rid of PMI" | General |
 | 7 | ⬜ | Should you buy mortgage points? The break-even math | "should I buy mortgage points" | Rates & Market |
 | 8 | ⬜ | Self-employed? How to qualify for a mortgage with 1099 income | "self employed mortgage wisconsin" | Credit & Qualifying |
 | 9 | ⬜ | How mortgage rates are set — and the parts you can control | "how are mortgage rates determined" | Rates & Market |
