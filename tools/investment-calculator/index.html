@@ -458,6 +458,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
           </div>
           <label class="consent"><input type="checkbox" name="sms_consent" value="yes">
             Text me updates and the occasional Wisconsin market note. Msg &amp; data rates may apply; reply STOP to opt out. Optional.</label>
+          <div class="g-recaptcha" data-sitekey="6LcLyjgtAAAAAL5VrrcE0OWDQEcPvzOjrrsdeUeS" style="margin:4px 0 12px"></div>
           <button class="btn" type="submit" id="dlSubmit">Email me the workbook</button>
           <div class="dl-note">No spam. Your info goes to Ethan only — never sold or shared.</div>
         </form>
@@ -792,6 +793,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
     if(!name||!email||email.indexOf("@")<0){
       if(!name)g("dlName").focus(); else g("dlEmail").focus(); return;
     }
+    if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
     var btn=g("dlSubmit"); btn.disabled=true; btn.textContent="Sending…";
     var data=new FormData(form);
     fetch("https://formspree.io/f/maqklaay",{method:"POST",body:data,headers:{"Accept":"application/json"}})
@@ -822,5 +824,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
   render();
 })();
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

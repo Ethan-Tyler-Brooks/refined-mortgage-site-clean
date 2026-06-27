@@ -105,6 +105,7 @@
         <form id="gateForm">
           <input type="text" name="name" placeholder="Your name" required>
           <input type="email" name="email" placeholder="Email address" required>
+          <div class="g-recaptcha" data-sitekey="6LcLyjgtAAAAAL5VrrcE0OWDQEcPvzOjrrsdeUeS" style="margin:4px 0 12px"></div>
           <button class="btn btn-lime" type="submit" style="justify-content:center">Email me the guide →</button>
           <small>No spam — your info goes to Ethan only, never sold or shared.</small>
         </form>
@@ -140,10 +141,12 @@
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 document.getElementById('gateForm').addEventListener('submit',function(e){e.preventDefault();
+  if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
   fetch('https://formspree.io/f/maqklaay',{method:'POST',body:new FormData(this),headers:{'Accept':'application/json'}}).catch(()=>{});
   this.style.display='none';document.getElementById('gateOk').classList.add('show');
   window.open('/downloads/2026_Homebuyer_Survival_Guide.pdf','_blank');
 });
 </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

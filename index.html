@@ -644,6 +644,7 @@
               <input type="checkbox" id="smsConsent" name="sms_consent" value="yes">
               <label for="smsConsent">By checking this box, you agree to receive appointment, promotional, and business-related texts from Fairway Home Mortgage at the phone number provided. Consent is not a condition of purchase. Message frequency will vary. Message and data rates may apply. Reply STOP to unsubscribe. View our <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.</label>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LcLyjgtAAAAAL5VrrcE0OWDQEcPvzOjrrsdeUeS" style="margin:4px 0 14px"></div>
             <button type="submit" class="btn btn-solid">Send Message</button>
             <p class="form-note">Submitting sends a message to Ethan. The SMS checkbox above is optional and is never required to work with us.</p>
           </div>
@@ -757,6 +758,7 @@
   });
 </script>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   /* ---- Contact form (submits to Formspree via AJAX) ---- */
   (function(){
@@ -767,6 +769,7 @@
       // validate required fields first
       var req=f.querySelectorAll('[required]');
       for(var i=0;i<req.length;i++){if(!req[i].value.trim()){req[i].reportValidity&&req[i].reportValidity();req[i].focus();return;}}
+      if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
       var btn=f.querySelector('button[type="submit"]');
       if(btn){btn.disabled=true;btn.textContent='Sending…';}
       var data=new FormData(f);
@@ -777,17 +780,17 @@
             document.getElementById('formSuccess').classList.add('show');
           }else{
             r.json().then(function(d){
-              alert((d&&d.errors&&d.errors.map(function(x){return x.message;}).join(', '))||'Sorry, something went wrong. Please call 414·488·0438 or email ethan@trustrefined.com.');
-              if(btn){btn.disabled=false;btn.textContent='Send Message';}
+              alert((d&&d.errors&&d.errors.map(function(x){return x.message;}).join(', '))||(d&&d.error)||'Sorry, something went wrong. Please call 414·488·0438 or email ethan@trustrefined.com.');
+              if(typeof grecaptcha!=='undefined'){grecaptcha.reset();}if(btn){btn.disabled=false;btn.textContent='Send Message';}
             }).catch(function(){
               alert('Sorry, something went wrong. Please call 414·488·0438 or email ethan@trustrefined.com.');
-              if(btn){btn.disabled=false;btn.textContent='Send Message';}
+              if(typeof grecaptcha!=='undefined'){grecaptcha.reset();}if(btn){btn.disabled=false;btn.textContent='Send Message';}
             });
           }
         })
         .catch(function(){
           alert('Network error. Please call 414·488·0438 or email ethan@trustrefined.com.');
-          if(btn){btn.disabled=false;btn.textContent='Send Message';}
+          if(typeof grecaptcha!=='undefined'){grecaptcha.reset();}if(btn){btn.disabled=false;btn.textContent='Send Message';}
         });
     });
   })();
