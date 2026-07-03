@@ -15,7 +15,7 @@ non-duplicative topic targeting a real buyer question.
 | 6 | ✅ Published | PMI explained: when it makes sense and how to drop it | "how to get rid of PMI" | General |
 | 7 | ✅ Published | Should you buy mortgage points? The break-even math | "should I buy mortgage points" | Rates & Market |
 | 8 | ✅ Published | Self-employed? How to qualify for a mortgage with 1099 income | "self employed mortgage wisconsin" | Credit & Qualifying |
-| 9 | ⬜ | How mortgage rates are set — and the parts you can control | "how are mortgage rates determined" | Rates & Market |
+| 9 | ✅ Published | How mortgage rates are set — and the parts you can control | "how are mortgage rates determined" | Rates & Market |
 | 10 | ⬜ | When refinancing is actually worth it (break-even calculator logic) | "when is refinancing worth it" | Refinancing |
 | 11 | ⬜ | First-time buyer mistakes that cost you the house | "first time home buyer mistakes" | First-Time Buyers |
 | 12 | ⬜ | Closing costs in Wisconsin: what they are and who pays | "closing costs wisconsin" | Buying Strategy |
