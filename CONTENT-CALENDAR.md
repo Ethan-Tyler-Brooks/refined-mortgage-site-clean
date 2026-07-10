@@ -18,7 +18,7 @@ non-duplicative topic targeting a real buyer question.
 | 9 | ✅ Published | How mortgage rates are set — and the parts you can control | "how are mortgage rates determined" | Rates & Market |
 | 10 | ✅ Published | When refinancing is actually worth it (break-even calculator logic) | "when is refinancing worth it" | Refinancing |
 | 11 | ✅ Published | First-time buyer mistakes that cost you the house | "first time home buyer mistakes" | First-Time Buyers |
-| 12 | ⬜ | Closing costs in Wisconsin: what they are and who pays | "closing costs wisconsin" | Buying Strategy |
+| 12 | ✅ Published | Closing costs in Wisconsin: what they are and who pays | "closing costs wisconsin" | Buying Strategy |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
