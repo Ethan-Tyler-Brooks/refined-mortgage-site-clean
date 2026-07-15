@@ -20,6 +20,7 @@ non-duplicative topic targeting a real buyer question.
 | 11 | ✅ Published | First-time buyer mistakes that cost you the house | "first time home buyer mistakes" | First-Time Buyers |
 | 12 | ✅ Published | Closing costs in Wisconsin: what they are and who pays | "closing costs wisconsin" | Buying Strategy |
 | 13 | ✅ Published | USDA Rural Development loans in Wisconsin: zero down explained | "usda loan wisconsin", "usda rural development loan" | Buying Strategy |
+| 14 | ✅ Published | VA loans in Wisconsin: zero-down benefits for veterans and service members | "va loan wisconsin", "va home loan benefits" | Buying Strategy |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
