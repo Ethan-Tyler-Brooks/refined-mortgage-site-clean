@@ -21,6 +21,7 @@ non-duplicative topic targeting a real buyer question.
 | 12 | ✅ Published | Closing costs in Wisconsin: what they are and who pays | "closing costs wisconsin" | Buying Strategy |
 | 13 | ✅ Published | USDA Rural Development loans in Wisconsin: zero down explained | "usda loan wisconsin", "usda rural development loan" | Buying Strategy |
 | 14 | ✅ Published | VA loans in Wisconsin: zero-down benefits for veterans and service members | "va loan wisconsin", "va home loan benefits" | Buying Strategy |
+| 15 | ✅ Published | ARM vs. fixed-rate mortgage in Wisconsin: when an ARM actually makes sense | "arm vs fixed rate mortgage wisconsin" | Rates & Market |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
