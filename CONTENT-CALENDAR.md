@@ -23,6 +23,7 @@ non-duplicative topic targeting a real buyer question.
 | 14 | ✅ Published | VA loans in Wisconsin: zero-down benefits for veterans and service members | "va loan wisconsin", "va home loan benefits" | Buying Strategy |
 | 15 | ✅ Published | ARM vs. fixed-rate mortgage in Wisconsin: when an ARM actually makes sense | "arm vs fixed rate mortgage wisconsin" | Rates & Market |
 | 16 | ✅ Published | Wisconsin property taxes and escrow: what your monthly payment really includes | "wisconsin property taxes", "mortgage escrow account" | Buying Strategy |
+| 17 | ✅ Published | What is a good debt-to-income ratio to buy a house in Wisconsin? | "debt to income ratio for a mortgage", "what is a good DTI" | Credit & Qualifying |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
