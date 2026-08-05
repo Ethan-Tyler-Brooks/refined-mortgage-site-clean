@@ -26,6 +26,7 @@ non-duplicative topic targeting a real buyer question.
 | 17 | ✅ Published | What is a good debt-to-income ratio to buy a house in Wisconsin? | "debt to income ratio for a mortgage", "what is a good DTI" | Credit & Qualifying |
 | 18 | ✅ Published | What happens when a home appraises below the offer price | "appraisal gap wisconsin", "home appraised for less than offer" | Buying Strategy |
 | 19 | ✅ Published | Using gift funds for your down payment in Wisconsin | "gift funds for down payment", "can I use gift money for down payment" | First-Time Buyers |
+| 20 | ✅ Published | Seller-paid rate buydowns in Wisconsin: how a 2-1 buydown works | "seller paid rate buydown", "2-1 buydown wisconsin" | Rates & Market |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
