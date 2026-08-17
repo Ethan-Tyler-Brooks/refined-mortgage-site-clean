@@ -28,6 +28,7 @@ non-duplicative topic targeting a real buyer question.
 | 19 | ✅ Published | Using gift funds for your down payment in Wisconsin | "gift funds for down payment", "can I use gift money for down payment" | First-Time Buyers |
 | 20 | ✅ Published | Seller-paid rate buydowns in Wisconsin: how a 2-1 buydown works | "seller paid rate buydown", "2-1 buydown wisconsin" | Rates & Market |
 | 21 | ✅ Published | Earnest money in Wisconsin: how much do you need, and can you get it back? | "earnest money wisconsin", "can you get earnest money back" | Buying Strategy |
+| 22 | ✅ Published | When should you lock your mortgage rate? Locks, float-downs, and expirations | "when to lock mortgage rate", "mortgage rate lock explained" | Rates & Market |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
