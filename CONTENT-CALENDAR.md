@@ -31,6 +31,7 @@ non-duplicative topic targeting a real buyer question.
 | 22 | ✅ Published | When should you lock your mortgage rate? Locks, float-downs, and expirations | "when to lock mortgage rate", "mortgage rate lock explained" | Rates & Market |
 | 23 | ✅ Published | Buying a duplex in Wisconsin: how house hacking works | "buying a duplex wisconsin", "fha loan duplex", "house hacking" | Buying Strategy |
 | 24 | ✅ Published | Assumable mortgages in Wisconsin: can you take over the seller's low rate? | "assumable mortgage wisconsin", "can you assume a mortgage" | Rates & Market |
+| 25 | ✅ Published | Buying a cabin in Wisconsin: how second-home financing really works | "buying a cabin in wisconsin", "second home mortgage wisconsin" | Buying Strategy |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
