@@ -34,6 +34,7 @@ non-duplicative topic targeting a real buyer question.
 | 25 | ✅ Published | Buying a cabin in Wisconsin: how second-home financing really works | "buying a cabin in wisconsin", "second home mortgage wisconsin" | Buying Strategy |
 | 26 | ✅ Published | Fixer-upper financing in Wisconsin: FHA 203(k) and renovation loans | "fha 203k loan wisconsin", "renovation loan", "how to finance a fixer-upper" | Buying Strategy |
 | 27 | ✅ Published | Jumbo loans in Wisconsin: when you need one and how qualifying is different | "jumbo loan wisconsin", "2026 conforming loan limit" | Buying Strategy |
+| 28 | ✅ Published | Condo financing in Wisconsin: warrantable vs. non-warrantable explained | "condo mortgage wisconsin", "warrantable condo" | Buying Strategy |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
