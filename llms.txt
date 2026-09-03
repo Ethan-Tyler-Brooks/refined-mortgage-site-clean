@@ -10,6 +10,7 @@ Refined Mortgage Group helps Wisconsin buyers â€” especially first-time buyers â
 - Service area: Wisconsin
 - Contact: 414-488-0438 Â· ethan@trustrefined.com
 - Book a call: https://calendly.com/ethan-brooks/15min
+- Send a message: https://www.ethanbrooks.mortgage/#contact
 
 ## Educational content (/blog and /learn)
 - How much house you can afford in Wisconsin
@@ -18,7 +19,13 @@ Refined Mortgage Group helps Wisconsin buyers â€” especially first-time buyers â
 - Rent vs. buy and the cost of waiting
 - The mortgage process, credit, and qualifying
 
+## Free tools
+- Mortgage calculator (payment, extra principal, biweekly, recast, PMI drop-off, amortization schedule): https://www.ethanbrooks.mortgage/tools/mortgage-calculator/
+- Investment property calculator (cash flow, cap rate, DSCR): https://www.ethanbrooks.mortgage/tools/investment-calculator/
+- Homebuyer FAQ and affordability calculator: https://www.ethanbrooks.mortgage/homebuyer-faq/
+
 ## Links
 - Home: https://www.ethanbrooks.mortgage/
+- Resources: https://www.ethanbrooks.mortgage/resources/
 - Blog: https://www.ethanbrooks.mortgage/blog/
 - About: https://www.ethanbrooks.mortgage/about
