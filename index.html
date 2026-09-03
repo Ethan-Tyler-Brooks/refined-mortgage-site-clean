@@ -388,6 +388,7 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mmenu">
   <button class="mclose" id="mclose">&times;</button>
+  <a href="/resources/">Resources</a>
   <a href="about.html">About</a>
   <a href="#modules">Learn</a>
   <a href="#calculator">Calculator</a>
@@ -553,16 +554,152 @@
       <h2>Six milestones to the keys.</h2>
       <p>You'll always know exactly where your loan stands. Here's the path from application to closing.</p>
     </div>
+
     <div class="steps">
-      <div class="step reveal"><div class="dot">1</div><div class="scopy"><h3>Submitted to Setup</h3><p>Your application is received and prepared for review.</p></div></div>
-      <div class="step reveal"><div class="dot">2</div><div class="scopy"><h3>Submitted to Processing</h3><p>We gather and organize your documentation.</p></div></div>
-      <div class="step reveal"><div class="dot">3</div><div class="scopy"><h3>Submitted to Underwriting</h3><p>Your file goes to the decision-makers for review.</p></div></div>
-      <div class="step reveal"><div class="dot">4</div><div class="scopy"><h3>Conditional Loan Approval</h3><p>Approved — with a clear list of any final items.</p></div></div>
-      <div class="step reveal"><div class="dot">5</div><div class="scopy"><h3>Clear to Close</h3><p>All conditions met. The finish line is in sight.</p></div></div>
-      <div class="step reveal"><div class="dot">6</div><div class="scopy"><h3>Loan Closed</h3><p>You've got the keys. Welcome home. 🏡</p></div></div>
+
+      <div class="step reveal">
+        <div class="dot">1</div>
+        <div class="scopy"><h3>Application Received</h3><p>Your application is in — we review the details and set up your file.</p></div>
+        <button class="svideo" type="button" data-vid="ObHCXsOHMbw" aria-label="Play video: Application Received">
+          <img src="https://i.ytimg.com/vi/ObHCXsOHMbw/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
+      <div class="step reveal">
+        <div class="dot">2</div>
+        <div class="scopy"><h3>Preapproval</h3><p>You're preapproved, so you can shop with a clear budget and confidence.</p></div>
+        <button class="svideo" type="button" data-vid="l47GtypxkZw" aria-label="Play video: Preapproval">
+          <img src="https://i.ytimg.com/vi/l47GtypxkZw/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
+      <div class="step reveal">
+        <div class="dot">3</div>
+        <div class="scopy"><h3>Accepted Offer</h3><p>Your offer's accepted — we put your loan into motion right away.</p></div>
+        <button class="svideo" type="button" data-vid="88PdIXCNWDE" aria-label="Play video: Accepted Offer">
+          <img src="https://i.ytimg.com/vi/88PdIXCNWDE/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
+      <div class="step reveal">
+        <div class="dot">4</div>
+        <div class="scopy"><h3>Loan Approval</h3><p>Underwriting approves your loan, with any final items listed clearly.</p></div>
+        <button class="svideo" type="button" data-vid="hhWmlHAvFL4" aria-label="Play video: Loan Approval">
+          <img src="https://i.ytimg.com/vi/hhWmlHAvFL4/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
+      <div class="step reveal">
+        <div class="dot">5</div>
+        <div class="scopy"><h3>Clear to Close</h3><p>All conditions met. The finish line is in sight.</p></div>
+        <button class="svideo" type="button" data-vid="2QxsI1LC8WQ" aria-label="Play video: Clear to Close">
+          <img src="https://i.ytimg.com/vi/2QxsI1LC8WQ/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
+      <div class="step reveal">
+        <div class="dot">6</div>
+        <div class="scopy"><h3>Loan Funded</h3><p>Funded and closed — you've got the keys. Welcome home. 🏡</p></div>
+        <button class="svideo" type="button" data-vid="OyKqTu9FHv0" aria-label="Play video: Loan Funded">
+          <img src="https://i.ytimg.com/vi/OyKqTu9FHv0/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+          <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="vlabel">Watch</span>
+        </button>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- milestone video styles (scoped; reuses the site's :root variables) -->
+<style>
+  .process .step{grid-template-columns:64px 1fr auto}
+  .process .step .svideo{
+    --w:104px; align-self:flex-start; margin-left:10px;
+    width:var(--w); aspect-ratio:9/16; flex:0 0 auto;
+    border:0; padding:0; background:var(--forest,#06694A); cursor:pointer;
+    position:relative; border-radius:16px; overflow:hidden;
+    outline:1px solid var(--line,rgba(19,35,26,.14)); outline-offset:0;
+    box-shadow:0 10px 26px rgba(5,58,42,.18);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s;
+  }
+  .process .step .svideo:hover,.process .step .svideo:focus-visible{
+    transform:translateY(-3px); box-shadow:0 16px 34px rgba(5,58,42,.28); outline-color:var(--forest,#06694A)
+  }
+  .process .step .svideo img{width:100%;height:100%;object-fit:cover;display:block}
+  .process .step .svideo::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(5,58,42,0) 45%,rgba(5,58,42,.5))}
+  .process .step .svideo .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:40px;height:40px;border-radius:50%;background:rgba(252,250,245,.94);
+    display:grid;place-items:center;z-index:1;box-shadow:0 4px 14px rgba(5,58,42,.32)}
+  .process .step .svideo .play svg{width:15px;height:15px;fill:var(--forest,#06694A);margin-left:2px}
+  .process .step .svideo .vlabel{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:8px 6px;
+    color:#fff;font-family:var(--sans);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;text-align:center}
+  @media(max-width:640px){
+    .process .step{grid-template-columns:64px 1fr}
+    .process .step .scopy{grid-column:2}
+    .process .step .svideo{grid-column:2;justify-self:start;margin:12px 0 2px;--w:128px}
+  }
+
+  /* lightbox */
+  .rm-lb{position:fixed;inset:0;z-index:9999;display:none;place-items:center;padding:24px;
+    background:rgba(5,42,30,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .rm-lb.open{display:grid}
+  .rm-lb-stage{display:flex;flex-direction:column;align-items:center;gap:12px}
+  .rm-lb-frame{position:relative;height:min(84vh,680px);aspect-ratio:9/16;max-width:92vw;
+    border-radius:20px;overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .rm-lb-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .rm-lb-close{position:absolute;top:16px;right:20px;width:44px;height:44px;border-radius:50%;border:0;
+    background:rgba(252,250,245,.92);color:var(--ink,#053A2A);font-size:1.7rem;line-height:1;cursor:pointer;
+    display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  .rm-lb-yt{color:#fff;font-family:var(--sans);font-size:.85rem;text-decoration:none;opacity:.92}
+  .rm-lb-yt:hover{text-decoration:underline}
+</style>
+
+<!-- lightbox markup -->
+<div class="rm-lb" id="rmLb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Milestone video">
+  <button class="rm-lb-close" type="button" aria-label="Close video">&times;</button>
+  <div class="rm-lb-stage">
+    <div class="rm-lb-frame"><iframe id="rmLbIframe" title="Milestone video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+    <a class="rm-lb-yt" id="rmLbYt" href="#" target="_blank" rel="noopener">Open on YouTube ↗</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var lb=document.getElementById('rmLb'),
+      ifr=document.getElementById('rmLbIframe'),
+      yt=document.getElementById('rmLbYt'),
+      closeBtn=lb.querySelector('.rm-lb-close');
+  function openVid(id){
+    ifr.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1';
+    yt.href='https://youtube.com/shorts/'+id;
+    lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeVid(){
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+    ifr.src=''; document.body.style.overflow='';
+  }
+  document.querySelectorAll('.process .svideo').forEach(function(b){
+    b.addEventListener('click',function(){ openVid(b.getAttribute('data-vid')); });
+  });
+  closeBtn.addEventListener('click',closeVid);
+  lb.addEventListener('click',function(e){ if(e.target===lb) closeVid(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&lb.classList.contains('open')) closeVid(); });
+})();
+</script>
 
 <!-- CALCULATOR -->
 <section class="sec" id="calculator">
