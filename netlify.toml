@@ -28,6 +28,10 @@
   from = "/learn/beat-cash-offers"
   to = "/learn-beat-cash-offers.html"
   status = 200
+[[redirects]]
+  from = "/learn/milestones"
+  to = "/learn-milestones.html"
+  status = 200
 
 # Security + caching headers
 [[headers]]
