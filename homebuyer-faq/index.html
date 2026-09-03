@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Homebuyer FAQ — Wisconsin Mortgage Questions Answered | Refined Mortgage Group</title>
-<meta name="description" content="Plain-English answers to the mortgage questions Wisconsin buyers ask most — pre-approval, down payments, closing costs, loan programs, PMI, and the process — plus free payment, prepayment, biweekly, and affordability calculators.">
+<meta name="description" content="Plain-English answers to the mortgage questions Wisconsin buyers ask most — pre-approval, down payments, closing costs, loan programs, PMI, and the process — plus a free mortgage calculator with prepayment, biweekly, recast and PMI drop-off options.">
 <link rel="canonical" href="https://www.ethanbrooks.mortgage/homebuyer-faq/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
@@ -85,11 +85,8 @@ section{padding:48px 0}
 .cash-box{background:var(--ink);color:var(--cream);border-radius:16px;padding:26px 28px;margin-top:8px;font-family:var(--sans)}
 .cash-box .row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed rgba(248,244,237,.18);font-size:.98rem}
 .cash-box .row.tot{border-bottom:none;border-top:2px solid var(--lime);margin-top:6px;font-weight:700;color:#fff}
-/* calculators */
+/* affordability calculator */
 .calcs{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:8px;margin-top:10px}
-.tabs{display:flex;flex-wrap:wrap;gap:6px;padding:8px}
-.tab{flex:1;min-width:140px;padding:11px 14px;border-radius:12px;border:1px solid transparent;background:transparent;font-family:var(--sans);font-weight:600;font-size:.9rem;color:var(--moss);cursor:pointer;text-align:center}
-.tab.on{background:var(--forest);color:#fff}
 .panel{display:none;padding:8px 18px 22px}
 .panel.on{display:grid;grid-template-columns:1fr 320px;gap:24px}
 @media(max-width:760px){.panel.on{grid-template-columns:1fr}}
@@ -138,6 +135,7 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
 .foot-bottom{margin-top:24px;padding-top:20px;border-top:1px solid rgba(248,244,237,.1);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.76rem;color:rgba(248,244,237,.45)}
 .foot-bottom a{color:rgba(248,244,237,.55)}
 </style>
+<link rel="stylesheet" href="/styles/rmg-calc.css">
 </head>
 <body>
 <div class="bar"><nav class="nav">
@@ -192,28 +190,13 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
   </section>
 
   <section id="calculators">
-    <div class="sec-head"><p class="eyebrow">Run your numbers</p><h2>Free mortgage calculators.</h2><p>Quick estimates to help you plan. They're educational and illustrative — for a real, rate-specific number, let's talk.</p></div>
+    <div class="sec-head"><p class="eyebrow">Run your numbers</p><h2>The mortgage calculator.</h2><p>Start with the basic payment, then switch on the options that change the math &mdash; extra principal, biweekly payments, a recast, PMI dropping off. Estimates for planning; for a real, rate-specific number, send it to me.</p></div>
+
+    <div data-rmg-calc data-contact="/#contact"></div>
+
+    <div class="sec-head" style="margin-top:44px"><p class="eyebrow">Before you shop</p><h2>How much home can I afford?</h2><p>Work backward from your income and monthly debts to a target price range.</p></div>
     <div class="calcs">
-      <div class="tabs">
-        <button class="tab on" data-tab="pay">Monthly Payment</button>
-        <button class="tab" data-tab="afford">Affordability</button>
-        <button class="tab" data-tab="prepay">Prepayment</button>
-        <button class="tab" data-tab="biweekly">Biweekly</button>
-      </div>
-
-      <div class="panel on" id="pay">
-        <div class="fields">
-          <label>Home price</label><div class="in"><span>$</span><input id="p_price" type="number" value="350000"></div>
-          <label>Down payment (%)</label><div class="in"><input id="p_down" type="number" value="10"><span>%</span></div>
-          <label>Interest rate (%)</label><div class="in"><input id="p_rate" type="number" step="0.01" value="6.5"><span>%</span></div>
-          <label>Loan term (years)</label><div class="in"><select id="p_term"><option>30</option><option>20</option><option>15</option><option>10</option></select><span>yrs</span></div>
-          <label>Property taxes (per year)</label><div class="in"><span>$</span><input id="p_tax" type="number" value="6300"></div>
-          <label>Home insurance (per year)</label><div class="in"><span>$</span><input id="p_ins" type="number" value="1400"></div>
-        </div>
-        <div class="result"><div class="sub">Estimated monthly payment</div><div class="big" id="pay_total">—</div><div class="rrow"><span>Principal &amp; interest</span><b id="pay_pi">—</b></div><div class="rrow"><span>Taxes</span><b id="pay_t">—</b></div><div class="rrow"><span>Insurance</span><b id="pay_i">—</b></div><div class="rrow"><span>Est. PMI</span><b id="pay_pmi">—</b></div><div class="rrow"><span>Loan amount</span><b id="pay_loan">—</b></div></div>
-      </div>
-
-      <div class="panel" id="afford">
+      <div class="panel on" id="afford" style="padding-top:20px">
         <div class="fields">
           <label>Gross monthly income</label><div class="in"><span>$</span><input id="a_income" type="number" value="8000"></div>
           <label>Monthly debts (cards, auto, student)</label><div class="in"><span>$</span><input id="a_debt" type="number" value="600"></div>
@@ -222,29 +205,14 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
           <label>Loan term (years)</label><div class="in"><select id="a_term"><option>30</option><option>20</option><option>15</option></select><span>yrs</span></div>
           <label>Target debt-to-income (%)</label><div class="in"><input id="a_dti" type="number" value="43"><span>%</span></div>
         </div>
-        <div class="result"><div class="sub">Estimated home price you could target</div><div class="big" id="a_price">—</div><div class="rrow"><span>Max loan amount</span><b id="a_loan">—</b></div><div class="rrow"><span>Monthly housing budget</span><b id="a_budget">—</b></div><div class="rrow"><span>Est. P&amp;I + taxes + ins</span><b id="a_pmt">—</b></div></div>
-      </div>
-
-      <div class="panel" id="prepay">
-        <div class="fields">
-          <label>Loan amount</label><div class="in"><span>$</span><input id="pp_loan" type="number" value="315000"></div>
-          <label>Interest rate (%)</label><div class="in"><input id="pp_rate" type="number" step="0.01" value="6.5"><span>%</span></div>
-          <label>Loan term (years)</label><div class="in"><select id="pp_term"><option>30</option><option>20</option><option>15</option></select><span>yrs</span></div>
-          <label>Extra principal per month</label><div class="in"><span>$</span><input id="pp_extra" type="number" value="200"></div>
-        </div>
-        <div class="result"><div class="sub">Interest you'd save</div><div class="big" id="pp_save">—</div><div class="rrow"><span>Time saved</span><b id="pp_time">—</b></div><div class="rrow"><span>Payoff (with extra)</span><b id="pp_new">—</b></div><div class="rrow"><span>New monthly payment</span><b id="pp_pay">—</b></div></div>
-      </div>
-
-      <div class="panel" id="biweekly">
-        <div class="fields">
-          <label>Loan amount</label><div class="in"><span>$</span><input id="bw_loan" type="number" value="315000"></div>
-          <label>Interest rate (%)</label><div class="in"><input id="bw_rate" type="number" step="0.01" value="6.5"><span>%</span></div>
-          <label>Loan term (years)</label><div class="in"><select id="bw_term"><option>30</option><option>20</option><option>15</option></select><span>yrs</span></div>
-        </div>
-        <div class="result"><div class="sub">Interest saved with biweekly</div><div class="big" id="bw_save">—</div><div class="rrow"><span>Biweekly payment</span><b id="bw_pay">—</b></div><div class="rrow"><span>Time saved</span><b id="bw_time">—</b></div><div class="rrow"><span>Payoff (biweekly)</span><b id="bw_new">—</b></div></div>
+        <div class="result"><div class="sub">Estimated home price you could target</div><div class="big" id="a_price">&mdash;</div><div class="rrow"><span>Max loan amount</span><b id="a_loan">&mdash;</b></div><div class="rrow"><span>Monthly housing budget</span><b id="a_budget">&mdash;</b></div><div class="rrow"><span>Est. P&amp;I + taxes + ins</span><b id="a_pmt">&mdash;</b></div><div class="rrow"><span></span><b><a href="/#contact" style="color:#82C341">Get a real pre-approval &rarr;</a></b></div></div>
       </div>
     </div>
-    <p class="note">Estimates only — not a commitment to lend, a rate quote, or financial advice. Actual figures depend on your rate, program, taxes, insurance, and approval.</p>
+    <p class="note">Estimates only &mdash; not a commitment to lend, a rate quote, or financial advice. Actual figures depend on your rate, program, taxes, insurance, and approval. Affordability assumes roughly 1.8% of price in property taxes and $1,400/yr insurance.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px">
+      <a href="/#contact" class="btn btn-lime">Send Ethan your numbers &rarr;</a>
+      <a href="/tools/mortgage-calculator/" class="btn btn-ghost">Open the full calculator</a>
+    </div>
   </section>
 
   <section id="download">
@@ -272,7 +240,7 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
       <p class="eyebrow" style="color:var(--brass-lt);justify-content:center">The next step</p>
       <h2>Ready for numbers specific to you?</h2>
       <p>A calculator works with assumptions. I'll build you a real payment scenario with current rates, true costs, and the program that fits how you're buying.</p>
-      <div class="row"><a href="https://calendly.com/ethan-brooks/15min" class="btn btn-lime">Book a 15-minute call</a><a href="https://mtgpro.co/dr/c/nroce" class="btn btn-ghost">Start your application</a></div>
+      <div class="row"><a href="/#contact" class="btn btn-lime">Send Ethan a message</a><a href="https://calendly.com/ethan-brooks/15min" class="btn btn-ghost">Book a 15-minute call</a><a href="https://mtgpro.co/dr/c/nroce" class="btn btn-ghost">Start your application</a></div>
     </div>
   </section>
 </div>
@@ -284,8 +252,8 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
       <p>Ethan Brooks Mortgage Team · NMLS #1639987. A local Wisconsin advisor helping families make confident, well-planned mortgage decisions.</p>
       <div class="socials"><a href="https://www.facebook.com/ethan.t.brooks.mortgage/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg></a><a href="https://www.instagram.com/ethan.t.brooks/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM17.5 7a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM12 4.5c2.4 0 2.7 0 3.6.05 2.5.1 3.7 1.3 3.8 3.8.04.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.1 2.5-1.3 3.7-3.8 3.8-.9.04-1.2.05-3.6.05s-2.7 0-3.6-.05c-2.5-.1-3.7-1.3-3.8-3.8C4.5 14.7 4.5 14.4 4.5 12s0-2.7.05-3.6c.1-2.5 1.3-3.7 3.8-3.8C9.3 4.5 9.6 4.5 12 4.5z"/></svg></a><a href="https://www.linkedin.com/in/ethantbrooks/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zM10 9.5h2.9v1.3h.04c.4-.75 1.4-1.55 2.86-1.55 3 0 3.7 2 3.7 4.6V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V19h-3z"/></svg></a></div>
     </div>
-    <div class="foot-col"><h4>Get in Touch</h4><a href="tel:4144880438">414·488·0438</a><a href="mailto:ethan@trustrefined.com">ethan@trustrefined.com</a><a href="https://calendly.com/ethan-brooks/15min">Schedule a call</a><a href="https://mtgpro.co/dr/c/nroce">Apply now</a><p style="margin-top:10px">11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</p></div>
-    <div class="foot-col"><h4>Explore</h4><a href="/resources/">Resources</a><a href="/homebuyer-faq/">Homebuyer FAQ</a><a href="/homebuyer-survival-guide/">2026 Housing Guide</a><a href="/tools/investment-calculator/">Investment Calculator</a><a href="/why-refined/">Why work with RMG</a><a href="/blog/">Blog</a></div>
+    <div class="foot-col"><h4>Get in Touch</h4><a href="tel:4144880438">414·488·0438</a><a href="mailto:ethan@trustrefined.com">ethan@trustrefined.com</a><a href="/#contact">Send a message</a><a href="https://calendly.com/ethan-brooks/15min">Schedule a call</a><a href="https://mtgpro.co/dr/c/nroce">Apply now</a><p style="margin-top:10px">11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</p></div>
+    <div class="foot-col"><h4>Explore</h4><a href="/resources/">Resources</a><a href="/tools/mortgage-calculator/">Mortgage Calculator</a><a href="/homebuyer-faq/">Homebuyer FAQ</a><a href="/homebuyer-survival-guide/">2026 Housing Guide</a><a href="/tools/investment-calculator/">Investment Calculator</a><a href="/why-refined/">Why work with RMG</a><a href="/blog/">Blog</a></div>
   </div>
   <div class="compliance"><div class="badges"><div class="nmls">NMLS<br>#2289</div><div class="eho">EQUAL<br>HOUSING<br>OPP.</div></div><div class="legal">This information is not intended to be an indication of loan qualification, loan approval or commitment to lend. This is not an offer to enter into an agreement. Not all customers will qualify. Information, rates and programs are subject to change without notice. All products are subject to credit and property approval. Other restrictions and limitations may apply. © 2026 Fairway Home Mortgage NMLS ID #2289. Equal Housing Opportunity.</div></div>
   <div class="foot-bottom"><span>© <span id="yr"></span> Ethan Brooks · Refined Mortgage Group. NMLS #1639987.</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></span></div>
@@ -294,27 +262,10 @@ footer{background:var(--ink);color:rgba(248,244,237,.62);padding:54px 0 30px;mar
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 // accordion: single-open per section is natural with <details>; leave as-is
-// tabs
-document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
-  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));
-  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));
-  t.classList.add('on');document.getElementById(t.dataset.tab).classList.add('on');
-}));
 const $=id=>document.getElementById(id);
 const num=id=>parseFloat($(id).value)||0;
 const usd=n=>'$'+Math.round(n).toLocaleString();
 function pi(P,annual,years){const r=annual/100/12,n=years*12;if(r===0)return P/n;return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);}
-function amortize(P,annual,baseMonthly,extra,extraAnnual){
-  const r=annual/100/12;let bal=P,months=0,interest=0;
-  while(bal>0.01&&months<1200){let i=bal*r;let pay=baseMonthly+extra;if(extraAnnual&&months%12===11)pay+=baseMonthly;
-    let principal=pay-i;if(principal>bal)principal=bal;bal-=principal;interest+=i;months++;}
-  return{months,interest};
-}
-// Monthly payment
-function calcPay(){const price=num('p_price'),dp=num('p_down'),rate=num('p_rate'),term=parseFloat($('p_term').value),tax=num('p_tax'),ins=num('p_ins');
-  const loan=price*(1-dp/100);const PI=pi(loan,rate,term);const pmi=dp<20?loan*0.006/12:0;
-  const total=PI+tax/12+ins/12+pmi;
-  $('pay_total').textContent=usd(total)+'/mo';$('pay_pi').textContent=usd(PI);$('pay_t').textContent=usd(tax/12);$('pay_i').textContent=usd(ins/12);$('pay_pmi').textContent=pmi?usd(pmi):'$0';$('pay_loan').textContent=usd(loan);}
 // Affordability (binary search on price)
 function calcAfford(){const inc=num('a_income'),debt=num('a_debt'),down=num('a_down'),rate=num('a_rate'),term=parseFloat($('a_term').value),dti=num('a_dti');
   const budget=Math.max(0,inc*dti/100-debt);
@@ -322,19 +273,8 @@ function calcAfford(){const inc=num('a_income'),debt=num('a_debt'),down=num('a_d
   for(let k=0;k<40;k++){price=(lo+hi)/2;const loan=Math.max(0,price-down);const pay=pi(loan,rate,term)+price*0.018/12+1400/12;if(pay>budget)hi=price;else lo=price;}
   const loan=Math.max(0,price-down);const pay=pi(loan,rate,term)+price*0.018/12+1400/12;
   $('a_price').textContent=usd(price);$('a_loan').textContent=usd(loan);$('a_budget').textContent=usd(budget)+'/mo';$('a_pmt').textContent=usd(pay)+'/mo';}
-// Prepayment
-function calcPrepay(){const loan=num('pp_loan'),rate=num('pp_rate'),term=parseFloat($('pp_term').value),extra=num('pp_extra');
-  const base=pi(loan,rate,term);const b=amortize(loan,rate,base,0,false);const w=amortize(loan,rate,base,extra,false);
-  const saved=b.interest-w.interest;const monthsSaved=b.months-w.months;
-  $('pp_save').textContent=usd(saved);$('pp_time').textContent=(Math.floor(monthsSaved/12))+' yr '+(monthsSaved%12)+' mo';$('pp_new').textContent=(Math.floor(w.months/12))+' yr '+(w.months%12)+' mo';$('pp_pay').textContent=usd(base+extra)+'/mo';}
-// Biweekly (one extra full payment per year)
-function calcBi(){const loan=num('bw_loan'),rate=num('bw_rate'),term=parseFloat($('bw_term').value);
-  const base=pi(loan,rate,term);const b=amortize(loan,rate,base,0,false);const w=amortize(loan,rate,base,0,true);
-  const saved=b.interest-w.interest;const monthsSaved=b.months-w.months;
-  $('bw_save').textContent=usd(saved);$('bw_pay').textContent=usd(base/2)+'/2 wks';$('bw_time').textContent=(Math.floor(monthsSaved/12))+' yr '+(monthsSaved%12)+' mo';$('bw_new').textContent=(Math.floor(w.months/12))+' yr '+(w.months%12)+' mo';}
-function recalcAll(){calcPay();calcAfford();calcPrepay();calcBi();}
-document.querySelectorAll('#calculators input,#calculators select').forEach(el=>el.addEventListener('input',recalcAll));
-recalcAll();
+document.querySelectorAll('#afford input,#afford select').forEach(el=>el.addEventListener('input',calcAfford));
+calcAfford();
 // gated download
 document.getElementById('gateForm').addEventListener('submit',function(e){e.preventDefault();
   if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
@@ -345,5 +285,6 @@ document.getElementById('gateForm').addEventListener('submit',function(e){e.prev
 });
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="/styles/rmg-calc.js" defer></script>
 </body>
 </html>
