@@ -20,7 +20,7 @@
 <meta name="twitter:title" content="Ethan Brooks — Wisconsin Mortgage Advisor | Refined Mortgage Group">
 <meta name="twitter:description" content="Work with Ethan Brooks, a Wisconsin mortgage advisor with 450+ five-star reviews who closes on time — or early. First-time buyers welcome.">
 <meta name="twitter:image" content="https://www.ethanbrooks.mortgage/og-image.jpg">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":["MortgageBroker","LocalBusiness"],"name":"Refined Mortgage Group \u2014 Ethan Brooks Mortgage Team","image":"https://www.ethanbrooks.mortgage/og-image.jpg","url":"https://www.ethanbrooks.mortgage","telephone":"+1-414-488-0438","email":"ethan@trustrefined.com","address":{"@type":"PostalAddress","streetAddress":"11220 W Burleigh St., Unit 159","addressLocality":"Wauwatosa","addressRegion":"WI","postalCode":"53222","addressCountry":"US"},"areaServed":{"@type":"State","name":"Wisconsin"},"founder":{"@type":"Person","name":"Ethan Brooks","jobTitle":"Mortgage Advisor & Branch Manager","identifier":"NMLS #1639987"},"parentOrganization":{"@type":"Organization","name":"Fairway Home Mortgage","identifier":"NMLS #2289"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"450"},"priceRange":"$$"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["MortgageBroker","LocalBusiness"],"name":"Refined Mortgage Group — Ethan Brooks Mortgage Team","image":"https://www.ethanbrooks.mortgage/og-image.jpg","url":"https://www.ethanbrooks.mortgage","telephone":"+1-414-488-0438","email":"ethan@trustrefined.com","address":{"@type":"PostalAddress","streetAddress":"11220 W Burleigh St., Unit 159","addressLocality":"Wauwatosa","addressRegion":"WI","postalCode":"53222","addressCountry":"US"},"areaServed":{"@type":"State","name":"Wisconsin"},"founder":{"@type":"Person","name":"Ethan Brooks","jobTitle":"Mortgage Advisor & Branch Manager","identifier":"NMLS #1639987"},"parentOrganization":{"@type":"Organization","name":"Fairway Home Mortgage","identifier":"NMLS #2289"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"450"},"priceRange":"$$"}</script>
 <!--/SEO-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -356,6 +356,7 @@
   .logo-mark{width:38px;height:38px;border-radius:9px;display:block;flex:none;object-fit:contain;box-shadow:0 2px 8px -3px rgba(5,58,42,.5)}
   .bar .logo-mark,.bar-in .logo-mark{width:34px;height:34px}
 </style>
+<link rel="stylesheet" href="/styles/rmg-calc.css">
 </head>
 <body>
 
@@ -389,6 +390,7 @@
   <button class="mclose" id="mclose">&times;</button>
   <a href="about.html">About</a>
   <a href="#modules">Learn</a>
+  <a href="#calculator">Calculator</a>
   <a href="#reviews">Reviews</a>
   <a href="team.html">Meet the Team</a>
   <a href="blog/">Blog</a>
@@ -414,6 +416,7 @@
           <a href="https://mtgpro.co/dr/c/nroce" class="btn btn-ghost">Start Your Application</a>
           <a href="https://www.youtube.com/embed/MmnLW0mPz48" target="_blank" rel="noopener" class="play-link"><span class="pc"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span> Watch my story</a>
         </div>
+        <p class="reveal" style="margin-top:14px;font-size:.94rem;color:var(--moss)">Not ready to book? <a href="#contact" style="color:var(--forest);font-weight:600;text-decoration:underline;text-underline-offset:3px">Send me a message</a> &mdash; I answer personally, usually the same business day.</p>
         <div class="trust-row reveal">
           <div class="stars" aria-label="5 out of 5 stars">
             <svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .6-5.3 4.6 1.6 6.8L12 17.5 5.7 20.5l1.6-6.8L2 9.1l7-.6z"/></svg>
@@ -561,6 +564,21 @@
   </div>
 </section>
 
+<!-- CALCULATOR -->
+<section class="sec" id="calculator">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Run Your Numbers</span>
+      <h2>What would the payment actually be?</h2>
+      <p>Start with the basics. Then switch on the moves most buyers never hear about &mdash; extra principal, biweekly payments, a recast, PMI dropping off &mdash; and see what each one is worth over the life of the loan.</p>
+    </div>
+    <div data-rmg-calc data-contact="#contact"></div>
+    <p style="text-align:center;margin-top:22px">
+      <a href="/tools/mortgage-calculator/" style="color:var(--forest);font-weight:600">Open the full calculator page &rarr;</a>
+    </p>
+  </div>
+</section>
+
 <!-- REVIEWS -->
 <section class="sec reviews" id="reviews">
   <div class="wrap">
@@ -608,7 +626,8 @@
     <h2>Happy owner, happy loaner.</h2>
     <p>Let's have a real conversation about your goals — no pressure, no jargon. Just a Wisconsin advisor you can trust, in your corner.</p>
     <div class="cta-actions">
-      <a href="https://calendly.com/ethan-brooks/15min" class="btn btn-brass">Schedule a Consultation</a>
+      <a href="#contact" class="btn btn-brass">Send Me a Message</a>
+      <a href="https://calendly.com/ethan-brooks/15min" class="btn btn-ghost">Schedule a Consultation</a>
       <a href="https://mtgpro.co/dr/c/nroce" class="btn btn-ghost">Apply Now</a>
     </div>
   </div>
@@ -640,6 +659,9 @@
             <div class="field"><label for="ph">Mobile phone</label><input id="ph" type="tel" name="phone" required></div>
             <div class="field"><label for="msg">How can I help?</label><textarea id="msg" name="message" placeholder="I'm a first-time buyer hoping to..."></textarea></div>
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+            <input type="text" name="company_url_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
+            <input type="hidden" name="_subject" value="New message from ethanbrooks.mortgage">
+            <input type="hidden" name="form_started" id="formStarted" value="">
             <div class="consent">
               <input type="checkbox" id="smsConsent" name="sms_consent" value="yes">
               <label for="smsConsent">By checking this box, you agree to receive appointment, promotional, and business-related texts from Fairway Home Mortgage at the phone number provided. Consent is not a condition of purchase. Message frequency will vary. Message and data rates may apply. Reply STOP to unsubscribe. View our <a href="terms.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a>.</label>
@@ -693,6 +715,7 @@
         <h4>Get in Touch</h4>
         <a href="tel:4144880438">414·488·0438</a>
         <a href="mailto:ethan@trustrefined.com">ethan@trustrefined.com</a>
+        <a href="#contact">Send a message</a>
         <a href="https://calendly.com/ethan-brooks/15min">Schedule a call</a>
         <a href="https://mtgpro.co/dr/c/nroce">Apply now</a>
         <p style="margin-top:10px">11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</p>
@@ -700,6 +723,8 @@
       </div>
       <div class="foot-col">
         <h4>Explore</h4>
+        <a href="/resources/">Resources</a>
+        <a href="/tools/mortgage-calculator/">Mortgage Calculator</a>
         <a href="about.html">About Ethan</a>
         <a href="#modules">Educational Modules</a>
         <a href="team.html">Meet the Team</a>
@@ -769,6 +794,12 @@
       // validate required fields first
       var req=f.querySelectorAll('[required]');
       for(var i=0;i<req.length;i++){if(!req[i].value.trim()){req[i].reportValidity&&req[i].reportValidity();req[i].focus();return;}}
+      // silent spam traps: a bot that fills a hidden field, or submits within
+      // 4 seconds of the page loading, is dropped without an error it can learn from
+      var hp=f.querySelector('[name="company_url_hp"]'), gt=f.querySelector('[name="_gotcha"]');
+      if((hp&&hp.value)||(gt&&gt.value)){document.getElementById('formFields').style.display='none';document.getElementById('formSuccess').classList.add('show');return;}
+      var started=parseInt((document.getElementById('formStarted')||{}).value,10)||0;
+      if(started&&(Date.now()-started)<4000){document.getElementById('formFields').style.display='none';document.getElementById('formSuccess').classList.add('show');return;}
       if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
       var btn=f.querySelector('button[type="submit"]');
       if(btn){btn.disabled=true;btn.textContent='Sending…';}
@@ -793,6 +824,21 @@
           if(typeof grecaptcha!=='undefined'){grecaptcha.reset();}if(btn){btn.disabled=false;btn.textContent='Send Message';}
         });
     });
+
+    // stamp the load time (spam trap) and prefill from a calculator scenario
+    var stamp=document.getElementById('formStarted');
+    if(stamp)stamp.value=Date.now();
+    try{
+      var sc=new URLSearchParams(window.location.search).get('scenario');
+      if(sc){
+        var msg=document.getElementById('msg');
+        if(msg){msg.value=sc;msg.setAttribute('rows','9');}
+        setTimeout(function(){
+          var el=document.getElementById('contact');
+          if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+        },220);
+      }
+    }catch(err){}
   })();
 
   /* ---- Live Google Reviews (optional, auto-updates) ----
@@ -829,5 +875,6 @@
 </script>
 <!-- Featurable Google reviews loader -->
 <script src="https://featurable.com/assets/bundle.js" defer charset="UTF-8"></script>
+<script src="/styles/rmg-calc.js" defer></script>
 </body>
 </html>
