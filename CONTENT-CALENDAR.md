@@ -37,6 +37,7 @@ non-duplicative topic targeting a real buyer question.
 | 28 | ✅ Published | Condo financing in Wisconsin: warrantable vs. non-warrantable explained | "condo mortgage wisconsin", "warrantable condo" | Buying Strategy |
 | 29 | ✅ Published | What credit score do you need to buy a house in Wisconsin? | "what credit score do i need to buy a house wisconsin", "minimum credit score for mortgage" | Credit & Qualifying |
 | 30 | ✅ Published | Buying a home in Wisconsin this fall: why less competition works in your favor | "fall home buying wisconsin", "buying a house in the fall" | Buying Strategy |
+| 31 | ✅ Published | How long does it take to close on a house in Wisconsin — and can you close before the holidays? | "how long does it take to close on a house wisconsin", "close before the holidays" | Buying Strategy |
 
 ## Cadence notes
 - ~700–1,000 words. Plain-English, candid, advisor voice — never salesy or hypey.
