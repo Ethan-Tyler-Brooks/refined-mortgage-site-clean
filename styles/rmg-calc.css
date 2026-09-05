@@ -43,6 +43,14 @@
 .rmgc-in span{padding:0 11px;color:var(--c-moss);font-weight:600;font-size:.88rem;flex:none}
 .rmgc-in input,.rmgc-in select{flex:1;min-width:0;width:100%;border:0;padding:11px 12px;font-family:var(--c-sans);font-size:1rem;color:var(--c-ink);background:transparent;outline:none;font-variant-numeric:tabular-nums}
 .rmgc-in select{cursor:pointer;-webkit-appearance:none;appearance:none}
+.rmgc-in select:disabled{color:var(--c-moss);cursor:not-allowed;background:transparent}
+.rmgc-warn{font-size:.76rem;color:#9a6b12;margin-top:5px}
+.rmgc-warn[hidden]{display:none}
+
+/* ---- inline checkbox rows (product panels) ---- */
+.rmgc label.rmgc-check{display:flex;align-items:flex-start;gap:9px;font-size:.84rem;font-weight:500;color:#56655c;margin:12px 0 0;cursor:pointer}
+.rmgc-check input{margin:2px 0 0;flex:none;width:15px;height:15px;accent-color:var(--c-forest);cursor:pointer}
+.rmgc-check span{display:block}
 
 /* ---- option chips ---- */
 .rmgc-opts{margin-top:24px;padding-top:20px;border-top:1px dashed var(--c-line)}
@@ -57,12 +65,17 @@
 .rmgc-chip[aria-pressed="true"] .rmgc-tick{background:var(--c-lime);border-color:var(--c-lime)}
 .rmgc-chip[aria-pressed="true"] .rmgc-tick::after{transform:rotate(-45deg) scale(1)}
 .rmgc-chip:focus-visible{outline:2px solid var(--c-forest);outline-offset:2px}
+.rmgc-chip[hidden]{display:none}
 
 /* ---- option panels ---- */
 .rmgc-opt{display:none;margin-top:16px;background:var(--c-cream);border:1px solid var(--c-line);border-radius:14px;padding:4px 18px 18px}
 .rmgc-opt.on{display:block}
 .rmgc-opt h4{font-size:1rem;margin-top:16px;color:var(--c-forest)}
 .rmgc-opt p.rmgc-why{font-size:.84rem;color:#56655c;margin:5px 0 0}
+
+/* ---- loan program panels (same shell as the option panels) ---- */
+.rmgc-prodpanel{display:none}
+.rmgc-prodpanel.on{display:block}
 
 /* ---- result panel ---- */
 .rmgc-result{background:linear-gradient(160deg,var(--c-forest-2),var(--c-ink));border-radius:18px;padding:24px;color:#fff;position:sticky;top:88px}
@@ -72,6 +85,8 @@
 .rmgc-rrow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.13);font-size:.9rem;color:rgba(255,255,255,.8)}
 .rmgc-rrow b{color:#fff;font-weight:600;font-variant-numeric:tabular-nums;text-align:right}
 .rmgc-rrow.rmgc-muted b{color:rgba(255,255,255,.55);font-weight:500}
+.rmgc-minote{display:block;font-size:.74rem;color:rgba(255,255,255,.55);margin-top:1px}
+.rmgc-minote[hidden]{display:none}
 .rmgc-rrow:last-child{border-bottom:none}
 .rmgc-savings{display:none;margin-top:18px;padding-top:16px;border-top:2px solid var(--c-lime)}
 .rmgc-savings.on{display:block}
