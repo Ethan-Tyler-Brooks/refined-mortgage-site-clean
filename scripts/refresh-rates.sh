@@ -12,7 +12,7 @@
 #
 # WHEDA has no public series, so the scheduled task looks it up and
 # passes it in:
-#   WHEDA_RATE=6.375 WHEDA_STD=7.75 WHEDA_ASOF=2026-09-06
+#   WHEDA_RATE=6.375 WHEDA_ASOF=2026-09-06   (first-time homebuyer rate only)
 # If those are unset the previous WHEDA entry is kept as is.
 #
 # `overrides` and `adjustment` in the existing file are preserved.
@@ -112,8 +112,8 @@ for prog, (series_id, source) in SOURCES.items():
 
 # WHEDA: supplied by the caller, otherwise left exactly as it was.
 w = programs.get("wheda", {})
-wr, ws, wa = (os.environ.get(k, "").strip()
-              for k in ("WHEDA_RATE", "WHEDA_STD", "WHEDA_ASOF"))
+wr, wa = (os.environ.get(k, "").strip()
+          for k in ("WHEDA_RATE", "WHEDA_ASOF"))
 if wr:
     try:
         v = float(wr)
@@ -126,11 +126,7 @@ if wr:
             w["metric"] = round(v, 3)
             if wa:
                 w["asOf"] = wa
-            if ws:
-                try:
-                    w.setdefault("alt", {})["standard30"] = round(float(ws), 3)
-                except ValueError:
-                    pass
+            w.pop("alt", None)
     except ValueError:
         print("KEPT wheda (unparseable WHEDA_RATE)")
 if w:
