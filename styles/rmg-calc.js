@@ -207,8 +207,7 @@
         '</select></div></div>' +
         field('rmgc_price', 'Home price', '$', '', '350000', 'min="0" step="1000"') +
         field('rmgc_down', 'Down payment', '', '%', '10', 'min="0" max="100" step="0.5"', '<div class="rmgc-warn" id="rmgc_downwarn" hidden></div>') +
-        field('rmgc_rate', 'Interest rate', '', '%', '6.5', 'min="0" max="25" step="0.01"',
-          '<div class="rmgc-ratehint" id="rmgc_ratehint" hidden><span id="rmgc_ratehinttxt"></span></div>') +
+        field('rmgc_rate', 'Interest rate', '', '%', '6.5', 'min="0" max="25" step="0.01"') +
         '<div class="rmgc-field"><label for="rmgc_term">Loan term</label><div class="rmgc-in"><select id="rmgc_term"><option value="360">30 years</option><option value="240">20 years</option><option value="180">15 years</option><option value="120">10 years</option></select></div><div class="rmgc-warn" id="rmgc_termwarn" hidden></div></div>' +
         field('rmgc_tax', 'Property taxes <span class="rmgc-hint">/ yr</span>', '$', '', '6300', 'min="0" step="100"') +
         field('rmgc_ins', 'Home insurance <span class="rmgc-hint">/ yr</span>', '$', '', '1400', 'min="0" step="50"') +
@@ -531,26 +530,10 @@
     function applyRateDefault() {
       rateInfo = programRateInfo($('rmgc_prod').value);
       if (!rateTouched && rateInfo.live) $('rmgc_rate').value = rateInfo.rate.toFixed(2);
-      updateRateHint();
-    }
-
-    function updateRateHint() {
-      var hint = $('rmgc_ratehint');
-      if (!hint) return;
-      if (!rateInfo.live) { hint.hidden = true; return; }
-      hint.hidden = false;
-      if (rateTouched) {
-        $('rmgc_ratehinttxt').textContent = 'Your rate';
-      } else {
-        var P = PRODUCTS[$('rmgc_prod').value] || PRODUCTS.conv;
-        var d = shortDate(rateInfo.asOf);
-        $('rmgc_ratehinttxt').textContent = 'Est. market rate for ' + P.label + (d ? ' · as of ' + d : '');
-      }
     }
 
     $('rmgc_rate').addEventListener('input', function () {
       rateTouched = true;
-      updateRateHint();
     });
 
     $('rmgc_prod').addEventListener('change', function () {
@@ -707,10 +690,6 @@
       }
 
       // prefill the contact form with this scenario
-      updateRateHint();
-      var rateSource = '';
-      if (rateTouched) rateSource = ' (your rate)';
-      else if (rateInfo.live) rateSource = ' (est. market rate' + (shortDate(rateInfo.asOf) ? ' as of ' + shortDate(rateInfo.asOf) : '') + ')';
       var progLine = '• Program: ' + P.label;
       if (fee > 0) progLine += ' (' + feeName + ' ' + money(fee) + ', ' + (financed ? 'financed' : 'paid at closing') + ')';
       if (prod === 'va' && feeRate === 0) progLine += ' (funding fee exempt)';
@@ -720,7 +699,7 @@
         '• Down payment: ' + downPct + '% (' + money(price - baseLoan) + ')\n' +
         '• Loan amount: ' + money(loan) + '\n' +
         (dpa > 0 ? '• WHEDA Easy Close DPA: ' + money(dpa) + ' (' + money(dpaPay) + '/mo, 10-yr second)\n' : '') +
-        '• Rate used: ' + rate + '%' + rateSource + ' · ' + (term / 12) + '-year\n' +
+        '• Rate used: ' + rate + '% · ' + (term / 12) + '-year\n' +
         '• Estimated payment: ' + money(total) + '/mo\n' +
         (hasOpts ? '• Options: ' + Object.keys(opts).filter(function (k) { return opts[k] && k !== 'chart' && k !== 'amort'; }).join(', ') + '\n' : '') +
         '\nWhat would this actually look like for me?';

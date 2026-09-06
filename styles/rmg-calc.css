@@ -47,10 +47,6 @@
 .rmgc-warn{font-size:.76rem;color:#9a6b12;margin-top:5px}
 .rmgc-warn[hidden]{display:none}
 
-/* ---- live rate hint (same shape as .rmgc-warn, moss green) ---- */
-.rmgc-ratehint{font-size:.74rem;color:var(--c-moss);margin-top:5px;line-height:1.5}
-.rmgc-ratehint[hidden]{display:none}
-
 /* ---- inline checkbox rows (product panels) ---- */
 .rmgc label.rmgc-check{display:flex;align-items:flex-start;gap:9px;font-size:.84rem;font-weight:500;color:#56655c;margin:12px 0 0;cursor:pointer}
 .rmgc-check input{margin:2px 0 0;flex:none;width:15px;height:15px;accent-color:var(--c-forest);cursor:pointer}
