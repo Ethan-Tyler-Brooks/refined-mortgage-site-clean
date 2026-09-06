@@ -40,3 +40,10 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Live default rates for the calculator — refreshed on weekdays, so keep the
+# cache short enough that an update lands the same day.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=1800, must-revalidate"
