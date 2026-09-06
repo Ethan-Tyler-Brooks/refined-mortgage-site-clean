@@ -208,8 +208,7 @@
         field('rmgc_price', 'Home price', '$', '', '350000', 'min="0" step="1000"') +
         field('rmgc_down', 'Down payment', '', '%', '10', 'min="0" max="100" step="0.5"', '<div class="rmgc-warn" id="rmgc_downwarn" hidden></div>') +
         field('rmgc_rate', 'Interest rate', '', '%', '6.5', 'min="0" max="25" step="0.01"',
-          '<div class="rmgc-ratehint" id="rmgc_ratehint" hidden><span id="rmgc_ratehinttxt"></span> <button type="button" class="rmgc-link" id="rmgc_ratewhy" aria-expanded="false">why?</button>' +
-          '<div class="rmgc-ratewhy" id="rmgc_ratewhytxt" hidden>Starting point only: the national average rate for this program (Optimal Blue index via FRED; WHEDA from a published Wisconsin lender rate) less 0.25%. Not a quote &mdash; your rate depends on credit, down payment, and lock date.</div></div>') +
+          '<div class="rmgc-ratehint" id="rmgc_ratehint" hidden><span id="rmgc_ratehinttxt"></span></div>') +
         '<div class="rmgc-field"><label for="rmgc_term">Loan term</label><div class="rmgc-in"><select id="rmgc_term"><option value="360">30 years</option><option value="240">20 years</option><option value="180">15 years</option><option value="120">10 years</option></select></div><div class="rmgc-warn" id="rmgc_termwarn" hidden></div></div>' +
         field('rmgc_tax', 'Property taxes <span class="rmgc-hint">/ yr</span>', '$', '', '6300', 'min="0" step="100"') +
         field('rmgc_ins', 'Home insurance <span class="rmgc-hint">/ yr</span>', '$', '', '1400', 'min="0" step="50"') +
@@ -334,7 +333,7 @@
   '</div>' +
 
   '<div class="rmgc-foot">' +
-    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Default rates are estimated from published national averages for each program, less 0.25%, and are not an offer or a quote. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
+    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
     '<div class="rmgc-actions">' +
       '<a class="rmgc-btn rmgc-btn-lime" href="' + contact + '">Send Ethan my scenario &rarr;</a>' +
       '<a class="rmgc-btn rmgc-btn-ghost" href="https://mtgpro.co/dr/c/nroce">Start your application</a>' +
@@ -540,25 +539,14 @@
       if (!hint) return;
       if (!rateInfo.live) { hint.hidden = true; return; }
       hint.hidden = false;
-      var why = $('rmgc_ratewhy');
       if (rateTouched) {
         $('rmgc_ratehinttxt').textContent = 'Your rate';
-        if (why) why.hidden = true;
-        $('rmgc_ratewhytxt').hidden = true;
-        if (why) why.setAttribute('aria-expanded', 'false');
       } else {
         var P = PRODUCTS[$('rmgc_prod').value] || PRODUCTS.conv;
         var d = shortDate(rateInfo.asOf);
         $('rmgc_ratehinttxt').textContent = 'Est. market rate for ' + P.label + (d ? ' · as of ' + d : '');
-        if (why) why.hidden = false;
       }
     }
-
-    $('rmgc_ratewhy').addEventListener('click', function () {
-      var box = $('rmgc_ratewhytxt');
-      box.hidden = !box.hidden;
-      $('rmgc_ratewhy').setAttribute('aria-expanded', box.hidden ? 'false' : 'true');
-    });
 
     $('rmgc_rate').addEventListener('input', function () {
       rateTouched = true;
