@@ -207,7 +207,9 @@
         '</select></div></div>' +
         field('rmgc_price', 'Home price', '$', '', '350000', 'min="0" step="1000"') +
         field('rmgc_down', 'Down payment', '', '%', '10', 'min="0" max="100" step="0.5"', '<div class="rmgc-warn" id="rmgc_downwarn" hidden></div>') +
-        field('rmgc_rate', 'Interest rate', '', '%', '6.5', 'min="0" max="25" step="0.01"') +
+        field('rmgc_rate', 'Interest rate', '', '%', '6.5', 'min="0" max="25" step="0.01"',
+          '<div class="rmgc-ratehint" id="rmgc_ratehint" hidden><span id="rmgc_ratehinttxt"></span> <button type="button" class="rmgc-link" id="rmgc_ratewhy" aria-expanded="false">why?</button>' +
+          '<div class="rmgc-ratewhy" id="rmgc_ratewhytxt" hidden>Starting point only: the national average rate for this program (Optimal Blue index via FRED; WHEDA from a published Wisconsin lender rate) less 0.25%. Not a quote &mdash; your rate depends on credit, down payment, and lock date.</div></div>') +
         '<div class="rmgc-field"><label for="rmgc_term">Loan term</label><div class="rmgc-in"><select id="rmgc_term"><option value="360">30 years</option><option value="240">20 years</option><option value="180">15 years</option><option value="120">10 years</option></select></div><div class="rmgc-warn" id="rmgc_termwarn" hidden></div></div>' +
         field('rmgc_tax', 'Property taxes <span class="rmgc-hint">/ yr</span>', '$', '', '6300', 'min="0" step="100"') +
         field('rmgc_ins', 'Home insurance <span class="rmgc-hint">/ yr</span>', '$', '', '1400', 'min="0" step="50"') +
@@ -240,7 +242,7 @@
 
         '<div class="rmgc-opt rmgc-prodpanel" data-prod="wheda">' +
           '<h4>WHEDA Advantage Conventional</h4>' +
-          '<p class="rmgc-why">Wisconsin\'s housing authority. A 30-year conventional loan with income limits, a 620 minimum score, and &mdash; if your household is at or below 80% of area median income &mdash; noticeably cheaper mortgage insurance. Pair it with Easy Close down payment assistance (up to 6% of the price, repaid as a 10-year second mortgage) or Capital Access ($7,500 at 0% with no monthly payment). First-time buyers complete a homebuyer education course.</p>' +
+          '<p class="rmgc-why">Wisconsin\'s housing authority. A 30-year conventional loan with income limits, a 620 minimum score, and &mdash; if your household is at or below 80% of area median income &mdash; noticeably cheaper mortgage insurance. Pair it with Easy Close down payment assistance (up to 6% of the price, repaid as a 10-year second mortgage). First-time buyers complete a homebuyer education course.</p>' +
           check('rmgc_wheda_ami', 'Household income at or below 80% of area median (reduced-coverage MI)', false) +
           '<div class="rmgc-grid">' +
             field('rmgc_wheda_dpa', 'Easy Close DPA amount <span class="rmgc-hint">up to 6% of price, min $1,000</span>', '$', '', '0', 'min="0" step="500"', '<div class="rmgc-warn" id="rmgc_dpawarn" hidden></div>') +
@@ -332,7 +334,7 @@
   '</div>' +
 
   '<div class="rmgc-foot">' +
-    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
+    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Default rates are estimated from published national averages for each program, less 0.25%, and are not an offer or a quote. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
     '<div class="rmgc-actions">' +
       '<a class="rmgc-btn rmgc-btn-lime" href="' + contact + '">Send Ethan my scenario &rarr;</a>' +
       '<a class="rmgc-btn rmgc-btn-ghost" href="https://mtgpro.co/dr/c/nroce">Start your application</a>' +
@@ -390,6 +392,83 @@
     wheda: { label: 'WHEDA',        down: 3,   minDown: 0,   fixedTerm: 360,  miLabel: 'Est. mortgage insurance', cancellable: true }
   };
 
+  /* ---------- live default rates ----------
+     A small JSON file, refreshed on weekdays, holds the published market
+     average for each program. The default rate in the field is that metric
+     plus a site-wide adjustment. Every step is guarded: if the file is
+     missing, unparseable, or out of range we quietly keep 6.5%.            */
+  var RATES_URL = '/data/rates.json';
+  var FALLBACK_RATE = 6.5;
+  var RATE_KEY = { conv: 'conventional', fha: 'fha', va: 'va', usda: 'usda', wheda: 'wheda' };
+  var STALE_DAYS = 21;
+  var liveRates = null;          // shared by every instance on the page
+  var ratesRequested = false;
+  var rateListeners = [];
+
+  function isNum(v) { return typeof v === 'number' && isFinite(v); }
+  function round3(n) { return Math.round(n * 1000) / 1000; }
+
+  // "2026-09-03" -> "Sep 3". Parsed by hand so the local timezone cannot
+  // shift the date backwards a day.
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function shortDate(iso) {
+    if (typeof iso !== 'string') return '';
+    var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso);
+    if (!m) return '';
+    var mo = parseInt(m[2], 10);
+    if (!(mo >= 1 && mo <= 12)) return '';
+    return MONTHS[mo - 1] + ' ' + parseInt(m[3], 10);
+  }
+  function daysOld(iso) {
+    if (typeof iso !== 'string') return null;
+    var t = Date.parse(iso);
+    if (!isFinite(t)) return null;
+    return (Date.now() - t) / 86400000;
+  }
+
+  /**
+   * Everything the rate field and its hint need for one program.
+   * Returns { rate, live, asOf, stale }. `data` defaults to the fetched file.
+   */
+  function programRateInfo(prod, data) {
+    var d = (data === undefined) ? liveRates : data;
+    var out = { rate: FALLBACK_RATE, live: false, asOf: '', stale: false };
+    if (!d || typeof d !== 'object') return out;
+    var key = RATE_KEY[prod] || prod;
+    var programs = d.programs && typeof d.programs === 'object' ? d.programs : {};
+    var p = programs[key] && typeof programs[key] === 'object' ? programs[key] : null;
+    var asOf = p && typeof p.asOf === 'string' ? p.asOf : '';
+
+    var ov = d.overrides && typeof d.overrides === 'object' ? d.overrides[key] : undefined;
+    if (isNum(ov) && ov >= 2 && ov <= 15) {
+      return { rate: round3(ov), live: true, asOf: asOf, stale: false };
+    }
+    if (!p || !isNum(p.metric)) return out;
+    var adj = isNum(d.adjustment) ? d.adjustment : 0;
+    var r = round3(p.metric + adj);
+    if (!(r >= 2 && r <= 15)) return out;
+    var age = daysOld(asOf);
+    return { rate: r, live: true, asOf: asOf, stale: age !== null && age > STALE_DAYS };
+  }
+
+  function programDefaultRate(prod, data) { return programRateInfo(prod, data).rate; }
+
+  function loadRates() {
+    if (ratesRequested) return;
+    ratesRequested = true;
+    if (typeof fetch !== 'function') return;
+    try {
+      fetch(RATES_URL, { cache: 'no-cache' }).then(function (res) {
+        if (!res || !res.ok) throw new Error('rates unavailable');
+        return res.json();
+      }).then(function (json) {
+        if (!json || typeof json !== 'object') return;
+        liveRates = json;
+        rateListeners.forEach(function (fn) { try { fn(); } catch (e) { /* one bad instance must not stop the rest */ } });
+      })['catch'](function () { /* keep the hardcoded default */ });
+    } catch (e) { /* keep the hardcoded default */ }
+  }
+
   /* ---------- wire up one instance ---------- */
   function init(root) {
     var contact = root.getAttribute('data-contact') || '/#contact';
@@ -401,6 +480,9 @@
     var opts = { prepay: false, biweekly: false, recast: false, pmidrop: false, chart: false, amort: false };
     var DEFAULTS = { rmgc_price: 350000, rmgc_down: 10, rmgc_rate: 6.5, rmgc_tax: 6300, rmgc_ins: 1400, rmgc_hoa: 0, rmgc_extra: 200, rmgc_lump: 25000, rmgc_lumpm: 24, rmgc_wheda_dpa: 0 };
     var pmidropChip = root.querySelector('.rmgc-chip[data-opt="pmidrop"]');
+    // Once the visitor types their own rate we stop overwriting it.
+    var rateTouched = false;
+    var rateInfo = { rate: FALLBACK_RATE, live: false, asOf: '', stale: false };
 
     root.querySelectorAll('.rmgc-chip').forEach(function (chip) {
       chip.addEventListener('click', function () {
@@ -445,10 +527,51 @@
       }
     }
 
+    // Puts the current program's live default into the rate field, unless the
+    // visitor has typed a rate of their own.
+    function applyRateDefault() {
+      rateInfo = programRateInfo($('rmgc_prod').value);
+      if (!rateTouched && rateInfo.live) $('rmgc_rate').value = rateInfo.rate.toFixed(2);
+      updateRateHint();
+    }
+
+    function updateRateHint() {
+      var hint = $('rmgc_ratehint');
+      if (!hint) return;
+      if (!rateInfo.live) { hint.hidden = true; return; }
+      hint.hidden = false;
+      var why = $('rmgc_ratewhy');
+      if (rateTouched) {
+        $('rmgc_ratehinttxt').textContent = 'Your rate';
+        if (why) why.hidden = true;
+        $('rmgc_ratewhytxt').hidden = true;
+        if (why) why.setAttribute('aria-expanded', 'false');
+      } else {
+        var P = PRODUCTS[$('rmgc_prod').value] || PRODUCTS.conv;
+        var d = shortDate(rateInfo.asOf);
+        $('rmgc_ratehinttxt').textContent = 'Est. market rate for ' + P.label + (d ? ' · as of ' + d : '');
+        if (why) why.hidden = false;
+      }
+    }
+
+    $('rmgc_ratewhy').addEventListener('click', function () {
+      var box = $('rmgc_ratewhytxt');
+      box.hidden = !box.hidden;
+      $('rmgc_ratewhy').setAttribute('aria-expanded', box.hidden ? 'false' : 'true');
+    });
+
+    $('rmgc_rate').addEventListener('input', function () {
+      rateTouched = true;
+      updateRateHint();
+    });
+
     $('rmgc_prod').addEventListener('change', function () {
       applyProduct($('rmgc_prod').value, true);
+      applyRateDefault();
       recalc();
     });
+
+    rateListeners.push(function () { applyRateDefault(); recalc(); });
 
     $('rmgcReset').addEventListener('click', function () {
       Object.keys(DEFAULTS).forEach(function (id) { if ($(id)) $(id).value = DEFAULTS[id]; });
@@ -467,6 +590,8 @@
         var cd = root.querySelector('[data-card="' + k + '"]'); if (cd) cd.classList.remove('on');
       });
       applyProduct('conv', false);
+      rateTouched = false;
+      applyRateDefault();
       recalc();
     });
 
@@ -594,6 +719,10 @@
       }
 
       // prefill the contact form with this scenario
+      updateRateHint();
+      var rateSource = '';
+      if (rateTouched) rateSource = ' (your rate)';
+      else if (rateInfo.live) rateSource = ' (est. market rate' + (shortDate(rateInfo.asOf) ? ' as of ' + shortDate(rateInfo.asOf) : '') + ')';
       var progLine = '• Program: ' + P.label;
       if (fee > 0) progLine += ' (' + feeName + ' ' + money(fee) + ', ' + (financed ? 'financed' : 'paid at closing') + ')';
       if (prod === 'va' && feeRate === 0) progLine += ' (funding fee exempt)';
@@ -603,7 +732,7 @@
         '• Down payment: ' + downPct + '% (' + money(price - baseLoan) + ')\n' +
         '• Loan amount: ' + money(loan) + '\n' +
         (dpa > 0 ? '• WHEDA Easy Close DPA: ' + money(dpa) + ' (' + money(dpaPay) + '/mo, 10-yr second)\n' : '') +
-        '• Rate used: ' + rate + '% · ' + (term / 12) + '-year\n' +
+        '• Rate used: ' + rate + '%' + rateSource + ' · ' + (term / 12) + '-year\n' +
         '• Estimated payment: ' + money(total) + '/mo\n' +
         (hasOpts ? '• Options: ' + Object.keys(opts).filter(function (k) { return opts[k] && k !== 'chart' && k !== 'amort'; }).join(', ') + '\n' : '') +
         '\nWhat would this actually look like for me?';
@@ -655,7 +784,9 @@
       if (e.target.matches('input,select')) recalc();
     });
     applyProduct('conv', false);
+    applyRateDefault();
     recalc();
+    loadRates();
   }
 
   function boot() {
@@ -672,6 +803,10 @@
       fhaMipEndMonth: fhaMipEndMonth,
       vaFundingFee: vaFundingFee,
       whedaCharterFactor: whedaCharterFactor,
+      programDefaultRate: programDefaultRate,
+      programRateInfo: programRateInfo,
+      shortDate: shortDate,
+      FALLBACK_RATE: FALLBACK_RATE,
       FHA_UFMIP: FHA_UFMIP,
       USDA_UPFRONT: USDA_UPFRONT,
       USDA_ANNUAL: USDA_ANNUAL,
