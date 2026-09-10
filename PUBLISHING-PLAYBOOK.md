@@ -39,7 +39,9 @@ blindly, and don't fall back to pushing from the mount.
 - Never print the token; mask with sed. Pass the tokened URL only on push.
 
 ## 1. Topic
-- Read CONTENT-CALENDAR.md; take the first `⬜` row. If none, generate a fresh
+- There is no content calendar (retired 2026-09-06). Topic choice comes from this
+  site's Search Console data plus the steer (anchor / prefer / avoid) Ethan keeps on
+  the Four-Site Control page; the scheduled task's prompt is authoritative. Pick a
   Wisconsin-buyer topic not already covered by existing /blog or /learn pages.
 
 ## 2. Write the post — copy `blog/do-you-really-need-20-percent-down.html` as the template
