@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Investment Property Calculator | Milwaukee &amp; Wisconsin Rental ROI — Refined Mortgage Group</title>
-<meta name="description" content="Free rental property investment calculator for Milwaukee and Wisconsin investors. Estimate cash flow, cap rate, cash-on-cash return, DSCR, and 10-year ROI in seconds. Built by Ethan Brooks, Refined Mortgage Group.">
+<title>Rental Property Calculator for Wisconsin Investors</title>
+<meta name="description" content="Free rental property calculator for Milwaukee and Wisconsin investors: cash flow, cap rate, cash-on-cash return, DSCR and 10-year ROI in seconds.">
 <link rel="canonical" href="https://www.ethanbrooks.mortgage/tools/investment-calculator/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rental Property Investment Calculator — Milwaukee &amp; Wisconsin">
@@ -719,7 +719,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacin
     setText("ltAvg",pct(r.avgAnn));
     setText("ltMult",r.mult===null?"—":r.mult.toFixed(1)+"x");
     setText("ltIrr",r.irrVal===null?"n/a":pct(r.irrVal));
-    setText("projYr","Years 0\u2013"+r.hold);
+    setText("projYr","Years 0–"+r.hold);
 
     drawChart(r);
   }
