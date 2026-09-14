@@ -1,1 +1,45 @@
 /what-happens-if-my-home-loses-value-after-i-close-on-it  /blog/appraisal-gap-wisconsin.html  301
+
+# Canonical URL shape for blog posts is /blog/<slug>.html - every canonical tag,
+# sitemap entry, internal link and llms.txt entry uses it. Netlify also serves the
+# extensionless form, which Google was indexing as a separate page and splitting
+# impressions across. These force the extensionless form onto the canonical one.
+/blog/appraisal-gap-wisconsin  /blog/appraisal-gap-wisconsin.html  301!
+/blog/arm-vs-fixed-rate-mortgage-wisconsin  /blog/arm-vs-fixed-rate-mortgage-wisconsin.html  301!
+/blog/assumable-mortgage-wisconsin  /blog/assumable-mortgage-wisconsin.html  301!
+/blog/buying-a-cabin-in-wisconsin  /blog/buying-a-cabin-in-wisconsin.html  301!
+/blog/buying-a-duplex-wisconsin  /blog/buying-a-duplex-wisconsin.html  301!
+/blog/buying-a-home-in-wisconsin-this-fall  /blog/buying-a-home-in-wisconsin-this-fall.html  301!
+/blog/buying-a-home-with-student-loan-debt  /blog/buying-a-home-with-student-loan-debt.html  301!
+/blog/cash-to-close-wisconsin  /blog/cash-to-close-wisconsin.html  301!
+/blog/closing-costs-in-wisconsin  /blog/closing-costs-in-wisconsin.html  301!
+/blog/condo-financing-wisconsin  /blog/condo-financing-wisconsin.html  301!
+/blog/conventional-vs-fha-loan-wisconsin  /blog/conventional-vs-fha-loan-wisconsin.html  301!
+/blog/debt-to-income-ratio-for-a-mortgage-wisconsin  /blog/debt-to-income-ratio-for-a-mortgage-wisconsin.html  301!
+/blog/do-you-really-need-20-percent-down  /blog/do-you-really-need-20-percent-down.html  301!
+/blog/documents-needed-for-mortgage-preapproval  /blog/documents-needed-for-mortgage-preapproval.html  301!
+/blog/does-preapproval-hurt-credit-wisconsin  /blog/does-preapproval-hurt-credit-wisconsin.html  301!
+/blog/earnest-money-wisconsin  /blog/earnest-money-wisconsin.html  301!
+/blog/fha-203k-renovation-loan-wisconsin  /blog/fha-203k-renovation-loan-wisconsin.html  301!
+/blog/first-time-home-buyer-mistakes  /blog/first-time-home-buyer-mistakes.html  301!
+/blog/gift-funds-down-payment-wisconsin  /blog/gift-funds-down-payment-wisconsin.html  301!
+/blog/how-are-mortgage-rates-determined  /blog/how-are-mortgage-rates-determined.html  301!
+/blog/how-long-to-close-on-a-house-wisconsin  /blog/how-long-to-close-on-a-house-wisconsin.html  301!
+/blog/how-much-house-can-you-afford-in-wisconsin  /blog/how-much-house-can-you-afford-in-wisconsin.html  301!
+/blog/how-to-avoid-a-home-sale-contingency  /blog/how-to-avoid-a-home-sale-contingency.html  301!
+/blog/how-to-beat-a-cash-offer-in-wisconsin  /blog/how-to-beat-a-cash-offer-in-wisconsin.html  301!
+/blog/how-to-get-rid-of-pmi  /blog/how-to-get-rid-of-pmi.html  301!
+/blog/jumbo-loan-wisconsin  /blog/jumbo-loan-wisconsin.html  301!
+/blog/rent-vs-buy-cost-of-waiting-wisconsin  /blog/rent-vs-buy-cost-of-waiting-wisconsin.html  301!
+/blog/self-employed-mortgage-wisconsin  /blog/self-employed-mortgage-wisconsin.html  301!
+/blog/seller-paid-closing-costs-wisconsin  /blog/seller-paid-closing-costs-wisconsin.html  301!
+/blog/seller-paid-rate-buydown-wisconsin  /blog/seller-paid-rate-buydown-wisconsin.html  301!
+/blog/should-you-buy-mortgage-points  /blog/should-you-buy-mortgage-points.html  301!
+/blog/usda-rural-development-loan-wisconsin  /blog/usda-rural-development-loan-wisconsin.html  301!
+/blog/va-loans-wisconsin  /blog/va-loans-wisconsin.html  301!
+/blog/what-credit-score-do-you-need-wisconsin  /blog/what-credit-score-do-you-need-wisconsin.html  301!
+/blog/when-is-refinancing-worth-it  /blog/when-is-refinancing-worth-it.html  301!
+/blog/when-to-lock-mortgage-rate-wisconsin  /blog/when-to-lock-mortgage-rate-wisconsin.html  301!
+/blog/wisconsin-down-payment-assistance-wheda  /blog/wisconsin-down-payment-assistance-wheda.html  301!
+/blog/wisconsin-property-taxes-and-escrow  /blog/wisconsin-property-taxes-and-escrow.html  301!
+/blog/wisconsin-real-estate-transfer-fee  /blog/wisconsin-real-estate-transfer-fee.html  301!
