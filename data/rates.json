@@ -1,31 +1,31 @@
 {
-  "updated": "2026-09-23T13:05:55Z",
+  "updated": "2026-09-24T13:05:55Z",
   "adjustment": -0.25,
   "note": "Default calculator rates = program market metric + adjustment. Estimates, not quotes.",
   "programs": {
     "conventional": {
-      "metric": 7.028,
-      "asOf": "2026-09-22",
+      "metric": 7.142,
+      "asOf": "2026-09-23",
       "source": "FRED OBMMIC30YF (Optimal Blue 30-yr conforming index)"
     },
     "fha": {
-      "metric": 6.833,
-      "asOf": "2026-09-22",
+      "metric": 6.902,
+      "asOf": "2026-09-23",
       "source": "FRED OBMMIFHA30YF"
     },
     "va": {
-      "metric": 6.716,
-      "asOf": "2026-09-22",
+      "metric": 6.817,
+      "asOf": "2026-09-23",
       "source": "FRED OBMMIVA30YF"
     },
     "usda": {
-      "metric": 6.829,
-      "asOf": "2026-09-22",
+      "metric": 6.82,
+      "asOf": "2026-09-23",
       "source": "FRED OBMMIUSDA30YF"
     },
     "wheda": {
       "metric": 6.625,
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "UW Credit Union published WHEDA 30-yr fixed first-time homebuyer rate (uwcu.org/mortgage-home-loans/options/wheda)"
     }
   },
