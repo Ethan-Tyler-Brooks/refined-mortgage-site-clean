@@ -1,0 +1,41 @@
+/* Local + loan-program landing pages (/mortgage-lender/*, /loans/*). Loaded after rmg-pages.css. */
+.crumbs{font-size:.8rem;color:var(--moss);padding-top:26px}
+.crumbs a{color:var(--forest);text-decoration:underline;text-underline-offset:3px}
+.crumbs span{margin:0 6px;opacity:.6}
+.hero.lp{padding-top:28px}
+.hero .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.byline{font-size:.85rem;color:var(--moss);margin-top:16px}
+.byline b{color:var(--ink)}
+.facts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 18px;text-align:center;min-width:150px;max-width:240px}
+.fact b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--forest);line-height:1.2;font-weight:500}
+.fact span{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--moss);font-weight:600;margin-top:4px}
+.prose{max-width:46em;margin:0 auto}
+.prose section{padding:30px 0;border-bottom:1px solid var(--line)}
+.prose section:last-child{border-bottom:none}
+.prose h2{font-size:clamp(1.55rem,3vw,2.05rem);font-weight:400;margin-bottom:14px}
+.prose h3{font-size:1.2rem;color:var(--forest);margin:20px 0 8px}
+.prose p{margin:0 0 14px;color:#2f4238;font-size:1.04rem}
+.prose ul,.prose ol{margin:0 0 16px 1.3em;color:#2f4238}
+.prose li{margin-bottom:8px}
+.prose a{color:var(--forest);text-decoration:underline;text-underline-offset:3px;font-weight:500}
+.prose strong{color:var(--ink)}
+.prose table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:6px 0 18px;font-size:.92rem;display:block;overflow-x:auto}
+.prose th,.prose td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.prose th{background:var(--ink);color:var(--cream);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.midcta{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:14px;padding:20px 22px;margin:30px auto;max-width:46em;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.midcta p{margin:0;font-weight:600;color:var(--ink)}
+.midcta .row{display:flex;gap:10px;flex-wrap:wrap}
+.faqwrap{max-width:46em;margin:0 auto}
+.linkgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.linkgrid a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px 18px;font-weight:600;color:var(--forest);transition:.25s}
+.linkgrid a:hover{border-color:rgba(130,195,65,.7);transform:translateY(-3px)}
+.linkgrid a small{display:block;font-weight:400;color:#46574d;font-size:.85rem;margin-top:4px}
+.postlist{list-style:none;margin:18px 0 0;display:grid;gap:8px}
+.postlist a{color:var(--forest);text-decoration:underline;text-underline-offset:3px}
+.sources{max-width:46em;margin:0 auto;font-size:.8rem;color:var(--moss)}
+.sources ol{margin:8px 0 0 1.2em}
+.sources li{margin-bottom:4px}
+.sources a{color:var(--moss);text-decoration:underline;word-break:break-word}
+.lp-btn-dark{border-color:var(--forest)!important;color:var(--forest)!important}
+@media(max-width:760px){.linkgrid{grid-template-columns:1fr}.midcta{flex-direction:column;align-items:flex-start}.fact{flex:1 1 42%;min-width:0;padding:10px 12px}.fact b{font-size:1rem}.prose th,.prose td{min-width:150px}}

@@ -1,0 +1,120 @@
+{
+  "section": "loans",
+  "slug": "refinance-wisconsin",
+  "kind": "program",
+  "title": "Refinance in Wisconsin: Rate-and-Term, Cash-Out, Streamline",
+  "description": "Refinancing in Wisconsin: rate-and-term vs cash-out, FHA streamline, VA IRRRL, break-even math and why there's no transfer fee. Know before you apply.",
+  "eyebrow": "Wisconsin refinancing",
+  "h1": "Refinancing Your Wisconsin Home",
+  "lead": "A refinance replaces your current mortgage with a new one, and it's worth doing when the savings or cash you gain outweigh the closing costs within the time you'll keep the loan. Wisconsin homeowners can choose rate-and-term, cash-out or, on FHA and VA loans, a streamlined option.",
+  "quick_facts": [
+    {
+      "label": "Refinance types",
+      "value": "Rate-term or cash-out"
+    },
+    {
+      "label": "WI transfer fee on a refi",
+      "value": "None, no ownership change"
+    },
+    {
+      "label": "FHA streamline",
+      "value": "Existing FHA loans"
+    },
+    {
+      "label": "VA IRRRL",
+      "value": "Existing VA loans"
+    }
+  ],
+  "sections": [
+    {
+      "h2": "When does refinancing make sense?",
+      "html": "<p>Refinancing makes sense when you'll keep the new loan longer than it takes the savings to pay back the closing costs; that point is your break-even.</p><p>The math is simple: divide total closing costs by what you'll save each month, and the result is how many months until you're ahead. If you plan to move before then, it usually doesn't pay. Savings aren't the only reason, though. People refinance to drop mortgage insurance, shorten their term, take out equity or remove an ex-spouse from the loan. My post on <a href=\"/blog/when-is-refinancing-worth-it.html\">when refinancing is worth it</a> works through examples, and <a href=\"/blog/should-you-buy-mortgage-points.html\">should you buy mortgage points</a> applies the same thinking to points.</p>"
+    },
+    {
+      "h2": "What's the difference between rate-and-term and cash-out?",
+      "html": "<p>A rate-and-term refinance changes your rate, term or loan type without pulling equity out, while a cash-out refinance borrows more than you owe and pays you the difference.</p><ul><li><strong>Rate-and-term</strong> is the cleaner option when the goal is a better loan, such as moving from FHA to conventional or from an adjustable rate to a fixed one.</li><li><strong>Cash-out</strong> turns equity into cash for a remodel, debt payoff or a down payment on a cabin or rental. It resets your loan and usually carries stricter guidelines.</li></ul><p>Veterans can also use a VA cash-out refinance to replace a non-VA loan, as long as they qualify for a Certificate of Eligibility and live in the home.</p>"
+    },
+    {
+      "h2": "What are the FHA streamline and VA IRRRL?",
+      "html": "<p>Both are reduced-paperwork refinances for people who already have that type of loan.</p><ul><li><strong>FHA streamline:</strong> your current loan must be FHA-insured and not delinquent, the refinance must give you a net tangible benefit, and credit documentation and underwriting are limited. You can't take out more than $500 in cash.</li><li><strong>VA IRRRL:</strong> you must already have a VA-backed loan, use the IRRRL to refinance that loan and certify that you live in or used to live in the home.</li></ul><p>Streamlined doesn't mean free; costs are either paid at closing or built into the loan's pricing. I show you both ways. More on VA options is on my <a href=\"/loans/va-loan-wisconsin/\">VA loan page</a>.</p>"
+    },
+    {
+      "h2": "Can refinancing get rid of mortgage insurance?",
+      "html": "<p>Yes. Refinancing an FHA loan into a conventional loan is the most common way to remove FHA's annual premium once you have enough equity.</p><p>If you already have a conventional loan, you may not need to refinance at all: under the Homeowners Protection Act you can ask your servicer to cancel PMI once you reach the required balance and meet the conditions. See my <a href=\"/loans/conventional-loan-wisconsin/\">conventional loan page</a> and <a href=\"/blog/how-to-get-rid-of-pmi.html\">how to get rid of PMI</a>.</p>"
+    },
+    {
+      "h2": "What Wisconsin-specific costs come with a refinance?",
+      "html": "<p>The good news is that Wisconsin's real estate transfer fee doesn't apply to a straight refinance, because no one is conveying ownership.</p><ul><li><strong>Transfer fee:</strong> Wisconsin charges $3 per $1,000 of value (sec. 77.22, Wis. Stats.) when property changes hands, and DOR exempts conveyances made only to provide or release security for a debt. See <a href=\"/blog/wisconsin-real-estate-transfer-fee.html\">Wisconsin's real estate transfer fee</a>.</li><li><strong>Title:</strong> your new lender will want a new lender's title policy. The owner's policy you bought at purchase keeps protecting you. More in <a href=\"/blog/title-insurance-wisconsin-who-pays.html\">who pays for title insurance in Wisconsin</a>.</li><li><strong>Escrow:</strong> a new escrow account is usually funded at closing, timed around Wisconsin's property tax bills; see <a href=\"/blog/wisconsin-property-taxes-and-escrow.html\">property taxes and escrow</a>.</li></ul>"
+    },
+    {
+      "h2": "How do I start a refinance?",
+      "html": "<p>Send me your current mortgage statement and tell me what you want the refinance to do. I'll run the break-even on each option, including doing nothing, and only recommend a refinance if the numbers work. Appraisals, when needed, often come back in as little as three to four business days. Compare everything on the <a href=\"/loans/\">loan programs hub</a>.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How do I calculate my refinance break-even point?",
+      "a": "Add up the total closing costs of the new loan and divide by how much you'll save each month compared with your current payment. The answer is the number of months until the refinance pays for itself. If you expect to sell or refinance again before then, it usually isn't worth it. I run this math for every option before you commit."
+    },
+    {
+      "q": "Do I pay the Wisconsin transfer fee when I refinance?",
+      "a": "No. Wisconsin's real estate transfer fee applies when ownership of property is conveyed, and the Department of Revenue exempts conveyances made solely to provide or release security for a debt. A standard refinance doesn't transfer ownership, so the fee doesn't apply. Adding or removing someone from the deed is different and may need its own review."
+    },
+    {
+      "q": "Can I refinance my FHA loan into a conventional loan?",
+      "a": "Yes, and it's the most common way to get rid of FHA's annual mortgage insurance. You'll need enough equity and credit that fits conventional guidelines, and the home will typically need an appraisal. Whether it saves money depends on your current loan, the new pricing and how long you'll stay, so I compare it with an FHA streamline too."
+    },
+    {
+      "q": "Do I need an appraisal to refinance?",
+      "a": "It depends on the loan. Most rate-and-term and cash-out refinances need one, because the lender has to confirm the home's value and your equity. Streamlined options like the FHA streamline and VA IRRRL reduce the documentation and underwriting required. I'll tell you up front which applies so you're not paying for steps you don't need."
+    },
+    {
+      "q": "Will I need a new title policy when I refinance?",
+      "a": "Usually, yes. Your new lender will require a lender's title insurance policy to protect its interest in the property. The owner's title policy you bought when you purchased the home stays in place and continues protecting you, so you don't need a new one. Title charges show up on your Loan Estimate, and I'll walk you through them."
+    }
+  ],
+  "related_posts": [
+    "/blog/when-is-refinancing-worth-it.html",
+    "/blog/should-you-buy-mortgage-points.html",
+    "/blog/how-to-get-rid-of-pmi.html",
+    "/blog/wisconsin-real-estate-transfer-fee.html",
+    "/blog/title-insurance-wisconsin-who-pays.html"
+  ],
+  "related_pages": [
+    "/loans/",
+    "/loans/conventional-loan-wisconsin/",
+    "/loans/va-loan-wisconsin/"
+  ],
+  "sources": [
+    {
+      "name": "HUD — Streamline refinance your mortgage",
+      "url": "https://www.hud.gov/hud-partners/single-family-streamline"
+    },
+    {
+      "name": "VA — Interest rate reduction refinance loan (IRRRL)",
+      "url": "https://www.va.gov/housing-assistance/home-loans/loan-types/interest-rate-reduction-loan/"
+    },
+    {
+      "name": "VA — Cash-out refinance loan",
+      "url": "https://www.va.gov/housing-assistance/home-loans/loan-types/cash-out-loan/"
+    },
+    {
+      "name": "CFPB — When can I remove private mortgage insurance (PMI)?",
+      "url": "https://www.consumerfinance.gov/ask-cfpb/when-can-i-remove-private-mortgage-insurance-pmi-from-my-loan-en-202/"
+    },
+    {
+      "name": "CFPB — Mortgage key terms (lender's and owner's title insurance)",
+      "url": "https://www.consumerfinance.gov/consumer-tools/mortgages/answers/key-terms/"
+    },
+    {
+      "name": "Wisconsin DOR — Real estate transfer return overview (sec. 77.22)",
+      "url": "https://www.revenue.wi.gov/DOR%20Publications/retr-overview.pdf"
+    },
+    {
+      "name": "Wisconsin DOR — Real estate transfer fee exemptions (Exemption 10)",
+      "url": "https://www.revenue.wi.gov/DOR%20Publications/retr-transfer-fee-exemptions.pdf"
+    }
+  ],
+  "about": "Mortgage refinance",
+  "city": null
+}

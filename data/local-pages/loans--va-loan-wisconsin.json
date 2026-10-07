@@ -1,0 +1,128 @@
+{
+  "section": "loans",
+  "slug": "va-loan-wisconsin",
+  "kind": "program",
+  "title": "VA Loans in Wisconsin: Eligibility, COE and Funding Fee",
+  "description": "VA loans in Wisconsin: who qualifies, getting your COE, funding fee exemptions, no limit with full entitlement and state veteran perks. Check eligibility.",
+  "eyebrow": "VA home loans",
+  "h1": "VA Loans in Wisconsin",
+  "lead": "A VA loan is a mortgage guaranteed by the U.S. Department of Veterans Affairs for eligible veterans, service members and some surviving spouses. It has no monthly mortgage insurance, and borrowers with full entitlement have no VA loan limit.",
+  "quick_facts": [
+    {
+      "label": "Proof of eligibility",
+      "value": "Certificate of Eligibility"
+    },
+    {
+      "label": "Monthly mortgage insurance",
+      "value": "None"
+    },
+    {
+      "label": "Loan limit, full entitlement",
+      "value": "None since 2020"
+    },
+    {
+      "label": "Occupancy",
+      "value": "Primary residence"
+    }
+  ],
+  "sections": [
+    {
+      "h2": "Who qualifies for a VA loan in Wisconsin?",
+      "html": "<p>You qualify based on your service history, not where you live, and the VA's eligibility rules are the same in Wisconsin as anywhere else.</p><ul><li><strong>Active-duty service members</strong> generally qualify after 90 continuous days of service.</li><li><strong>Veterans</strong> qualify based on minimum service that depends on when they served.</li><li><strong>National Guard and Reserve members</strong> qualify with 90 days of non-training active duty or six creditable years of service.</li><li><strong>Some surviving spouses</strong> qualify, including those receiving Dependency and Indemnity Compensation.</li></ul><p>If you were discharged early for a service-connected disability, hardship or certain other reasons, the VA can still review your record. VA offers some of the most flexible down payment rules available to eligible veterans and service members, which is why I always check eligibility first. The home must be your primary residence.</p>"
+    },
+    {
+      "h2": "How do I get my Certificate of Eligibility?",
+      "html": "<p>Your Certificate of Eligibility (COE) proves to the lender that you qualify, and in most cases I can request it through the VA's online system, Web LGY, in a few minutes.</p><p>If the system can't confirm your service automatically, we'll send the VA your discharge paperwork, usually a DD214, or a statement of service if you're still serving. The COE also shows how much entitlement you have available, which matters if you've used a VA loan before.</p>"
+    },
+    {
+      "h2": "What does a VA loan cost without mortgage insurance?",
+      "html": "<p>Instead of monthly mortgage insurance, most VA borrowers pay a one-time funding fee, which can be financed into the loan or paid at closing.</p><p>You don't pay the funding fee at all if you:</p><ul><li>receive VA compensation for a service-connected disability, or are eligible for it but receive retirement or active-duty pay instead</li><li>are a surviving spouse receiving Dependency and Indemnity Compensation</li><li>are a service member with a proposed or memorandum rating before closing that says you're eligible for compensation</li><li>are on active duty and show proof of a Purple Heart on or before closing</li></ul><p>You'll still have normal closing costs, and on a purchase only the funding fee can be rolled into the loan. My post on <a href=\"/blog/closing-costs-in-wisconsin.html\">closing costs in Wisconsin</a> explains who typically pays what, and <a href=\"/blog/seller-paid-closing-costs-wisconsin.html\">seller-paid closing costs</a> covers how sellers can help.</p>"
+    },
+    {
+      "h2": "Is there a VA loan limit in 2026?",
+      "html": "<p>No, not if you have full entitlement: since January 1, 2020, the VA hasn't capped the loan amount for those borrowers, as long as you qualify for the payment and the appraisal supports the price.</p><p>If part of your entitlement is still tied up in a previous VA loan, the county conforming limit comes back into play. In 2026 that limit is $832,750 for a one-unit home in every Wisconsin county, and I calculate your remaining entitlement from it. That's what makes a VA loan workable for larger homes in Brookfield or Mequon without moving into a <a href=\"/blog/jumbo-loan-wisconsin.html\">jumbo loan</a>.</p>"
+    },
+    {
+      "h2": "What Wisconsin benefits pair with a VA loan?",
+      "html": "<p>Wisconsin adds a valuable property tax benefit for some veterans, administered with the Wisconsin Department of Veterans Affairs (WDVA).</p><ul><li><strong>Veterans and Surviving Spouses Property Tax Credit:</strong> veterans with a total service-connected disability rating, or who qualify through individual unemployability, can receive a credit for property taxes paid on their Wisconsin primary residence and up to one acre of land. You must live in Wisconsin and have entered service as a Wisconsin resident or lived here five consecutive years after entering active duty.</li><li><strong>County Veterans Service Officers</strong> certify eligibility for that credit, and the credit is then claimed on your state income tax return.</li></ul><p>Because Wisconsin property taxes are a big part of the monthly payment, that credit can change what you can afford. See <a href=\"/blog/wisconsin-property-taxes-and-escrow.html\">Wisconsin property taxes and escrow</a>.</p>"
+    },
+    {
+      "h2": "How do I start a VA loan with my team?",
+      "html": "<p>We start by pulling your COE and reviewing credit and income, then I show you VA next to any other program you qualify for. My team works nights and weekends, can close in as few as 9 to 18 days, and works closely with your agent so a VA offer competes well. Compare programs on the <a href=\"/loans/\">loan programs hub</a> or see my <a href=\"/blog/va-loans-wisconsin.html\">VA loans in Wisconsin post</a> for a buyer's-eye walkthrough. Already have a VA loan? The IRRRL is covered on my <a href=\"/loans/refinance-wisconsin/\">Wisconsin refinance page</a>, and if you're buying outside the metro core, compare the <a href=\"/loans/usda-loan-wisconsin/\">USDA loan</a> too.</p>"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I use a VA loan more than once?",
+      "a": "Yes. The VA home loan is a lifetime benefit. If you've paid off a previous VA loan in full, VA may be able to restore that entitlement. In many cases you can even keep your current home and use remaining entitlement to buy another home you'll live in. The funding fee for later use can differ unless you're exempt."
+    },
+    {
+      "q": "Who is exempt from the VA funding fee?",
+      "a": "You're exempt if you receive VA compensation for a service-connected disability, or are eligible for it but receive retirement or active-duty pay instead. Surviving spouses receiving Dependency and Indemnity Compensation are exempt, as are service members with a qualifying pre-discharge rating and active-duty members who show proof of a Purple Heart on or before closing."
+    },
+    {
+      "q": "Is there a VA loan limit in Milwaukee County?",
+      "a": "Not for borrowers with full entitlement. Since January 1, 2020, the VA hasn't set a loan limit for them, though you still need to qualify with the lender and the appraisal must support the price. If you have a VA loan already, the 2026 county conforming limit of $832,750 is used to calculate your remaining entitlement."
+    },
+    {
+      "q": "Can I buy a cabin or rental with a VA loan?",
+      "a": "No. A VA loan must be used for a home you'll live in as your primary residence. A lake property up north can qualify only if it's where you actually live. For a second home or investment property, a conventional loan is usually the route, and I can show you how the two compare if you're planning both moves."
+    },
+    {
+      "q": "Does WHEDA work for veterans?",
+      "a": "It can. WHEDA waives its first-time homebuyer requirement for eligible veterans with an honorable discharge on its first-time buyer product, and income and purchase price limits still apply. For most veterans the VA loan is the stronger fit, but if you've already used your entitlement or want WHEDA's assistance, I'll compare them side by side."
+    }
+  ],
+  "related_posts": [
+    "/blog/va-loans-wisconsin.html",
+    "/blog/closing-costs-in-wisconsin.html",
+    "/blog/seller-paid-closing-costs-wisconsin.html",
+    "/blog/wisconsin-property-taxes-and-escrow.html",
+    "/blog/jumbo-loan-wisconsin.html"
+  ],
+  "related_pages": [
+    "/loans/",
+    "/loans/refinance-wisconsin/",
+    "/loans/usda-loan-wisconsin/"
+  ],
+  "sources": [
+    {
+      "name": "VA — Eligibility for VA home loan programs",
+      "url": "https://www.va.gov/housing-assistance/home-loans/eligibility/"
+    },
+    {
+      "name": "VA — How to request a Certificate of Eligibility",
+      "url": "https://www.va.gov/housing-assistance/home-loans/how-to-request-coe/"
+    },
+    {
+      "name": "VA News — Veterans can use their VA home loan benefit more than once",
+      "url": "https://news.va.gov/149487/veterans-can-use-their-va-guaranteed-home-loan-benefit-more-than-once/"
+    },
+    {
+      "name": "VA — Funding fee and closing costs",
+      "url": "https://www.va.gov/housing-assistance/home-loans/funding-fee-and-closing-costs/"
+    },
+    {
+      "name": "VA — Home loan entitlement and limits",
+      "url": "https://www.va.gov/housing-assistance/home-loans/loan-limits/"
+    },
+    {
+      "name": "FHFA — Conforming loan limit values for 2026",
+      "url": "https://www.fhfa.gov/news/news-release/fhfa-announces-conforming-loan-limit-values-for-2026"
+    },
+    {
+      "name": "HUD — FHA and Fannie/Freddie mortgage limits lookup (Wisconsin, CY2026)",
+      "url": "https://entp.hud.gov/idapp/html/hicostlook.cfm"
+    },
+    {
+      "name": "Wisconsin Department of Veterans Affairs — Property tax credit",
+      "url": "https://dva.wi.gov/services/housing-and-financial-services/property-tax-credit/"
+    },
+    {
+      "name": "WHEDA — Advantage Conventional rate sheet notes (first-time buyer waiver for eligible veterans)",
+      "url": "https://www.wheda.com/globalassets/documents/mortgage-lending/rates-and-fees/corrNew.pdf"
+    }
+  ],
+  "about": "VA loan",
+  "city": null
+}
