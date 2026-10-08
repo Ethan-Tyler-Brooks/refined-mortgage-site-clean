@@ -97,3 +97,9 @@ fee/premium percentages in new posts — describe them qualitatively.
 - A Decap CMS exists in /admin but the live posts are flat HTML in /blog — follow the
   flat-HTML pattern, ignore the CMS markdown path.
 - If the org/account rejects the token, stop and surface the error; do not retry blindly.
+
+## 3c. Quarterly original-data posts (closing-cost series)
+- Source: Ethan drops the pipeline export (.xlsx) into `~/Cowork/rmg-data/` on his Mac. The file contains addresses — it never leaves his Mac and is never committed.
+- Run `python3 -I scripts/data_post_stats.py <export.xlsx> > stats.json` on the Mac. It drops the address column on load and prints medians only; groups under 15 loans are omitted. Publish only numbers from that JSON.
+- Series anchor: `/blog/milwaukee-closing-costs-data-2026.html`. Each quarter either refresh its numbers (bump dateModified + "Updated" byline) or add a new angle post that links back to it: appraisal gaps, seller credits by season, days-to-close by month, WHEDA vs conventional.
+- Same content rules as 3b: no rates, no down payment figures, medians not averages, "estimated figures from loan files" disclosure, "how we put these numbers together" section, Dataset schema, invite citation with a link back.
