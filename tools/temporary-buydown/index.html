@@ -62,36 +62,36 @@
   </header>
 
   <section style="padding-top:10px">
-    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three common structures.</h2><p>Example: $450,000 price, 20% down ($360,000 loan), 30-year fixed at 6.75%. Full principal &amp; interest = <b>$2,335/mo</b>.</p></div>
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three common structures.</h2><p>Example: $450,000 price, 20% down ($360,000 loan), 30-year fixed at <span data-r="0">7.138%</span>. Full principal &amp; interest = <b><span data-full>$2,429</span>/mo</b>.</p></div>
     <div class="howgrid">
       <div class="card">
         <h3>1/0 buydown</h3>
         <div class="rate">1% off<small>for 1 year</small></div>
         <ul class="steps">
-          <li><span>Year 1 · 5.75%</span><b>$2,101 <span style="color:var(--forest)">(−$234)</span></b></li>
-          <li><span>Years 2–30 · 6.75%</span><b>$2,335</b></li>
-          <li><span>Seller cost</span><b style="color:var(--forest)">≈ $2,809</b></li>
+          <li><span>Year 1 · <span data-r="-1">6.138%</span></span><b><span data-p="1">$2,190</span> <span style="color:var(--forest)">(−<span data-s="1">$238</span>)</span></b></li>
+          <li><span>Years 2–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="1">$2,857</span></b></li>
         </ul>
       </div>
       <div class="card">
         <h3>2/1 buydown</h3>
-        <div class="rate">2% → 1%<small>for 2 years</small></div>
+        <div class="rate">2% &rarr; 1%<small>for 2 years</small></div>
         <ul class="steps">
-          <li><span>Year 1 · 4.75%</span><b>$1,878 <span style="color:var(--forest)">(−$457)</span></b></li>
-          <li><span>Year 2 · 5.75%</span><b>$2,101 <span style="color:var(--forest)">(−$234)</span></b></li>
-          <li><span>Years 3–30 · 6.75%</span><b>$2,335</b></li>
-          <li><span>Seller cost</span><b style="color:var(--forest)">≈ $8,293</b></li>
+          <li><span>Year 1 · <span data-r="-2">5.138%</span></span><b><span data-p="2">$1,963</span> <span style="color:var(--forest)">(−<span data-s="2">$466</span>)</span></b></li>
+          <li><span>Year 2 · <span data-r="-1">6.138%</span></span><b><span data-p="1">$2,190</span> <span style="color:var(--forest)">(−<span data-s="1">$238</span>)</span></b></li>
+          <li><span>Years 3–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="2">$8,444</span></b></li>
         </ul>
       </div>
       <div class="card">
         <h3>3/2/1 buydown</h3>
-        <div class="rate">3% → 2% → 1%<small>for 3 years</small></div>
+        <div class="rate">3% &rarr; 2% &rarr; 1%<small>for 3 years</small></div>
         <ul class="steps">
-          <li><span>Year 1 · 3.75%</span><b>$1,667 <span style="color:var(--forest)">(−$668)</span></b></li>
-          <li><span>Year 2 · 4.75%</span><b>$1,878 <span style="color:var(--forest)">(−$457)</span></b></li>
-          <li><span>Year 3 · 5.75%</span><b>$2,101 <span style="color:var(--forest)">(−$234)</span></b></li>
-          <li><span>Years 4–30 · 6.75%</span><b>$2,335</b></li>
-          <li><span>Seller cost</span><b style="color:var(--forest)">≈ $16,306</b></li>
+          <li><span>Year 1 · <span data-r="-3">4.138%</span></span><b><span data-p="3">$1,747</span> <span style="color:var(--forest)">(−<span data-s="3">$681</span>)</span></b></li>
+          <li><span>Year 2 · <span data-r="-2">5.138%</span></span><b><span data-p="2">$1,963</span> <span style="color:var(--forest)">(−<span data-s="2">$466</span>)</span></b></li>
+          <li><span>Year 3 · <span data-r="-1">6.138%</span></span><b><span data-p="1">$2,190</span> <span style="color:var(--forest)">(−<span data-s="1">$238</span>)</span></b></li>
+          <li><span>Years 4–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="3">$16,617</span></b></li>
         </ul>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="grid2">
           <div><label for="price">Home price</label><div class="in"><span>$</span><input id="price" type="text" inputmode="decimal" value="450,000"></div></div>
           <div><label for="down">Down payment</label><div class="in"><input id="down" type="text" inputmode="decimal" value="20"><span>%</span></div></div>
-          <div><label for="rate">Note rate (full rate)</label><div class="in"><input id="rate" type="text" inputmode="decimal" value="6.75"><span>%</span></div></div>
+          <div><label for="rate">Note rate (full rate)</label><div class="in"><input id="rate" type="text" inputmode="decimal" value="7.138"><span>%</span></div></div>
           <div><label for="term">Loan term</label><div class="in"><select id="term"><option value="30" selected>30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div></div>
         </div>
         <div class="ytable">
@@ -192,7 +192,30 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   }
   document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){
     document.querySelectorAll('#seg button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');type=+b.dataset.t;calc();});});
+  var rateTouched=false;
+  $('rate').addEventListener('input',function(){rateTouched=true});
   ['price','down','rate','term'].forEach(function(id){$(id).addEventListener('input',calc)});
+  // Examples: $360k loan, 30-yr, at the site's default conventional rate
+  function examples(R){
+    var L=360000,n=360,full=pmt(L,R,n),fmt=function(x){return (Math.round(x*1000)/1000).toString()+'%'};
+    document.querySelectorAll('[data-r]').forEach(function(e){e.textContent=fmt(R+(+e.getAttribute('data-r')))});
+    document.querySelectorAll('[data-full]').forEach(function(e){e.textContent=usd(full)});
+    document.querySelectorAll('[data-p]').forEach(function(e){e.textContent=usd(pmt(L,R-(+e.getAttribute('data-p')),n))});
+    document.querySelectorAll('[data-s]').forEach(function(e){e.textContent=usd(full-pmt(L,R-(+e.getAttribute('data-s')),n))});
+    document.querySelectorAll('[data-c]').forEach(function(e){var t=+e.getAttribute('data-c'),c=0;for(var k=1;k<=t;k++)c+=(full-pmt(L,R-k,n))*12;e.textContent=usd(c)});
+  }
+  // Same rule as the main mortgage calculator: override, else metric + adjustment
+  function liveRate(d){
+    if(!d||typeof d!=='object')return null;
+    var ok=function(v){return typeof v==='number'&&isFinite(v)&&v>=2&&v<=15};
+    var ov=d.overrides&&d.overrides.conventional;if(ok(ov))return Math.round(ov*1000)/1000;
+    var p=d.programs&&d.programs.conventional;if(!p||typeof p.metric!=='number')return null;
+    var r=Math.round((p.metric+(typeof d.adjustment==='number'?d.adjustment:0))*1000)/1000;
+    return ok(r)?r:null;
+  }
+  if(typeof fetch==='function'){try{fetch('/data/rates.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+    var R=liveRate(d);if(R===null)return;examples(R);if(!rateTouched){$('rate').value=String(R);calc();}
+  })['catch'](function(){});}catch(e){}}
   $('price').addEventListener('blur',function(){var v=num(this.value);this.value=v?v.toLocaleString('en-US'):''});
   calc();
 })();
