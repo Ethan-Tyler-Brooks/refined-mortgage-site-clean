@@ -21,13 +21,15 @@
     return P * r / (1 - Math.pow(1 + r, -n));
   }
 
-  // Estimated conventional monthly PMI factor by loan-to-value at origination.
+  // Conventional monthly BPMI factor by loan-to-value at origination.
+  // National MI Monthly Advantage card, >20-yr fixed, 760+ FICO, DTI <= 45%,
+  // primary residence, standard coverage (12/25/30/35%). Annual rate on the loan.
   function pmiFactor(ltv) {
     if (ltv <= 0.80) return 0;
-    if (ltv <= 0.85) return 0.0030;
-    if (ltv <= 0.90) return 0.0042;
-    if (ltv <= 0.95) return 0.0062;
-    return 0.0085;
+    if (ltv <= 0.85) return 0.0019;
+    if (ltv <= 0.90) return 0.0028;
+    if (ltv <= 0.95) return 0.0038;
+    return 0.0058;
   }
 
   /* ---------- program fee rules ----------
@@ -63,15 +65,14 @@
   var USDA_ANNUAL = 0.0035;    // annual fee, life of loan
 
   // WHEDA Advantage with charter-level (reduced) MI coverage, available
-  // when household income is at or below 80% of area median. These monthly
-  // factors are ESTIMATES for 18/16/12/6% coverage — MI company rate cards
-  // vary by score, DTI and provider.
+  // when household income is at or below 80% of area median. Same National MI
+  // card / 760+ column at 6/12/16/18% coverage — provider and score vary.
   function whedaCharterFactor(ltv) {
     if (ltv <= 0.80) return 0;
-    if (ltv <= 0.85) return 0.0016;
-    if (ltv <= 0.90) return 0.0027;
-    if (ltv <= 0.95) return 0.0036;
-    return 0.0045;
+    if (ltv <= 0.85) return 0.0017;
+    if (ltv <= 0.90) return 0.0022;
+    if (ltv <= 0.95) return 0.0030;
+    return 0.0039;
   }
 
   /**
@@ -332,7 +333,7 @@
   '</div>' +
 
   '<div class="rmgc-foot">' +
-    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
+    '<p class="rmgc-note"><strong>Estimates only.</strong> Not a loan approval, a rate quote, a commitment to lend, or financial advice. Mortgage insurance is estimated from loan-to-value using published borrower-paid MI rates for a 760+ credit score and varies by credit, program, and provider. Program fees (FHA MIP, VA funding fee, USDA guarantee fee) follow published agency schedules and may change. Taxes and insurance are your inputs. Recast availability, minimums, and fees are set by your servicer. Your actual numbers depend on your rate, program, and approval &mdash; ask me for a real scenario.</p>' +
     '<div class="rmgc-actions">' +
       '<a class="rmgc-btn rmgc-btn-lime" href="' + contact + '">Send Ethan my scenario &rarr;</a>' +
       '<a class="rmgc-btn rmgc-btn-ghost" href="https://mtgpro.co/dr/c/nroce">Start your application</a>' +
