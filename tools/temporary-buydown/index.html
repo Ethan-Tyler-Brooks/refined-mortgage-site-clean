@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Temporary Buydown Calculator — 1/0, 2/1 &amp; 3/2/1</title>
-<meta name="description" content="See how a seller-paid temporary buydown lowers your payment. Compare 1/0, 2/1 and 3/2/1 buydowns, monthly savings by year, and what the seller pays.">
+<title>Temporary Buydown Calculator — .5/0, 1/0, 2/1 &amp; 3/2/1</title>
+<meta name="description" content="See how a seller-paid temporary buydown lowers your payment. Compare .5/0, 1/0, 2/1 and 3/2/1 buydowns, monthly savings by year, and what the seller pays.">
 <link rel="canonical" href="https://www.ethanbrooks.mortgage/tools/temporary-buydown/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Temporary Buydown Calculator — 1/0, 2/1 & 3/2/1">
-<meta property="og:description" content="Monthly savings by year and the seller-paid cost of a 1/0, 2/1 or 3/2/1 temporary buydown.">
+<meta property="og:title" content="Temporary Buydown Calculator — .5/0, 1/0, 2/1 & 3/2/1">
+<meta property="og:description" content="Monthly savings by year and the seller-paid cost of a .5/0, 1/0, 2/1 or 3/2/1 temporary buydown.">
 <meta property="og:url" content="https://www.ethanbrooks.mortgage/tools/temporary-buydown/">
 <meta property="og:image" content="https://www.ethanbrooks.mortgage/images/og-image.jpg">
 <meta property="og:site_name" content="Refined Mortgage Group">
@@ -32,8 +32,9 @@
 .ytable .ptable{min-width:460px}
 .result .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.7)}
 .result hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:16px 0}
-.howgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-@media(max-width:760px){.howgrid{grid-template-columns:1fr}}
+.howgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:980px){.howgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.howgrid{grid-template-columns:1fr}}
 .howgrid .card .rate{font-family:var(--serif);font-size:2rem;color:var(--forest);line-height:1}
 .howgrid .card .rate small{font-family:var(--sans);font-size:.8rem;color:var(--moss);font-weight:600;margin-left:6px}
 .steps{list-style:none;margin-top:12px}
@@ -58,12 +59,21 @@
   <header class="hero">
     <p class="eyebrow">Temporary buydowns</p>
     <h1>A lower payment for the first few years.</h1>
-    <p class="lead">With a temporary buydown, the seller (or builder) prepays part of your interest so your rate starts lower and steps up each year to your full rate. Here's how the 1/0, 2/1 and 3/2/1 compare &mdash; and what they cost the seller.</p>
+    <p class="lead">With a temporary buydown, the seller (or builder) prepays part of your interest so your rate starts lower and steps up each year to your full rate. Here's how the .5/0, 1/0, 2/1 and 3/2/1 compare &mdash; and what they cost the seller.</p>
   </header>
 
   <section style="padding-top:10px">
-    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three common structures.</h2><p>Example: $450,000 price, 20% down ($360,000 loan), 30-year fixed at <span data-r="0">7.138%</span>. Full principal &amp; interest = <b><span data-full>$2,429</span>/mo</b>.</p></div>
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Four common structures.</h2><p>Example: $450,000 price, 20% down ($360,000 loan), 30-year fixed at <span data-r="0">7.138%</span>. Full principal &amp; interest = <b><span data-full>$2,429</span>/mo</b>.</p></div>
     <div class="howgrid">
+      <div class="card">
+        <h3>.5/0 buydown</h3>
+        <div class="rate">&frac12;% off<small>for 1 year</small></div>
+        <ul class="steps">
+          <li><span>Year 1 · <span data-r="-0.5">6.638%</span></span><b><span data-p="0.5">$2,308</span> <span style="color:var(--forest)">(−<span data-s="0.5">$120</span>)</span></b></li>
+          <li><span>Years 2–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="0.5">$1,444</span></b></li>
+        </ul>
+      </div>
       <div class="card">
         <h3>1/0 buydown</h3>
         <div class="rate">1% off<small>for 1 year</small></div>
@@ -80,7 +90,7 @@
           <li><span>Year 1 · <span data-r="-2">5.138%</span></span><b><span data-p="2">$1,963</span> <span style="color:var(--forest)">(−<span data-s="2">$466</span>)</span></b></li>
           <li><span>Year 2 · <span data-r="-1">6.138%</span></span><b><span data-p="1">$2,190</span> <span style="color:var(--forest)">(−<span data-s="1">$238</span>)</span></b></li>
           <li><span>Years 3–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
-          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="2">$8,444</span></b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="2,1">$8,444</span></b></li>
         </ul>
       </div>
       <div class="card">
@@ -91,7 +101,7 @@
           <li><span>Year 2 · <span data-r="-2">5.138%</span></span><b><span data-p="2">$1,963</span> <span style="color:var(--forest)">(−<span data-s="2">$466</span>)</span></b></li>
           <li><span>Year 3 · <span data-r="-1">6.138%</span></span><b><span data-p="1">$2,190</span> <span style="color:var(--forest)">(−<span data-s="1">$238</span>)</span></b></li>
           <li><span>Years 4–30 · <span data-r="0">7.138%</span></span><b data-full>$2,429</b></li>
-          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="3">$16,617</span></b></li>
+          <li><span>Seller cost</span><b style="color:var(--forest)">≈ <span data-c="3,2,1">$16,617</span></b></li>
         </ul>
       </div>
     </div>
@@ -104,9 +114,10 @@
       <div class="fields">
         <label>Buydown type</label>
         <div class="seg" id="seg">
+          <button type="button" data-t="0.5">.5/0</button>
           <button type="button" data-t="1">1/0</button>
-          <button type="button" data-t="2" class="on">2/1</button>
-          <button type="button" data-t="3">3/2/1</button>
+          <button type="button" data-t="2,1" class="on">2/1</button>
+          <button type="button" data-t="3,2,1">3/2/1</button>
         </div>
         <div class="grid2">
           <div><label for="price">Home price</label><div class="in"><span>$</span><input id="price" type="text" inputmode="decimal" value="450,000"></div></div>
@@ -162,15 +173,17 @@
       <div class="socials"><a href="https://www.facebook.com/ethan.t.brooks.mortgage/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg></a><a href="https://www.instagram.com/ethan.t.brooks/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM17.5 7a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM12 4.5c2.4 0 2.7 0 3.6.05 2.5.1 3.7 1.3 3.8 3.8.04.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.1 2.5-1.3 3.7-3.8 3.8-.9.04-1.2.05-3.6.05s-2.7 0-3.6-.05c-2.5-.1-3.7-1.3-3.8-3.8C4.5 14.7 4.5 14.4 4.5 12s0-2.7.05-3.6c.1-2.5 1.3-3.7 3.8-3.8C9.3 4.5 9.6 4.5 12 4.5z"/></svg></a><a href="https://www.linkedin.com/in/ethantbrooks/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zM10 9.5h2.9v1.3h.04c.4-.75 1.4-1.55 2.86-1.55 3 0 3.7 2 3.7 4.6V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V19h-3z"/></svg></a></div>
     </div>
     <div class="foot-col"><h4>Get in Touch</h4><a href="tel:4144880438">414·488·0438</a><a href="mailto:ethan@trustrefined.com">ethan@trustrefined.com</a><a href="/#contact">Send a message</a><a href="https://calendly.com/ethan-brooks/15min">Schedule a call</a><a href="https://mtgpro.co/dr/c/nroce">Apply now</a><p style="margin-top:10px">11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</p></div>
-    <div class="foot-col"><h4>Explore</h4><a href="/loans/">Loan programs</a><a href="/mortgage-lender/">Areas we serve</a><a href="/resources/">Resources</a><a href="/tools/mortgage-calculator/">Mortgage Calculator</a><a href="/tools/temporary-buydown/">Temporary Buydown Calculator</a><a href="/homebuyer-faq/">Homebuyer FAQ</a><a href="/tools/investment-calculator/">Investment Calculator</a><a href="/blog/">Blog</a></div>
+    <div class="foot-col"><h4>Explore</h4><a href="/loans/">Loan programs</a><a href="/mortgage-lender/">Areas we serve</a><a href="/resources/">Resources</a><a href="/tools/mortgage-calculator/">Mortgage Calculator</a><a href="/tools/temporary-buydown/">Temporary Buydown Calculator</a><a href="/tools/appraisal-gap-calculator/">Appraisal Gap Calculator</a><a href="/homebuyer-faq/">Homebuyer FAQ</a><a href="/tools/investment-calculator/">Investment Calculator</a><a href="/blog/">Blog</a></div>
   </div>
   <div class="compliance"><div class="badges"><div class="nmls">NMLS<br>#2289</div><div class="eho">EQUAL<br>HOUSING<br>OPP.</div></div><div class="legal">Examples and calculator results are illustrative only, show principal and interest only, and assume a fixed-rate loan; they are not a quote or a Loan Estimate. Temporary buydown availability, seller-contribution limits and the treatment of unused funds vary by loan program. Borrowers are qualified at the note rate. This information is not intended to be an indication of loan qualification, loan approval or commitment to lend. This is not an offer to enter into an agreement. Not all customers will qualify. Information, rates and programs are subject to change without notice. All products are subject to credit and property approval. © 2026 Fairway Home Mortgage NMLS ID #2289. Equal Housing Opportunity.</div></div>
   <div class="foot-bottom"><span>© <span id="yr"></span> Ethan Brooks · Refined Mortgage Group. NMLS #1639987.</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></span></div>
-</div></footer>
+</div>
+<div class="fw-compliance" style="max-width:1140px;margin:22px auto 0;padding:18px 28px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;line-height:1.7;color:inherit"><div style="margin-bottom:14px"><a href="https://www.fairway.com/" target="_blank" rel="noopener" style="display:inline-block;padding:10px 14px;background:#fff;border-radius:10px"><img src="/images/fairway-rmg-lockup.svg" alt="Fairway Home Mortgage · Refined Mortgage Group" style="height:44px;width:auto;display:block"></a></div><p style="margin:0 0 6px">Complaints may be directed to: <a href="tel:18776990353" style="color:inherit;text-decoration:underline">(877) 699-0353</a> or Email us: <a href="mailto:customerservice@fairwaymc.com" style="color:inherit;text-decoration:underline">customerservice@fairwaymc.com</a></p><p style="margin:0 0 6px"><a href="https://www.fairway.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="https://www.fairway.com/legal/terms-of-use" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms of Use</a> · <a href="https://www.fairway.com/contact-us/contact-us" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Submit a Complaint</a> · <a href="https://www.fairway.com/legal/legal-disclosures" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Legal Disclosures</a></p><p style="margin:0">For licensing information, go to <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">www.nmlsconsumeraccess.org</a>. Ethan Brooks NMLS #1639987 · Fairway Home Mortgage NMLS #2289 · Equal Housing Opportunity.</p></div>
+</footer>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 (function(){
-  var type=2;
+  var cuts=[2,1];
   var $=function(id){return document.getElementById(id)};
   var num=function(v){v=parseFloat(String(v).replace(/[^0-9.]/g,''));return isNaN(v)?0:v};
   var usd=function(v){return '$'+Math.round(v).toLocaleString('en-US')};
@@ -178,8 +191,8 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   function calc(){
     var price=num($('price').value),down=Math.min(num($('down').value),100),rate=num($('rate').value),n=num($('term').value)*12;
     var loan=price*(1-down/100),full=pmt(loan,rate,n),cost=0,rows='',y1=full;
-    for(var y=1;y<=type+1;y++){
-      var cut=type-y+1, r=Math.max(rate-cut,0), p=cut>0?pmt(loan,r,n):full, s=full-p;
+    for(var y=1;y<=cuts.length+1;y++){
+      var cut=y<=cuts.length?cuts[y-1]:0, r=Math.max(rate-cut,0), p=cut>0?pmt(loan,r,n):full, s=full-p;
       if(y===1)y1=p; cost+=s*12;
       rows+='<tr><td>'+(cut>0?'Year '+y:'Years '+y+'+')+'</td><td>'+r.toFixed(3).replace(/0+$/,'').replace(/\.$/,'')+'%</td><td class="num">'+usd(p)+'</td><td class="up">'+(s>0?'−'+usd(s):'—')+'</td><td class="num">'+(s>0?usd(s*12):'—')+'</td></tr>';
     }
@@ -191,7 +204,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     $('r-y1').textContent=usd(y1);$('r-s1').textContent=usd(full-y1);$('r-tot').textContent=usd(cost);
   }
   document.querySelectorAll('#seg button').forEach(function(b){b.addEventListener('click',function(){
-    document.querySelectorAll('#seg button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');type=+b.dataset.t;calc();});});
+    document.querySelectorAll('#seg button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');cuts=b.dataset.t.split(',').map(Number);calc();});});
   var rateTouched=false;
   $('rate').addEventListener('input',function(){rateTouched=true});
   ['price','down','rate','term'].forEach(function(id){$(id).addEventListener('input',calc)});
@@ -202,7 +215,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     document.querySelectorAll('[data-full]').forEach(function(e){e.textContent=usd(full)});
     document.querySelectorAll('[data-p]').forEach(function(e){e.textContent=usd(pmt(L,R-(+e.getAttribute('data-p')),n))});
     document.querySelectorAll('[data-s]').forEach(function(e){e.textContent=usd(full-pmt(L,R-(+e.getAttribute('data-s')),n))});
-    document.querySelectorAll('[data-c]').forEach(function(e){var t=+e.getAttribute('data-c'),c=0;for(var k=1;k<=t;k++)c+=(full-pmt(L,R-k,n))*12;e.textContent=usd(c)});
+    document.querySelectorAll('[data-c]').forEach(function(e){var c=0;e.getAttribute('data-c').split(',').forEach(function(k){c+=(full-pmt(L,R-(+k),n))*12});e.textContent=usd(c)});
   }
   // Same rule as the main mortgage calculator: override, else metric + adjustment
   function liveRate(d){

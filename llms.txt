@@ -108,6 +108,8 @@ Refined Mortgage Group helps Wisconsin buyers — especially first-time buyers �
 ## Free tools
 - Mortgage calculator (payment, extra principal, biweekly, recast, PMI drop-off, amortization schedule): https://www.ethanbrooks.mortgage/tools/mortgage-calculator/
 - Investment property calculator (cash flow, cap rate, DSCR): https://www.ethanbrooks.mortgage/tools/investment-calculator/
+- Temporary buydown calculator (.5/0, 1/0, 2/1, 3/2/1 seller-paid buydowns): https://www.ethanbrooks.mortgage/tools/temporary-buydown/
+- Appraisal gap calculator (low appraisal → LTV and PMI impact, three ways to handle the gap): https://www.ethanbrooks.mortgage/tools/appraisal-gap-calculator/
 - Homebuyer FAQ and affordability calculator: https://www.ethanbrooks.mortgage/homebuyer-faq/
 
 ## Links

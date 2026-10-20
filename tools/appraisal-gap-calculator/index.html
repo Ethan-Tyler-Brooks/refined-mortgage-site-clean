@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appraisal Gap Calculator — What a Low Appraisal Does to PMI &amp; LTV</title>
+<meta name="description" content="Appraisal came in low? See what happens if you don't bring more money to closing: your new loan-to-value, the PMI increase, and how it compares to covering the gap or a price cut.">
+<link rel="canonical" href="https://www.ethanbrooks.mortgage/tools/appraisal-gap-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Appraisal Gap Calculator — What a Low Appraisal Does to PMI & LTV">
+<meta property="og:description" content="If the appraisal is $X low and you don't want to bring more cash, here's the new LTV, the PMI increase, and your three ways to handle the gap.">
+<meta property="og:url" content="https://www.ethanbrooks.mortgage/tools/appraisal-gap-calculator/">
+<meta property="og:image" content="https://www.ethanbrooks.mortgage/images/og-image.jpg">
+<meta property="og:site_name" content="Refined Mortgage Group">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/rmg-pages.css">
+<style>
+.ag-calc{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr 360px;gap:24px}
+@media(max-width:760px){.ag-calc{grid-template-columns:1fr;padding:16px}}
+.fields .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+@media(max-width:480px){.fields .grid2{grid-template-columns:1fr}}
+.fields .hint{font-size:.82rem;color:var(--moss);margin:-6px 0 10px}
+.result .k{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.7)}
+.result hr{border:0;border-top:1px solid rgba(255,255,255,.18);margin:16px 0}
+.result .big.warn{color:#F6C87A;font-size:1.6rem;line-height:1.2}
+.ltvbar{margin:14px 0 4px;height:10px;border-radius:99px;background:rgba(255,255,255,.14);position:relative;overflow:hidden}
+.ltvbar i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:rgba(255,255,255,.35)}
+.ltvbar b{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--lime)}
+.ltvlbl{display:flex;justify-content:space-between;font-size:.8rem;color:rgba(255,255,255,.75)}
+.ctable{margin-top:22px;overflow-x:auto}
+.ctable .ptable{min-width:560px}
+.ctable th.hl,.ctable td.hl{background:rgba(130,195,65,.14)}
+.ctable thead th.hl{background:var(--forest)}
+.ctable td.hl.num,.ctable td.hl.up{font-weight:700}
+.ctable td small{display:block;font-weight:400;color:var(--moss);font-size:.78rem}
+.flag{display:none;margin-top:12px;padding:12px 14px;border-radius:12px;background:#FFF6E5;border:1px solid #F3D9A4;color:#6B4A00;font-size:.9rem}
+.flag.show{display:block}
+.howgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.howgrid{grid-template-columns:1fr}}
+.howgrid .card .n{font-family:var(--serif);font-size:2rem;color:var(--forest);line-height:1;margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="bar"><nav class="nav">
+  <a href="/" class="logo"><img class="logo-mark" src="/images/logo-nav.png" alt="Refined Mortgage Group"><span>Refined<small>Mortgage Group</small></span></a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/team">Team</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="nav-cta"><a href="tel:4144880438" class="phone">414·488·0438</a><a href="https://calendly.com/ethan-brooks/15min" class="btn btn-lime">Schedule a Call</a></div>
+</nav></div>
+
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Appraisal gap</p>
+    <h1>The appraisal came in low. Now what?</h1>
+    <p class="lead">Your lender lends against the <em>lower</em> of the purchase price or the appraised value. So when the appraisal comes in short and you don't bring extra cash, your loan-to-value goes up &mdash; and with it, your mortgage insurance. Here's exactly what that costs, and how it compares to your other two options.</p>
+  </header>
+
+  <section style="padding-top:10px">
+    <div class="sec-head"><p class="eyebrow">How it works</p><h2>Three ways to handle a gap.</h2><p>Example: $450,000 price, 10% down, appraisal comes in <b>$15,000 low</b> at $435,000.</p></div>
+    <div class="howgrid">
+      <div class="card">
+        <div class="n">1</div>
+        <h3>Keep your cash</h3>
+        <p>Same down payment, same loan amount. But that loan is now measured against $435,000, so your LTV rises from 90% to about 93% &mdash; a higher PMI tier. No extra money at closing; a higher payment every month until PMI drops off.</p>
+      </div>
+      <div class="card">
+        <div class="n">2</div>
+        <h3>Cover the gap</h3>
+        <p>Bring the $15,000 difference as extra down payment. Your loan amount drops, your LTV stays at 90%, and your PMI doesn't change. The most cash now, the lowest payment later.</p>
+      </div>
+      <div class="card">
+        <div class="n">3</div>
+        <h3>Renegotiate the price</h3>
+        <p>Seller drops the price to the appraised value (or meets you partway). Your 10% down now buys a $435,000 home: smaller loan, same LTV, lowest payment of the three. Your appraisal contingency is the lever here.</p>
+      </div>
+    </div>
+    <p class="note">Conventional loans. PMI is priced in tiers by LTV at closing, so a gap that pushes you from one tier to the next (say, 90% to 90.01%) can change the rate more than the gap itself suggests.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Calculator</p><h2>Run your own numbers.</h2></div>
+    <div class="ag-calc">
+      <div class="fields">
+        <div class="grid2">
+          <div><label for="price">Purchase price</label><div class="in"><span>$</span><input id="price" type="text" inputmode="decimal" value="450,000"></div></div>
+          <div><label for="down">Down payment</label><div class="in"><input id="down" type="text" inputmode="decimal" value="10"><span>%</span></div><p class="hint" id="downhint">= $45,000</p></div>
+          <div><label for="gap">Appraisal came in low by</label><div class="in"><span>$</span><input id="gap" type="text" inputmode="decimal" value="15,000"></div><p class="hint" id="gaphint">Appraised value = $435,000</p></div>
+          <div><label for="rate">Interest rate</label><div class="in"><input id="rate" type="text" inputmode="decimal" value="7.138"><span>%</span></div></div>
+          <div><label for="term">Loan term</label><div class="in"><select id="term"><option value="30" selected>30 years</option><option value="25">25 years</option><option value="20">20 years</option><option value="15">15 years</option></select></div></div>
+        </div>
+        <div class="flag" id="flag"></div>
+        <div class="ctable">
+          <table class="ptable" id="ctbl">
+            <thead><tr><th></th><th class="hl">1 · Keep your cash</th><th>2 · Cover the gap</th><th>3 · Price cut to appraisal</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="result">
+        <div class="k">If you keep your cash the same</div>
+        <div class="big" id="r-pmi">+$0/mo</div>
+        <div class="sub" id="r-pmisub">more mortgage insurance</div>
+        <div class="ltvbar"><i id="bar-old"></i><b id="bar-new"></b></div>
+        <div class="ltvlbl"><span>LTV at offer: <b id="r-ltv0">0%</b></span><span>After appraisal: <b id="r-ltv1">0%</b></span></div>
+        <hr>
+        <div class="rrow"><span>Loan amount (unchanged)</span><b id="r-loan">$0</b></div>
+        <div class="rrow"><span>Est. PMI before &rarr; after</span><b id="r-pmiba">$0 &rarr; $0</b></div>
+        <div class="rrow"><span>PMI tier</span><b id="r-tier">&mdash;</b></div>
+        <div class="rrow"><span>Monthly P&amp;I + PMI</span><b id="r-total">$0</b></div>
+        <div class="rrow"><span>Extra PMI per year</span><b id="r-yr">$0</b></div>
+        <div class="rrow" style="border-bottom:0"><span>Extra PMI until it drops off</span><b id="r-life">$0</b></div>
+        <p class="sub" style="margin-top:14px" id="r-drop"></p>
+        <p class="sub" style="margin-top:10px">Conventional loan estimate. Excludes taxes, insurance and HOA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><p class="eyebrow">Good to know</p><h2>Quick answers.</h2></div>
+    <details class="acc"><summary>Why does a low appraisal raise my PMI?<span class="pl"></span></summary><div class="body">Mortgage insurance is priced by loan-to-value, and LTV uses the lower of price or appraised value. Same loan, smaller value, higher LTV. PMI is tiered (roughly 80&ndash;85%, 85&ndash;90%, 90&ndash;95%, 95&ndash;97%), so crossing a tier line is what moves the number.</div></details>
+    <details class="acc"><summary>Do I have to bring more money to closing?<span class="pl"></span></summary><div class="body">Not necessarily. If your new LTV is still within the program maximum (97% for most conventional loans), the loan can proceed at the same amount with higher PMI. If the gap pushes you past the maximum, you'll need to add cash, renegotiate, or walk away under your appraisal contingency.</div></details>
+    <details class="acc"><summary>Does the seller have to lower the price?<span class="pl"></span></summary><div class="body">No. It's a negotiation. Many Wisconsin contracts include an appraisal contingency that lets you walk if the value comes in short &mdash; that's your leverage. Sellers often meet buyers partway rather than go back to market. More in <a href="/blog/appraisal-gap-wisconsin.html">what happens when a home appraises below your offer</a>.</div></details>
+    <details class="acc"><summary>When does the extra PMI go away?<span class="pl"></span></summary><div class="body">On a conventional loan you can request cancellation at 80% of the original value, and it ends automatically at 78%. "Original value" is the appraised value when it's lower than the price, so a gap also pushes the drop-off date out a bit. You can also get a new appraisal later if the home has gained value.</div></details>
+    <details class="acc"><summary>What about FHA, VA or USDA?<span class="pl"></span></summary><div class="body">This calculator models conventional PMI. FHA mortgage insurance is a flat annual rate above 90% LTV, VA has no monthly MI, and USDA's annual fee doesn't change with LTV &mdash; so for those programs a gap is mostly a cash question, not a PMI question. Ask me to run your actual program.</div></details>
+  </section>
+
+  <section>
+    <div class="cta">
+      <p class="eyebrow" style="color:var(--brass-lt);justify-content:center">Appraisal just came back?</p>
+      <h2>Let's pick the option that costs you least.</h2>
+      <p>Send me the appraisal and the contract and I'll run all three scenarios on your real loan &mdash; usually the same business day.</p>
+      <div class="row"><a href="https://calendly.com/ethan-brooks/15min" class="btn btn-lime">Book a 15-minute call</a><a href="/#contact" class="btn btn-ghost">Send Ethan a message</a><a href="https://mtgpro.co/dr/c/nroce" class="btn btn-ghost">Start your application</a></div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">
+  <div class="foot-top">
+    <div class="foot-brand">
+      <a href="/" class="logo"><img src="/images/logo-mono.png" alt="Refined Mortgage Group" style="height:46px;width:auto;display:block"></a>
+      <p>Ethan Brooks Mortgage Team · NMLS #1639987. A local Wisconsin advisor helping families make confident, well-planned mortgage decisions.</p>
+      <div class="socials"><a href="https://www.facebook.com/ethan.t.brooks.mortgage/" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1z"/></svg></a><a href="https://www.instagram.com/ethan.t.brooks/" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zM17.5 7a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM12 4.5c2.4 0 2.7 0 3.6.05 2.5.1 3.7 1.3 3.8 3.8.04.9.05 1.2.05 3.6s0 2.7-.05 3.6c-.1 2.5-1.3 3.7-3.8 3.8-.9.04-1.2.05-3.6.05s-2.7 0-3.6-.05c-2.5-.1-3.7-1.3-3.8-3.8C4.5 14.7 4.5 14.4 4.5 12s0-2.7.05-3.6c.1-2.5 1.3-3.7 3.8-3.8C9.3 4.5 9.6 4.5 12 4.5z"/></svg></a><a href="https://www.linkedin.com/in/ethantbrooks/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.5 8A1.5 1.5 0 1 0 6.5 5a1.5 1.5 0 0 0 0 3zM5 9.5h3V19H5zM10 9.5h2.9v1.3h.04c.4-.75 1.4-1.55 2.86-1.55 3 0 3.7 2 3.7 4.6V19h-3v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V19h-3z"/></svg></a></div>
+    </div>
+    <div class="foot-col"><h4>Get in Touch</h4><a href="tel:4144880438">414·488·0438</a><a href="mailto:ethan@trustrefined.com">ethan@trustrefined.com</a><a href="/#contact">Send a message</a><a href="https://calendly.com/ethan-brooks/15min">Schedule a call</a><a href="https://mtgpro.co/dr/c/nroce">Apply now</a><p style="margin-top:10px">11220 W Burleigh St., Unit 159<br>Wauwatosa, WI 53222</p></div>
+    <div class="foot-col"><h4>Explore</h4><a href="/loans/">Loan programs</a><a href="/mortgage-lender/">Areas we serve</a><a href="/resources/">Resources</a><a href="/tools/mortgage-calculator/">Mortgage Calculator</a><a href="/tools/temporary-buydown/">Temporary Buydown Calculator</a><a href="/tools/appraisal-gap-calculator/">Appraisal Gap Calculator</a><a href="/homebuyer-faq/">Homebuyer FAQ</a><a href="/tools/investment-calculator/">Investment Calculator</a><a href="/blog/">Blog</a></div>
+  </div>
+  <div class="compliance"><div class="badges"><div class="nmls">NMLS<br>#2289</div><div class="eho">EQUAL<br>HOUSING<br>OPP.</div></div><div class="legal">Examples and calculator results are illustrative only and are not a quote or a Loan Estimate. Mortgage insurance is estimated from loan-to-value using typical conventional tiers; actual premiums vary by credit score, program, provider and loan characteristics. Maximum loan-to-value, cancellation rules and appraisal requirements vary by loan program. This information is not intended to be an indication of loan qualification, loan approval or commitment to lend. This is not an offer to enter into an agreement. Not all customers will qualify. Information, rates and programs are subject to change without notice. All products are subject to credit and property approval. © 2026 Fairway Home Mortgage NMLS ID #2289. Equal Housing Opportunity.</div></div>
+  <div class="foot-bottom"><span>© <span id="yr"></span> Ethan Brooks · Refined Mortgage Group. NMLS #1639987.</span><span><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a></span></div>
+</div>
+<div class="fw-compliance" style="max-width:1140px;margin:22px auto 0;padding:18px 28px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;line-height:1.7;color:inherit"><div style="margin-bottom:14px"><a href="https://www.fairway.com/" target="_blank" rel="noopener" style="display:inline-block;padding:10px 14px;background:#fff;border-radius:10px"><img src="/images/fairway-rmg-lockup.svg" alt="Fairway Home Mortgage · Refined Mortgage Group" style="height:44px;width:auto;display:block"></a></div><p style="margin:0 0 6px">Complaints may be directed to: <a href="tel:18776990353" style="color:inherit;text-decoration:underline">(877) 699-0353</a> or Email us: <a href="mailto:customerservice@fairwaymc.com" style="color:inherit;text-decoration:underline">customerservice@fairwaymc.com</a></p><p style="margin:0 0 6px"><a href="https://www.fairway.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="https://www.fairway.com/legal/terms-of-use" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms of Use</a> · <a href="https://www.fairway.com/contact-us/contact-us" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Submit a Complaint</a> · <a href="https://www.fairway.com/legal/legal-disclosures" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Legal Disclosures</a></p><p style="margin:0">For licensing information, go to <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">www.nmlsconsumeraccess.org</a>. Ethan Brooks NMLS #1639987 · Fairway Home Mortgage NMLS #2289 · Equal Housing Opportunity.</p></div>
+</footer>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var num=function(v){v=parseFloat(String(v).replace(/[^0-9.]/g,''));return isNaN(v)?0:v};
+  var usd=function(v){return (v<0?'−':'')+'$'+Math.round(Math.abs(v)).toLocaleString('en-US')};
+  var pct=function(v){return (Math.round(v*1000)/10).toFixed(1)+'%'};
+  function pmt(L,r,n){var i=r/1200;return i<=0?L/n:L*i/(1-Math.pow(1+i,-n))}
+  // Same conventional PMI tiers as the site's mortgage calculator (annual factor on the loan amount).
+  function pmiFactor(ltv){ltv=Math.round(ltv*10000)/10000;if(ltv<=0.80)return 0;if(ltv<=0.85)return 0.0030;if(ltv<=0.90)return 0.0042;if(ltv<=0.95)return 0.0062;return 0.0085}
+  function tierName(ltv){ltv=Math.round(ltv*10000)/10000;if(ltv<=0.80)return 'None (≤80%)';if(ltv<=0.85)return '80–85%';if(ltv<=0.90)return '85–90%';if(ltv<=0.95)return '90–95%';return '95–97%'}
+  var MAXLTV=0.97;
+  // Month at which the scheduled balance first reaches 80% of the original value (borrower-requested cancellation).
+  function dropMonth(L,rate,n,value){if(L<=0.80*value)return 0;var i=rate/1200,p=pmt(L,rate,n),b=L;for(var m=1;m<=n;m++){b=b*(1+i)-p;if(b<=0.80*value)return m}return n}
+  function scen(loan,value,rate,n){
+    var ltv=value>0?loan/value:0,pi=pmt(loan,rate,n),f=pmiFactor(ltv),mi=loan*f/12;
+    return {loan:loan,value:value,ltv:ltv,pi:pi,mi:mi,tier:tierName(ltv),drop:dropMonth(loan,rate,n,value),total:pi+mi};
+  }
+  function calc(){
+    var price=num($('price').value),downPct=Math.min(num($('down').value),100),gap=Math.max(num($('gap').value),0),rate=num($('rate').value),n=num($('term').value)*12;
+    var down=price*downPct/100,appr=Math.max(price-gap,0);
+    $('downhint').textContent='= '+usd(down);
+    $('gaphint').textContent='Appraised value = '+usd(appr);
+    var base=scen(price-down,price,rate,n);             // what you expected at offer
+    var keep=scen(price-down,appr,rate,n);              // 1: same loan, measured against appraisal
+    var cover=scen(price-down-gap,appr,rate,n);         // 2: bring the gap, same LTV
+    var cut=scen(appr-appr*downPct/100,appr,rate,n);    // 3: price cut to appraised value, same % down
+    // headline
+    var dMi=keep.mi-base.mi,over=keep.ltv>MAXLTV+1e-9;
+    var big=$('r-pmi');big.className='big';
+    if(over){big.className='big warn';big.textContent='Over the '+Math.round(MAXLTV*100)+'% max';$('r-pmisub').textContent='Needs at least '+usd(keep.loan-MAXLTV*appr)+' more down to close as a conventional loan';}
+    else{big.textContent=(dMi>=0?'+':'')+usd(dMi)+'/mo';$('r-pmisub').textContent=dMi>0?(base.mi>0?'more mortgage insurance':'in new mortgage insurance (you had none before)'):'no change in mortgage insurance';}
+    $('r-ltv0').textContent=pct(base.ltv);$('r-ltv1').textContent=pct(keep.ltv);
+    $('bar-old').style.width=Math.min(base.ltv,1)*100+'%';$('bar-new').style.width=Math.min(keep.ltv,1)*100+'%';
+    $('r-loan').textContent=usd(keep.loan);
+    $('r-pmiba').innerHTML=usd(base.mi)+' &rarr; '+usd(keep.mi);
+    $('r-tier').textContent=base.tier===keep.tier?keep.tier:base.tier+' → '+keep.tier;
+    $('r-total').textContent=usd(keep.total);
+    $('r-yr').textContent=over?'—':usd(dMi*12);
+    $('r-life').textContent=over?'—':usd(keep.mi*keep.drop-base.mi*base.drop);
+    var dm=keep.drop-base.drop;
+    $('r-drop').textContent=keep.mi>0?('Est. PMI removal (80% LTV): month '+keep.drop+(dm>0?' — about '+dm+' month'+(dm===1?'':'s')+' later than at the original value.':'.')):'';
+    // flag
+    var fl=$('flag'),msg='';
+    if(over)msg='<b>Heads up:</b> keeping your cash the same puts the loan at '+pct(keep.ltv)+' LTV, above the '+Math.round(MAXLTV*100)+'% conventional maximum. You\'d need at least <b>'+usd(keep.loan-MAXLTV*appr)+'</b> more at closing, a price reduction of at least <b>'+usd(keep.loan-MAXLTV*appr)+'</b>, or a mix.';
+    else if(base.mi===0&&keep.mi>0)msg='<b>Heads up:</b> at the offer price you had 20%+ down and no PMI. The gap pushes you to '+pct(keep.ltv)+' LTV, so PMI kicks in unless you cover '+usd(keep.loan-0.80*appr)+' of the gap.';
+    fl.innerHTML=msg;fl.className='flag'+(msg?' show':'');
+    // comparison table
+    var S=[keep,cover,cut],cash=[down,down+gap,appr*downPct/100];
+    var rows=function(label,fn,cls){var h='<tr><td>'+label+'</td>';for(var k=0;k<3;k++){h+='<td class="'+(cls||'num')+(k===0?' hl':'')+'">'+fn(S[k],k)+'</td>'}return h+'</tr>'};
+    var html='';
+    html+=rows('Cash at closing (down payment)',function(s,k){return usd(cash[k])+(k===1?'<small>+'+usd(gap)+' vs. plan</small>':k===2?'<small>'+usd(cash[k]-down)+' vs. plan</small>':'<small>as planned</small>')});
+    html+=rows('Purchase price',function(s,k){return usd(k===2?appr:price)});
+    html+=rows('Loan amount',function(s){return usd(s.loan)});
+    html+=rows('Loan-to-value',function(s){return pct(s.ltv)+'<small>'+s.tier+'</small>'});
+    html+=rows('Est. monthly PMI',function(s){return s.mi>0?usd(s.mi):'None'});
+    html+=rows('Monthly P&amp;I',function(s){return usd(s.pi)});
+    html+='<tr class="tot">'+'<td>Monthly P&amp;I + PMI</td>';for(var k=0;k<3;k++)html+='<td class="num'+(k===0?' hl':'')+'">'+usd(S[k].total)+'</td>';html+='</tr>';
+    html+=rows('Est. PMI drop-off (80% LTV)',function(s){return s.mi>0?'Month '+s.drop:'—'});
+    html+=rows('Total PMI paid until drop-off',function(s){return s.mi>0?usd(s.mi*s.drop):'—'});
+    $('ctbl').querySelector('tbody').innerHTML=html;
+  }
+  var rateTouched=false;
+  $('rate').addEventListener('input',function(){rateTouched=true});
+  ['price','down','gap','rate','term'].forEach(function(id){$(id).addEventListener('input',calc)});
+  ['price','gap'].forEach(function(id){$(id).addEventListener('blur',function(){var v=num(this.value);this.value=v?v.toLocaleString('en-US'):'0'})});
+  // Same rule as the main mortgage calculator: override, else metric + adjustment
+  function liveRate(d){
+    if(!d||typeof d!=='object')return null;
+    var ok=function(v){return typeof v==='number'&&isFinite(v)&&v>=2&&v<=15};
+    var ov=d.overrides&&d.overrides.conventional;if(ok(ov))return Math.round(ov*1000)/1000;
+    var p=d.programs&&d.programs.conventional;if(!p||typeof p.metric!=='number')return null;
+    var r=Math.round((p.metric+(typeof d.adjustment==='number'?d.adjustment:0))*1000)/1000;
+    return ok(r)?r:null;
+  }
+  if(typeof fetch==='function'){try{fetch('/data/rates.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+    var R=liveRate(d);if(R===null)return;if(!rateTouched){$('rate').value=String(R);calc();}
+  })['catch'](function(){});}catch(e){}}
+  calc();
+})();
+</script>
+</body>
+</html>

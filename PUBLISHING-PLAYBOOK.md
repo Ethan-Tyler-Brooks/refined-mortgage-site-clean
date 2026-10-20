@@ -61,6 +61,10 @@ Keep the exact head/nav/footer and CSS. Swap the per-post parts. Required:
 - COMPLIANCE footer in every post: Equal Housing Opportunity + "This is not a
   commitment to lend. Rates and terms subject to change without notice." Never state
   a specific interest rate as guaranteed.
+- The template footer also carries the Fairway co-brand lockup (`/images/fairway-rmg-lockup.svg`,
+  class `fw-lockup`) and the `fw-compliance` block (customer-service line, Privacy Policy /
+  Terms of Use / Submit a Complaint links, NMLS Consumer Access sentence) — required by
+  Fairway compliance (Oct 2026). Copy them unchanged. Never write "Powered by Fairway".
 - Voice: plain-English, candid, helpful — never hypey. Clean keyword-rich slug.
 
 ## 3. Update surfaces
