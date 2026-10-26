@@ -1,26 +1,26 @@
 {
-  "updated": "2026-10-23T13:19:48Z",
+  "updated": "2026-10-26T13:09:43Z",
   "adjustment": -0.25,
   "note": "Default calculator rates = program market metric + adjustment. Estimates, not quotes.",
   "programs": {
     "conventional": {
-      "metric": 7.251,
-      "asOf": "2026-10-22",
+      "metric": 7.229,
+      "asOf": "2026-10-23",
       "source": "FRED OBMMIC30YF (Optimal Blue 30-yr conforming index)"
     },
     "fha": {
-      "metric": 7.015,
-      "asOf": "2026-10-22",
+      "metric": 7.077,
+      "asOf": "2026-10-23",
       "source": "FRED OBMMIFHA30YF"
     },
     "va": {
-      "metric": 6.915,
-      "asOf": "2026-10-22",
+      "metric": 6.896,
+      "asOf": "2026-10-23",
       "source": "FRED OBMMIVA30YF"
     },
     "usda": {
-      "metric": 7.116,
-      "asOf": "2026-10-22",
+      "metric": 7.129,
+      "asOf": "2026-10-23",
       "source": "FRED OBMMIUSDA30YF"
     },
     "wheda": {
