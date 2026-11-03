@@ -16,6 +16,7 @@
 <style>
 .sv{max-width:640px;margin:0 auto 70px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px}
 .sv h2{font-size:1.5rem;margin-bottom:6px}.sv p.sub{color:var(--moss);margin-bottom:22px}
+.step{font:600 .72rem var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--moss);margin-bottom:10px}
 .scale{display:grid;grid-template-columns:repeat(11,1fr);gap:6px}
 .scale button{aspect-ratio:1;border:1.5px solid var(--line);background:#fff;border-radius:10px;font:600 1rem var(--sans);color:var(--ink);cursor:pointer;transition:.15s}
 .scale button:hover{border-color:var(--forest)}
@@ -31,6 +32,12 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
 .gcard{margin-top:22px;padding:24px;border-radius:16px;background:var(--ink);color:var(--cream)}
 .gcard h3{color:#fff;font-size:1.25rem;margin-bottom:8px}.gcard p{color:#d9e4dc;margin-bottom:16px}
 .gcard .btn-ghost{border-color:var(--lime);color:var(--cream)}
+.ncard{margin-top:22px;padding:24px;border-radius:16px;border:1px solid var(--line);background:#fff}
+.ncard h3{font-size:1.2rem;margin-bottom:8px}.ncard>p{color:var(--moss);margin-bottom:14px}
+.ncard ul{list-style:none;padding:0;margin:0}.ncard li{padding:11px 0;border-top:1px solid var(--line)}.ncard li:first-child{border-top:0;padding-top:0}
+.ncard li a{font-weight:600;color:var(--forest);text-decoration:none}.ncard li a:hover{text-decoration:underline}
+.ncard li span{display:block;font-size:.88rem;color:var(--moss);margin-top:2px}
+.follow{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:.95rem;color:var(--ink)}.follow a{text-decoration:underline}
 .msg{color:#a33;margin-top:12px;min-height:1.4em}
 .hidden{display:none}
 @media(max-width:520px){.sv{padding:26px 18px}.scale{gap:4px}.scale button{font-size:.85rem;border-radius:8px}}
@@ -49,7 +56,7 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
     <p class="lead">Your honest answer helps us get better for the next Wisconsin family. It takes about a minute.</p>
   </header>
 
-  <div class="sv">
+  <div class="sv" id="sv">
     <div id="s-load"><p class="sub">Loading your survey…</p></div>
 
     <div id="s-bad" class="hidden">
@@ -63,6 +70,7 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
     </div>
 
     <form id="s-form" class="hidden" novalidate>
+      <p class="step">Step 1 of 2</p>
       <h2>How likely are you to recommend us to a friend or family member?</h2>
       <p class="sub">0 = not at all likely, 10 = extremely likely</p>
       <div class="scale" role="group" aria-label="Score from 0 to 10" id="scale"></div>
@@ -70,13 +78,14 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
       <label class="q" for="comment" id="cq">Tell us about your experience</label>
       <textarea id="comment" maxlength="5000" placeholder="Optional, but we read every word."></textarea>
       <input class="hp" type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="actions"><button type="submit" class="btn btn-forest" id="submit" disabled>Submit</button></div>
+      <div class="actions"><button type="submit" class="btn btn-forest" id="submit" disabled>Continue</button></div>
       <p class="msg" id="msg" role="alert"></p>
     </form>
 
-    <div id="s-thanks" class="hidden">
+    <div id="s-next" class="hidden">
+      <p class="step">Step 2 of 2</p>
       <h2>Thank you!</h2>
-      <p class="sub" id="thanks-sub"></p>
+      <p class="sub" id="next-sub"></p>
       <div id="g-big" class="gcard hidden">
         <h3>Would you share that on Google?</h3>
         <p>It helps other families find a lender they can trust. Tap below to copy what you wrote, then paste it into your Google review.</p>
@@ -84,6 +93,16 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
           <button type="button" class="btn btn-lime" id="copy">Copy my comment</button>
           <a class="btn btn-ghost" id="g-link" target="_blank" rel="noopener noreferrer">Open Google review</a>
         </div>
+      </div>
+      <div id="n-close" class="ncard hidden">
+        <h3>Before closing day</h3>
+        <p>Three quick reads clients tell us they wish they'd seen sooner:</p>
+        <ul>
+          <li><a href="/blog/how-to-read-your-closing-disclosure-wisconsin.html">How to read your Closing Disclosure</a><span>What to check, line by line, before you sign.</span></li>
+          <li><a href="/blog/cash-to-close-wisconsin.html">Cash to close</a><span>What you'll bring and how to send it. Always confirm wire instructions by phone with the title company.</span></li>
+          <li><a href="/blog/first-property-tax-bill-after-closing-wisconsin.html">Your first property tax bill</a><span>Why it can look off the first year, and who pays what.</span></li>
+        </ul>
+        <p class="follow hidden" id="n-follow">Ethan will personally reach out within one business day. Want to talk sooner? Call or text <a href="tel:4144880438">414-488-0438</a>.</p>
       </div>
     </div>
   </div>
@@ -108,9 +127,12 @@ textarea:focus,.scale button:focus-visible{outline:2px solid var(--forest);outli
 document.getElementById('yr').textContent=new Date().getFullYear();
 (function(){
   var GOOGLE="https://g.page/r/CYaV8_6IUScmEBM/review";
-  var t=new URLSearchParams(location.search).get('t')||'';
+  var qs=new URLSearchParams(location.search);
+  var t=qs.get('t')||'';
+  var preview=qs.has('preview'); // walk the UI without touching the API; nothing is saved
   var $=function(id){return document.getElementById(id)};
-  var show=function(id){['s-load','s-bad','s-done-before','s-form','s-thanks'].forEach(function(x){$(x).classList.toggle('hidden',x!==id)})};
+  var show=function(id){['s-load','s-bad','s-done-before','s-form','s-next'].forEach(function(x){$(x).classList.toggle('hidden',x!==id)});
+    if(id==='s-next'){$('sv').scrollIntoView({behavior:'smooth',block:'start'});}};
   var score=null;
   $('g-link').href=GOOGLE;
 
@@ -122,31 +144,41 @@ document.getElementById('yr').textContent=new Date().getFullYear();
       $('submit').disabled=false;};
     scale.appendChild(b);})(i);}
 
-  if(!/^[A-Za-z0-9_-]{32}$/.test(t)){show('s-bad');return;}
-  fetch('/api/survey?t='+encodeURIComponent(t)).then(function(r){return r.ok?r.json():null}).then(function(d){
-    if(!d||!d.ok){show('s-bad');return;}
-    if(d.firstName){$('hello').textContent='How did we do, '+d.firstName+'?';}
-    show(d.completed?'s-done-before':'s-form');
-  }).catch(function(){show('s-bad')});
+  if(preview){
+    show('s-form');
+  }else{
+    if(!/^[A-Za-z0-9_-]{32}$/.test(t)){show('s-bad');return;}
+    fetch('/api/survey?t='+encodeURIComponent(t)).then(function(r){return r.ok?r.json():null}).then(function(d){
+      if(!d||!d.ok){show('s-bad');return;}
+      if(d.firstName){$('hello').textContent='How did we do, '+d.firstName+'?';}
+      show(d.completed?'s-done-before':'s-form');
+    }).catch(function(){show('s-bad')});
+  }
+
+  function nextStep(comment){
+    $('next-sub').textContent='Your feedback is saved. One more thing'+(score===10?', if you\'re willing.':' before closing day.');
+    if(score===10){
+      $('g-big').classList.remove('hidden');
+      if(!comment){$('copy').classList.add('hidden');}
+    }else{
+      $('n-close').classList.remove('hidden');
+      if(score<=8){$('n-follow').classList.remove('hidden');}
+    }
+    show('s-next');
+  }
 
   $('s-form').onsubmit=function(e){
     e.preventDefault();if(score===null)return;
     $('submit').disabled=true;$('msg').textContent='';
     var comment=$('comment').value.trim();
+    if(preview){setTimeout(function(){nextStep(comment)},400);return;}
     fetch('/api/survey',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({t:t,score:score,comment:comment,website:$('website').value})})
     .then(function(r){return r.json().then(function(j){return{status:r.status,j:j}})})
     .then(function(res){
       if(res.status===409){show('s-done-before');return;}
       if(!res.j.ok){throw 0;}
-      if(score===10){
-        $('thanks-sub').textContent='We really appreciate you.';
-        $('g-big').classList.remove('hidden');
-        if(!comment){$('copy').classList.add('hidden');}
-      }else{
-        $('thanks-sub').textContent=score>=9?'We really appreciate you.':'Thanks for being straight with us. Ethan will personally follow up.';
-      }
-      show('s-thanks');
+      nextStep(comment);
     }).catch(function(){$('submit').disabled=false;$('msg').textContent='Something went wrong. Please try again, or call 414-488-0438.';});
   };
 
