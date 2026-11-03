@@ -119,6 +119,7 @@
           <input type="checkbox" id="smsConsent" name="sms_consent" value="yes">
           <label for="smsConsent" id="consentLabel">By checking this box, I agree to receive text messages from Refined Mortgage Group, a branch of Fairway Home Mortgage (Fairway Independent Mortgage Corporation), at the mobile number provided, including birthday and home-loan anniversary messages, Refinance Club rate alerts, appointment reminders, and loan updates. Consent is not a condition of any purchase or loan. Messaging frequency may vary. Message and data rates may apply. You can opt out any time by texting STOP. For assistance, text HELP or visit our website at <a href="https://www.fairwayindependentmc.com/" target="_blank" rel="noopener">https://www.fairwayindependentmc.com/</a>. Visit <a href="https://www.ethanbrooks.mortgage/privacy" target="_blank">https://www.ethanbrooks.mortgage/privacy</a> for privacy policy and <a href="https://www.ethanbrooks.mortgage/terms" target="_blank">https://www.ethanbrooks.mortgage/terms</a> for Terms of Service.</label>
         </div>
+        <div class="g-recaptcha" data-sitekey="6LcLyjgtAAAAAL5VrrcE0OWDQEcPvzOjrrsdeUeS" style="margin:18px 0 0"></div>
         <button type="submit" class="btn">Sign me up</button>
         <p class="form-note">Checking the box is required only to sign up for texts here. Reply STOP at any time to opt out, or HELP for help.</p>
       </div>
@@ -141,6 +142,7 @@
 
 <div class="fw-compliance" style="max-width:1140px;margin:22px auto 0;padding:18px 28px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.8rem;line-height:1.7;color:inherit"><p style="margin:0 0 6px">Complaints may be directed to: <a href="tel:18776990353" style="color:inherit;text-decoration:underline">(877) 699-0353</a> or Email us: <a href="mailto:customerservice@fairwaymc.com" style="color:inherit;text-decoration:underline">customerservice@fairwaymc.com</a></p><p style="margin:0 0 6px"><a href="https://www.fairway.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="https://www.fairway.com/legal/terms-of-use" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Terms of Use</a> · <a href="https://www.fairway.com/contact-us/contact-us" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Submit a Complaint</a> · <a href="https://www.fairway.com/legal/legal-disclosures" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">Legal Disclosures</a></p><p style="margin:0">For licensing information, go to <a href="https://www.nmlsconsumeraccess.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">www.nmlsconsumeraccess.org</a>. Ethan Brooks NMLS #1639987 · Fairway Home Mortgage NMLS #2289 · Equal Housing Opportunity.</p></div>
 </footer>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
 <script>
 (function(){
@@ -154,12 +156,23 @@
     if(!document.getElementById('smsConsent').checked){alert('Please check the box to agree to receive text messages.');return;}
     var gt=f.querySelector('[name="_gotcha"]');
     if(gt&&gt.value){done();return;}
+    if(typeof grecaptcha!=='undefined'&&grecaptcha.getResponse().length===0){alert('Please check the box to confirm you are not a robot.');return;}
     document.getElementById('consentText').value=document.getElementById('consentLabel').innerText;
     document.getElementById('consentTs').value=new Date().toISOString();
     var btn=f.querySelector('button[type="submit"]');btn.disabled=true;btn.textContent='Sending\u2026';
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(r.ok){done();}else{throw 0;}})
-      .catch(function(){alert('Sorry, something went wrong. Please call 414-488-0438 or email ethan@trustrefined.com.');btn.disabled=false;btn.textContent='Sign me up';});
+      .then(function(r){
+        if(r.ok){done();return;}
+        return r.json().catch(function(){return null;}).then(function(d){
+          fail((d&&d.errors&&d.errors.map(function(x){return x.message;}).join(', '))||(d&&d.error));
+        });
+      })
+      .catch(function(){fail();});
+    function fail(msg){
+      alert(msg||'Sorry, something went wrong. Please call 414-488-0438 or email ethan@trustrefined.com.');
+      if(typeof grecaptcha!=='undefined'){grecaptcha.reset();}
+      btn.disabled=false;btn.textContent='Sign me up';
+    }
   });
   function done(){document.getElementById('formFields').style.display='none';document.getElementById('formSuccess').classList.add('show');}
 })();
