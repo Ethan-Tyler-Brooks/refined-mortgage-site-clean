@@ -47,3 +47,16 @@
   for = "/data/*"
   [headers.values]
     Cache-Control = "public, max-age=1800, must-revalidate"
+
+# Client feedback survey: serverless functions (no build step needed)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Survey links carry a private token: never index, never leak it via Referer
+[[headers]]
+  for = "/feedback/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+    Cache-Control = "no-store"

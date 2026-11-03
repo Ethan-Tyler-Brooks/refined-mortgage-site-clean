@@ -66,3 +66,6 @@
 /blog/does-my-spouses-debt-count-wisconsin-mortgage  /blog/does-my-spouses-debt-count-wisconsin-mortgage.html  301!
 /blog/buying-a-house-unmarried-wisconsin  /blog/buying-a-house-unmarried-wisconsin.html  301!
 /blog/milwaukee-vs-suburbs-property-tax-escrow  /blog/milwaukee-vs-suburbs-property-tax-escrow.html  301!
+
+# Hide function source from the static site
+/netlify/*  /404  404!
