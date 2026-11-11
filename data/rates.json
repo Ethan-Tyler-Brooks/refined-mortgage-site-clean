@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10T14:14:20Z",
+  "updated": "2026-11-11T14:12:57Z",
   "adjustment": -0.25,
   "note": "Default calculator rates = program market metric + adjustment. Estimates, not quotes.",
   "programs": {
@@ -25,7 +25,7 @@
     },
     "wheda": {
       "metric": 6.75,
-      "asOf": "2026-11-10",
+      "asOf": "2026-11-11",
       "source": "UW Credit Union published WHEDA 30-yr fixed first-time homebuyer rate (uwcu.org/mortgage-home-loans/options/wheda)"
     }
   },
