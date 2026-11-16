@@ -72,3 +72,4 @@
 
 # Hide function source from the static site
 /netlify/*  /404  404!
+/blog/removing-ex-spouse-from-mortgage-wisconsin  /blog/removing-ex-spouse-from-mortgage-wisconsin.html  301!
