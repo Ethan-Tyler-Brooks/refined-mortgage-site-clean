@@ -41,6 +41,7 @@ Refined Mortgage Group helps Wisconsin buyers â€” especially first-time buyers â
 ## Educational content (/blog and /learn)
 
 - [Blog index](https://www.ethanbrooks.mortgage/blog/): plain-English articles on the mortgage process, loan programs, credit, down payments, and buying a home in Wisconsin.
+- [Wisconsin Conforming Loan Limit 2027: Where Jumbo Starts](https://www.ethanbrooks.mortgage/blog/wisconsin-conforming-loan-limit-2027.html): FHFA set the 2027 conforming loan limit at $855,400 in all 72 Wisconsin counties. What that means for your loan, and when your lender can use it.
 - [Waukesha County Down Payment Assistance: Who Qualifies](https://www.ethanbrooks.mortgage/blog/waukesha-county-down-payment-assistance.html): Waukesha County's HOME Consortium runs a forgivable down payment loan across four counties. A house-price ceiling and a minimum housing ratio decide it.
 - [Escrow Shortage After Your First Wisconsin Tax Bill](https://www.ethanbrooks.mortgage/blog/escrow-shortage-wisconsin-tax-bill.html): Your Wisconsin tax bill lands in December and your escrow comes up short. Why the estimate at closing was low and what your servicer can do about it.
 - [WHEDA Income Limits in Wisconsin: What Actually Counts](https://www.ethanbrooks.mortgage/blog/wheda-income-limits-wisconsin.html): WHEDA counts total household compliance income, not just the income on your loan application. How the county limits work and who gets counted.
